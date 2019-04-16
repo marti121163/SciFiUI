@@ -1,11 +1,13 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class UI extends PApplet
 {
     Button b;
     MovingCircle mc;
+    PImage map;
 
     boolean[] keys = new boolean[1024];
 
@@ -27,13 +29,14 @@ public class UI extends PApplet
 
     public void settings()
     {
-        size(800, 800);
+        //size(800, 800);
         // Use fullscreen instead of size to make your interface fullscreen
-        //fullScreen(P3D); 
+        fullScreen(); 
     }
 
     public void setup()
     {
+        map = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\map.png");
         b = new Button(this, 50, 50, 100, 50, "I am a button");
         mc = new MovingCircle(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, width / 2, height / 2, 100);
@@ -43,7 +46,12 @@ public class UI extends PApplet
 
     public void draw()
     {
+        
+
         background(0);
+
+        image(map, 0, 0);
+
         b.render();
 
         mc.update();
@@ -52,9 +60,25 @@ public class UI extends PApplet
         radar.update();
         radar.render();
 
+
         if (checkKey(LEFT))
         {
             System.out.println("Left arrow key pressed");
+        }
+
+        if (checkKey(RIGHT))
+        {
+            System.out.println("Right arrow key pressed");
+        }
+
+        if (checkKey(UP))
+        {
+            System.out.println("Up arrow key pressed");
+        }
+
+        if (checkKey(DOWN))
+        {
+            System.out.println("Down arrow key pressed");
         }
     }
 }
