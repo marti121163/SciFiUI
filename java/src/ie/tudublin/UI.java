@@ -50,12 +50,12 @@ public class UI extends PApplet
         radar = new Radar(this, 1, width / 2, height / 2, 100);
 
         // airports setup
-        airport1 = new Airports(this, 400, 450, 135, 30, "Val Verde Airport");
-        airport2 = new Airports(this, 500, 510, 145, 30, "Los Santos Airport");
-        airport3 = new Airports(this, 600, 640, 120, 30, "Yerba Airport");
-        airport4 = new Airports(this, 700, 150, 130, 30, "Wakanda Airport");
-        airport5 = new Airports(this, 650, 280, 120, 30, "Tansia Airport");
-        airport6 = new Airports(this, 420, 250, 120, 30, "Panau Airport");
+        airport1 = new Airports(this, 430, 500, 135, 30, "Val Verde Airport");
+        airport2 = new Airports(this, 495, 76, 145, 30, "Los Santos Airport");
+        airport3 = new Airports(this, 600, 290, 120, 30, "Yerba Airport");
+        airport4 = new Airports(this, 1350, 550, 130, 30, "Wakanda Airport");
+        airport5 = new Airports(this, 1670, 140, 120, 30, "Tansia Airport");
+        airport6 = new Airports(this, 1600, 285, 120, 30, "Panau Airport");
     }
 
     Radar radar;
