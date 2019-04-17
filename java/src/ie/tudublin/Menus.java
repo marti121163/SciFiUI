@@ -1,8 +1,6 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
-
-public class Airports
+public class Menus
 {
     UI ui;
     private float x;
@@ -11,7 +9,7 @@ public class Airports
     private float height;
     private String text;
 
-    public Airports(UI ui, float x, float y, float width, float height, String text)
+    public Menus(UI ui, float x, float y, float width, float height, String text)
     {
         this.ui = ui;
         this.x = x;
@@ -24,12 +22,12 @@ public class Airports
     public void render()
     {
         ui.noFill();
-        ui.stroke(0);
+        ui.stroke(255);
         ui.rect(x, y, width, height);
-        ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-        ui.fill(0);
-        ui.textSize(15);
-        ui.text(text, x + width * 0.5f, y + height * 0.5f);
-
+        ui.fill(255);
+        ui.textSize(30);
+        ui.text("AIRPLANE", 300, 705);
+        ui.text("SETTINGS", 957, 705);
+        ui.text("PILOT", 1627, 705);
     }
 }
