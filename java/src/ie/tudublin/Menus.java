@@ -29,5 +29,13 @@ public class Menus
         ui.text("AIRPLANE", 300, 705);
         ui.text("SETTINGS", 957, 705);
         ui.text("PILOT", 1627, 705);
+        ui.text("FLIGHT TRACKER SIMULATOR", 975, 20);
     }
+
+    // if LS airport is clicked
+    //   show 3 menus
+    //      if user clicks "next arrow"
+    //          display next airplane avilable
+
+
 }
