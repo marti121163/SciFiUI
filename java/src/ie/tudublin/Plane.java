@@ -2,7 +2,7 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-public class MovingCircle
+public class Plane
 {
     private float x;
     private float dx = 1;
@@ -11,7 +11,7 @@ public class MovingCircle
     private float radius;
     UI ui;
 
-    public MovingCircle(UI ui, float x, float y, float diameter)
+    public Plane(UI ui, float x, float y, float diameter)
     {
         this.ui = ui;
         this.x = x;
@@ -28,7 +28,7 @@ public class MovingCircle
         ui.fill(255);
         // Static field
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-        ui.text("I am a moving circle", x, y);
+        ui.text("Plane", x, y);
 
     }
 
