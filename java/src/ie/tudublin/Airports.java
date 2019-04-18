@@ -11,15 +11,17 @@ public class Airports
     private float height;
     private String text;
 
+
     public Airports(UI ui, float x, float y, float width, float height, String text)
     {
         this.ui = ui;
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
+        this.width = width = 145;
+        this.height = height = 30;
         this.text = text;
     }
+
 
     public void render()
     {
@@ -30,6 +32,6 @@ public class Airports
         ui.fill(0);
         ui.textSize(15);
         ui.text(text, x + width * 0.5f, y + height * 0.5f);
-
     }
+
 }

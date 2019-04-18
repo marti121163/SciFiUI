@@ -52,19 +52,19 @@ public class UI extends PApplet
         // this loads in my premade map
         map = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\map.png");
 
-        // airports setup
-        airport1 = new Airports(this, 430, 500, 135, 30, "Val Verde Airport");
-        airport2 = new Airports(this, 495, 76, 145, 30, "Los Santos Airport");
-        airport3 = new Airports(this, 600, 290, 120, 30, "Yerba Airport");
-        airport4 = new Airports(this, 1350, 550, 130, 30, "Wakanda Airport");
-        airport5 = new Airports(this, 1670, 140, 120, 30, "Tansia Airport");
-        airport6 = new Airports(this, 1600, 285, 120, 30, "Panau Airport");
+        // airport buttons setup
+        airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport");
+        airport2 = new Airports(this, 495, 76, width, height, "Los Santos Airport");
+        airport3 = new Airports(this, 600, 290, width, height, "Yerba Airport");
+        airport4 = new Airports(this, 1350, 550, width, height, "Wakanda Airport");
+        airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport");
+        airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport");
 
         menuBox1 = new Menus(this, 3, 686, 600, 390, "menu1");
         menuBox2 = new Menus(this, 603, 686, 714, 390, "menu2");
         menuBox3 = new Menus(this, 1317, 686, 600, 390, "menu3");
 
-        b = new Button(this, 50, 50, 100, 50, "SELECT");
+        b = new Button(this, 50, 720, 100, 50, "SELECT");
         plane1 = new Plane(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, width / 2, height / 2, 100);
 
@@ -91,15 +91,13 @@ public class UI extends PApplet
         menuBox2.render();
         menuBox3.render();
 
-        //b.render();
+        b.render();
 
         //plane1.update();
         //plane1.render();
 
         //radar.update();
         //radar.render();
-
-    
 
         if (checkKey(LEFT))
         {
@@ -121,5 +119,22 @@ public class UI extends PApplet
             System.out.println("Down arrow key pressed");
         }
     }
-}
 
+    // fuction for displaying a menu for each airport, 30 is height and 145 is the width
+    // had to hard code it, otherwise it wouldn't work
+    public void mouseClicked() {
+        if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
+            System.out.println("Val Verde Airport Clicked");
+        } else if (mouseX > 495 && mouseX < (495 + 145) && mouseY > 75 && mouseY < (75 + 30)) {
+            System.out.println("Los Santos Airport Clicked");
+        } else if (mouseX > 600 && mouseX < (600 + 145) && mouseY > 290 && mouseY < (290 + 30)) {
+            System.out.println("Yerba Airport Clicked");
+        } else if (mouseX > 1350 && mouseX < (1350 + 145) && mouseY > 550 && mouseY < (550 + 30)) {
+            System.out.println("Wakanda Airport Clicked");
+        } else if (mouseX > 1670 && mouseX < (1670 + 145) && mouseY > 140 && mouseY < (140 + 30)) {
+            System.out.println("Tansia Airport Clicked");
+        } else if (mouseX > 1600 && mouseX < (1600 + 145) && mouseY > 285 && mouseY < (285 + 30)) {
+            System.out.println("Panau Airport Clicked");
+        }
+    } // mouseClicked end
+}
