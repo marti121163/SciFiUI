@@ -3,6 +3,7 @@ package ie.tudublin;
 //import javafx.scene.control.Menu;
 import processing.core.PApplet;
 import processing.core.PImage;
+import sun.java2d.pipe.ValidatePipe;
 
 public class UI extends PApplet
 {
@@ -61,15 +62,16 @@ public class UI extends PApplet
         airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport");
 
         // menu box outlines
-        menuBox1 = new Menus(this, 3, 686, 600, 390, "menu1");
-        menuBox2 = new Menus(this, 603, 686, 714, 390, "menu2");
-        menuBox3 = new Menus(this, 1317, 686, 600, 390, "menu3");
+        menuBox1 = new Menus(this, 3, 686, 600, 390);
+        menuBox2 = new Menus(this, 603, 686, 714, 390);
+        menuBox3 = new Menus(this, 1317, 686, 600, 390);
 
         b = new Button(this, 50, 720, 100, 50, "SELECT");
         plane1 = new Plane(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, width / 2, height / 2, 100);
 
     }
+
 
     Radar radar;
 

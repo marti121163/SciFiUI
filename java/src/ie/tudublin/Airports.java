@@ -25,7 +25,8 @@ public class Airports
 
     public void render()
     {
-        ui.noFill();
+        //ui.noFill();
+        ui.fill(255, 255, 255);
         ui.stroke(0);
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);

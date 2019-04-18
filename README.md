@@ -1,10 +1,9 @@
 # SciFi UI Project
 
-Name:
+Name: Martyna Nieckarz
 
-Student Number: 
+Student Number: C17389181
 
-Fork this repository and use it a starter project for your assignment
 
 # Description of the assignment
 
