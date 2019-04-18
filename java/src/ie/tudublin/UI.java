@@ -81,6 +81,12 @@ public class UI extends PApplet
 
         image(map, 0, 0);
 
+        stroke(0);
+        fill(102, 204, 204);
+        rect(735, 5, 475, 38);
+        fill(27, 20, 119);
+        text("FLIGHT TRACKER SIMULATOR", 975, 20);
+
         // airports
         airport1.render();
         airport2.render();

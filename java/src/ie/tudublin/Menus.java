@@ -29,7 +29,6 @@ public class Menus
         ui.text("SETTINGS", 957, 705);
         ui.text("PILOT", 1627, 705);
         ui.line(5, 730, 1914, 730);
-        ui.text("FLIGHT TRACKER SIMULATOR", 975, 20);
     }
 
     public void valVerdeMenu(){
