@@ -7,6 +7,7 @@ import sun.java2d.pipe.ValidatePipe;
 
 public class UI extends PApplet
 {
+    Airports selected1;
     Button b;
     Plane plane1;
 
@@ -62,9 +63,9 @@ public class UI extends PApplet
         airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport");
 
         // menu box outlines
-        menuBox1 = new Menus(this, 3, 686, 600, 390);
-        menuBox2 = new Menus(this, 603, 686, 714, 390);
-        menuBox3 = new Menus(this, 1317, 686, 600, 390);
+        menuBox1 = new Menus(this, 3, 686, 1916, 393, 30, 40);
+        //menuBox2 = new Menus(this, 603, 686, 714, 390);
+        //menuBox3 = new Menus(this, 1317, 686, 600, 390);
 
         b = new Button(this, 50, 720, 100, 50, "SELECT");
         plane1 = new Plane(this, width / 2, height * .75f, 50);
@@ -72,6 +73,14 @@ public class UI extends PApplet
 
     }
 
+    public void renderMenu() {
+        //menuBox1.render();
+        // renders outline
+        if (selected1 != null) {
+            menuBox1.render();
+            menuBox1.airportInfo(selected1);
+        }
+    }
 
     Radar radar;
 
@@ -95,12 +104,13 @@ public class UI extends PApplet
         airport5.render();
         airport6.render();
 
+        renderMenu();
         // menu boxes
-        menuBox1.render();
-        menuBox2.render();
-        menuBox3.render();
+        //menuBox1.render();
+        //menuBox2.render();
+        //menuBox3.render();
 
-        b.render();
+        //b.render();
 
         //plane1.update();
         //plane1.render();
@@ -134,9 +144,12 @@ public class UI extends PApplet
     public void mouseClicked() {
         if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
             System.out.println("Val Verde Airport Clicked");
+            selected1 = airport1;
             
         } else if (mouseX > 495 && mouseX < (495 + 145) && mouseY > 75 && mouseY < (75 + 30)) {
             System.out.println("Los Santos Airport Clicked");
+            selected1 = airport2;
+
         } else if (mouseX > 600 && mouseX < (600 + 145) && mouseY > 290 && mouseY < (290 + 30)) {
             System.out.println("Yerba Airport Clicked");
         } else if (mouseX > 1350 && mouseX < (1350 + 145) && mouseY > 550 && mouseY < (550 + 30)) {
@@ -145,6 +158,17 @@ public class UI extends PApplet
             System.out.println("Tansia Airport Clicked");
         } else if (mouseX > 1600 && mouseX < (1600 + 145) && mouseY > 285 && mouseY < (285 + 30)) {
             System.out.println("Panau Airport Clicked");
+        } else {
+            selected1 = null;
         }
     } // mouseClicked end
+
+    boolean overRect(int x, int y, int width, int height)  {
+        if (mouseX >= x && mouseX <= x+width && 
+            mouseY >= y && mouseY <= y+height) {
+          return true;
+        } else {
+          return false;
+        }
+      }
 }

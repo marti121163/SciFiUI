@@ -7,15 +7,18 @@ public class Menus
     private float y;
     private float width;
     private float height;
-    private String text;
+    private float smallBoxSize;
+    private float bigBoxSize;
 
-    public Menus(UI ui, float x, float y, float width, float height)
+    public Menus(UI ui, float x, float y, float width, float height, float smallBoxSize, float bigBoxSize)
     {
         this.ui = ui;
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        this.smallBoxSize = smallBoxSize;
+        this.bigBoxSize = bigBoxSize;
     }
 
     public void render()
@@ -25,50 +28,38 @@ public class Menus
         ui.rect(x, y, width, height);
         ui.fill(255);
         ui.textSize(30);
-        ui.text("AIRPLANE", 300, 705);
-        ui.text("SETTINGS", 957, 705);
-        ui.text("PILOT", 1627, 705);
-        ui.line(5, 730, 1914, 730);
+        ui.line(5, 730, 1920, 730);
+        
+        ui.noFill();
+        // small left box
+        ui.rect(x, y, width*(smallBoxSize/100), height);
+        // big middle box
+        ui.rect(x + width*(smallBoxSize/100), y, width*(bigBoxSize/100), height);
+    }
+
+    public void airplaneInfo() {
+
+    }
+
+    public void airportInfo(Airports airport) {
+        ui.stroke(0);
+        ui.text(airport.getName(),800, 500);
+    }
+
+    public void airplaneSelection() {
+
+    }
+
+    public void pilotSelection() {
+
     }
 
     public void valVerdeMenu(){
         ui.text("AIRPORT MENU", 300, 705);
         ui.text("AIRPLANE SELECTION", 957, 705);
         ui.text("PILOT SELECTION", 1627, 705);
-
-
     }
 
-    public void losSantosMenu(){
-        ui.text("AIRPORT MENU", 300, 705);
-        ui.text("AIRPLANE SELECTION", 957, 705);
-        ui.text("PILOT SELECTION", 1627, 705);
-
-    }
-
-    public void yerbaMenu(){
-        ui.text("AIRPORT MENU", 300, 705);
-        ui.text("AIRPLANE SELECTION", 957, 705);
-        ui.text("PILOT SELECTION", 1627, 705);
-    }
-
-    public void panauMenu(){
-        ui.text("AIRPORT MENU", 300, 705);
-        ui.text("AIRPLANE SELECTION", 957, 705);
-        ui.text("PILOT SELECTION", 1627, 705);
-    }
-
-    public void tansiaMenu(){
-        ui.text("AIRPORT MENU", 300, 705);
-        ui.text("AIRPLANE SELECTION", 957, 705);
-        ui.text("PILOT SELECTION", 1627, 705);
-    }
-
-    public void wakandaMenu(){
-        ui.text("AIRPORT MENU", 300, 705);
-        ui.text("AIRPLANE SELECTION", 957, 705);
-        ui.text("PILOT SELECTION", 1627, 705);
-    }
 
 
     // if LS airport is clicked
