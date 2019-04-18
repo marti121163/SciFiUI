@@ -26,10 +26,14 @@ public class Menus
         ui.rect(x, y, width, height);
         ui.fill(255);
         ui.textSize(30);
-        ui.text("AIRPLANE", 300, 705);
-        ui.text("SETTINGS", 957, 705);
-        ui.text("PILOT", 1627, 705);
+        // ui.text("AIRPLANE", 300, 705);
+        // ui.text("SETTINGS", 957, 705);
+        // ui.text("PILOT", 1627, 705);
         ui.text("FLIGHT TRACKER SIMULATOR", 975, 20);
+    }
+
+    public void valVerdeMenu(){
+        ui.text("AIRPORT MENU", 300, 705);
     }
 
     // if LS airport is clicked

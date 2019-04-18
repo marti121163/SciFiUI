@@ -60,6 +60,7 @@ public class UI extends PApplet
         airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport");
         airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport");
 
+        // menu box outlines
         menuBox1 = new Menus(this, 3, 686, 600, 390, "menu1");
         menuBox2 = new Menus(this, 603, 686, 714, 390, "menu2");
         menuBox3 = new Menus(this, 1317, 686, 600, 390, "menu3");
@@ -125,6 +126,7 @@ public class UI extends PApplet
     public void mouseClicked() {
         if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
             System.out.println("Val Verde Airport Clicked");
+            
         } else if (mouseX > 495 && mouseX < (495 + 145) && mouseY > 75 && mouseY < (75 + 30)) {
             System.out.println("Los Santos Airport Clicked");
         } else if (mouseX > 600 && mouseX < (600 + 145) && mouseY > 290 && mouseY < (290 + 30)) {
