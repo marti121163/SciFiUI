@@ -44,17 +44,30 @@ public class Menus
 
     // MENUS
 
+    // these one will display all the "headings" before the : (eg. name: Val Verde airport, or "location" etc)
+    public void airportInfoTemp(){
+        ui.stroke(0);
+        ui.textSize(25);
+        ui.text("Name: ", 120, 780);
+        ui.text("Location: ", 120, 800);
+        ui.text("Yearly Passengers: ", 120, 820);
+        ui.text("Year Built: ", 120, 840);
+        ui.text("Features: ", 120, 860);
+    }
+
+
+
     // 3 menu boxes linked to the airport
 
     // menu that shows information about the airport that was clicked
     public void airportInfo(Airports airport) {
         ui.stroke(0);
         ui.textSize(25);
-        ui.text(airport.getName(), 120, 780);
-        ui.text(airport.getLocation(), 120, 800);
-        ui.text(airport.getYearlyPassengers(), 120, 820);
-        ui.text(airport.getYearBuilt(), 120, 840);
-        ui.text(airport.getFeatures(), 120, 860);
+        ui.text(airport.getName(), 280, 780);
+        ui.text(airport.getLocation(), 280, 800);
+        ui.text(airport.getYearlyPassengers(), 280, 820);
+        ui.text(airport.getYearBuilt(), 280, 840);
+        ui.text(airport.getFeatures(), 280, 860);
     }
 
     // menu that gives you an option of selecting a airplane before you generate it

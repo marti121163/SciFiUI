@@ -78,6 +78,7 @@ public class UI extends PApplet
         // renders outline
         if (selectedAirport != null) {
             menuBox1.render();
+            menuBox1.airportInfoTemp();
             menuBox1.airportInfo(selectedAirport);
         }
     }

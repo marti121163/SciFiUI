@@ -9,7 +9,8 @@ public class Airports
     private float y;
     private float width;
     private float height;
-    // Actual airport details listed below
+
+    // airport details
     private String name;
     private String location;
     private String yearlyPassengers;
@@ -24,13 +25,15 @@ public class Airports
         this.y = y;
         this.width = width = 145;
         this.height = height = 30;
+
+        // airport info 
         this.name = name;
         this.location = location;
         this.yearlyPassengers = yearlyPassengers;
         this.yearBuilt = yearBuilt;
         this.features = features;
-    }
 
+    }
 
 
     public void render()
