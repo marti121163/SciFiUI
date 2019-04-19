@@ -1,5 +1,7 @@
 package ie.tudublin;
 
+import java.util.ArrayList;
+
 public class Menus
 {
     UI ui;
@@ -9,6 +11,8 @@ public class Menus
     private float height;
     private float smallBoxSize;
     private float bigBoxSize;
+
+    
 
     public Menus(UI ui, float x, float y, float width, float height, float smallBoxSize, float bigBoxSize)
     {
@@ -37,13 +41,19 @@ public class Menus
         ui.rect(x + width*(smallBoxSize/100), y, width*(bigBoxSize/100), height);
     }
 
-    public void airplaneInfo() {
 
-    }
+    // MENUS
 
+    // 3 menu boxes linked to the airport
     public void airportInfo(Airports airport) {
         ui.stroke(0);
-        ui.text(airport.getName(),800, 500);
+        ui.textSize(25);
+        ui.text(airport.getName(), 120, 780);
+        ui.text(airport.getLocation(), 120, 800);
+        ui.text(airport.getYearlyPassengers(), 120, 820);
+        ui.text(airport.getYearBuilt(), 120, 840);
+        ui.text(airport.getFeatures(), 120, 860);
+        //ui.text(, x, y);
     }
 
     public void airplaneSelection() {
@@ -54,18 +64,17 @@ public class Menus
 
     }
 
-    public void valVerdeMenu(){
-        ui.text("AIRPORT MENU", 300, 705);
-        ui.text("AIRPLANE SELECTION", 957, 705);
-        ui.text("PILOT SELECTION", 1627, 705);
+    // 3 menus linked to the airplane
+
+    public void airplaneInfo() {
+
     }
 
+    public void airplaneSettings(){
 
+    }
 
-    // if LS airport is clicked
-    //   show 3 menus
-    //      if user clicks "next arrow"
-    //          display next airplane avilable
+    public void pilotInfo(){
 
-
+    }
 }

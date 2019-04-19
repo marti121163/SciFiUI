@@ -44,9 +44,9 @@ public class UI extends PApplet
 
     public void settings()
     {
-        //size(800, 800);
+        size(1920, 1080);
         // Use fullscreen instead of size to make your interface fullscreen
-        fullScreen(); 
+        //fullScreen(); 
     }
 
     public void setup()
@@ -55,12 +55,12 @@ public class UI extends PApplet
         map = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\map.png");
 
         // airport buttons setup
-        airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport");
-        airport2 = new Airports(this, 495, 76, width, height, "Los Santos Airport");
-        airport3 = new Airports(this, 600, 290, width, height, "Yerba Airport");
-        airport4 = new Airports(this, 1350, 550, width, height, "Wakanda Airport");
-        airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport");
-        airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport");
+        airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport", "Val Verde", "25,000", "1986", "Something Fancy");
+        airport2 = new Airports(this, 495, 76, width, height, "Los Santos Airport", "Los Santos", "95,000", "1956", "Something Fancy 2");
+        airport3 = new Airports(this, 600, 290, width, height, "Yerba Airport", "Yerba", "24,500", "1996", "Something Fancy 3");
+        airport4 = new Airports(this, 1350, 550, width, height, "Wakanda Airport", "Wakanda", "165,800", "1986", "Something Fancy 4");
+        airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport", "Val Verde", "7,000", "2006", "Something Fancy 5");
+        airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport", "Panau", "116,000", "1916", "Something Fancy 6");
 
         // menu box outlines
         menuBox1 = new Menus(this, 3, 686, 1916, 393, 30, 40);
@@ -94,6 +94,7 @@ public class UI extends PApplet
         fill(102, 204, 204);
         rect(735, 5, 475, 38);
         fill(27, 20, 119);
+        textSize(30);
         text("FLIGHT TRACKER SIMULATOR", 975, 20);
 
         // airports
@@ -138,24 +139,25 @@ public class UI extends PApplet
     // had to hard code it, otherwise it wouldn't work
     public void mouseClicked() {
         if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
-            System.out.println("Val Verde Airport Clicked");
+            //System.out.println("Val Verde Airport Clicked");
             selectedAirport = airport1;
         } else if (mouseX > 495 && mouseX < (495 + 145) && mouseY > 75 && mouseY < (75 + 30)) {
-            System.out.println("Los Santos Airport Clicked");
+            //System.out.println("Los Santos Airport Clicked");
             selectedAirport = airport2;
         } else if (mouseX > 600 && mouseX < (600 + 145) && mouseY > 290 && mouseY < (290 + 30)) {
-            System.out.println("Yerba Airport Clicked");
+            //System.out.println("Yerba Airport Clicked");
             selectedAirport = airport3;
         } else if (mouseX > 1350 && mouseX < (1350 + 145) && mouseY > 550 && mouseY < (550 + 30)) {
-            System.out.println("Wakanda Airport Clicked");
+            //System.out.println("Wakanda Airport Clicked");
             selectedAirport = airport4;
         } else if (mouseX > 1670 && mouseX < (1670 + 145) && mouseY > 140 && mouseY < (140 + 30)) {
-            System.out.println("Tansia Airport Clicked");
+            //System.out.println("Tansia Airport Clicked");
             selectedAirport = airport5;
         } else if (mouseX > 1600 && mouseX < (1600 + 145) && mouseY > 285 && mouseY < (285 + 30)) {
-            System.out.println("Panau Airport Clicked");
+            //System.out.println("Panau Airport Clicked");
             selectedAirport = airport6;
         } else {
+            // if u click on any "blank space" (as in not a menu) then whatver menu was displayed will dissapear
             selectedAirport = null;
         }
     } // mouseClicked end
@@ -168,5 +170,5 @@ public class UI extends PApplet
         } else {
           return false;
         }
-      }
+    }
 }

@@ -9,9 +9,15 @@ public class Airports
     private float y;
     private float width;
     private float height;
+    // Actual airport details listed below
     private String name;
+    private String location;
+    private String yearlyPassengers;
+    private String yearBuilt;
+    private String features;
 
-    public Airports(UI ui, float x, float y, float width, float height, String name)
+    public Airports(UI ui, float x, float y, float width, float height, String name, String location, 
+    String yearlyPassengers, String yearBuilt, String features)
     {
         this.ui = ui;
         this.x = x;
@@ -19,7 +25,12 @@ public class Airports
         this.width = width = 145;
         this.height = height = 30;
         this.name = name;
+        this.location = location;
+        this.yearlyPassengers = yearlyPassengers;
+        this.yearBuilt = yearBuilt;
+        this.features = features;
     }
+
 
 
     public void render()
@@ -125,4 +136,59 @@ public class Airports
         this.name = name;
     }
 
+    /**
+     * @return the location
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * @param location the location to set
+     */
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    /**
+     * @return the yearlyPassengers
+     */
+    public String getYearlyPassengers() {
+        return yearlyPassengers;
+    }
+
+    /**
+     * @param yearlyPassengers the yearlyPassengers to set
+     */
+    public void setYearlyPassengers(String yearlyPassengers) {
+        this.yearlyPassengers = yearlyPassengers;
+    }
+
+    /**
+     * @return the yearBuilt
+     */
+    public String getYearBuilt() {
+        return yearBuilt;
+    }
+
+    /**
+     * @param yearBuilt the yearBuilt to set
+     */
+    public void setYearBuilt(String yearBuilt) {
+        this.yearBuilt = yearBuilt;
+    }
+
+    /**
+     * @return the features
+     */
+    public String getFeatures() {
+        return features;
+    }
+
+    /**
+     * @param features the features to set
+     */
+    public void setFeatures(String features) {
+        this.features = features;
+    }
 }
