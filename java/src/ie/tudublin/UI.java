@@ -20,9 +20,11 @@ public class UI extends PApplet
     Airports airport5;
     Airports airport6;
 
-    Menus menuBox1;
-    Menus menuBox2;
-    Menus menuBox3;
+    Airplanes airplane1;
+
+    Pilots pilot1;
+
+    Menus menuBox;
 
     boolean[] keys = new boolean[1024];
 
@@ -62,10 +64,15 @@ public class UI extends PApplet
         airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport", "Val Verde", "7,000", "2006", "Something Fancy 5");
         airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport", "Panau", "116,000", "1916", "Something Fancy 6");
 
-        // menu box outlines
-        menuBox1 = new Menus(this, 3, 686, 1916, 393, 30, 40);
-        //menuBox2 = new Menus(this, 603, 686, 714, 390);
-        //menuBox3 = new Menus(this, 1317, 686, 600, 390);
+        // menu box outline
+        menuBox = new Menus(this, 3, 686, 1916, 393, 30, 40);
+
+        // airplanes
+        airplane1 = new Airplanes("MIA728", "50", "??", "28", "best", "1998", "20/20");
+
+
+        // pilots
+        pilot1 = new Pilots("Carol Danvers", "Female", "23-10-1975", "Boston, MA, USA", "reseach ranks", "25");
 
         b = new Button(this, 50, 720, 100, 50, "SELECT");
         plane1 = new Plane(this, width / 2, height * .75f, 50);
@@ -74,12 +81,12 @@ public class UI extends PApplet
     }
 
     public void renderMenu() {
-        //menuBox1.render();
+        //menuBox.render();
         // renders outline
         if (selectedAirport != null) {
-            menuBox1.render();
-            menuBox1.airportInfoTemp();
-            menuBox1.airportInfo(selectedAirport);
+            menuBox.render();
+            menuBox.airportInfoTemp();
+            menuBox.airportInfo(selectedAirport);
         }
     }
 

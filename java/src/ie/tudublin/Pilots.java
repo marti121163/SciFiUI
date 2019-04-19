@@ -10,18 +10,18 @@ public class Pilots
     private String pilotName;
     private String gender;
     private String dob;
-    private String age;
+    private String placeOfBirth;
     private String rank;
     private String yrsOfExperience;
 
 
-    public Pilots (String pilotName, String gender, String dob, String age, String rank, String yrsOfExperience)
+    public Pilots (String pilotName, String gender, String dob, String placeOfBirth, String rank, String yrsOfExperience)
     {
         // pilot selection & info
         this.pilotName = pilotName;
         this.gender = gender;
         this.dob = dob;
-        this.age = age;
+        this.placeOfBirth = placeOfBirth;
         this.rank = rank;
         this.yrsOfExperience = yrsOfExperience;
     }
@@ -69,17 +69,17 @@ public class Pilots
     }
 
     /**
-     * @return the age
+     * @return the placeOfBirth
      */
-    public String getAge() {
-        return age;
+    public String getPlaceofBirth() {
+        return placeOfBirth;
     }
 
     /**
-     * @param age the age to set
+     * @param placeOfBirth the placeOfBorth to set
      */
-    public void setAge(String age) {
-        this.age = age;
+    public void setAge(String placeOfBirth) {
+        this.placeOfBirth = placeOfBirth;
     }
 
     /**
