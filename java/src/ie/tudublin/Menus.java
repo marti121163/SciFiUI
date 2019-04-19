@@ -45,6 +45,8 @@ public class Menus
     // MENUS
 
     // 3 menu boxes linked to the airport
+
+    // menu that shows information about the airport that was clicked
     public void airportInfo(Airports airport) {
         ui.stroke(0);
         ui.textSize(25);
@@ -53,27 +55,31 @@ public class Menus
         ui.text(airport.getYearlyPassengers(), 120, 820);
         ui.text(airport.getYearBuilt(), 120, 840);
         ui.text(airport.getFeatures(), 120, 860);
-        //ui.text(, x, y);
     }
 
+    // menu that gives you an option of selecting a airplane before you generate it
     public void airplaneSelection() {
 
     }
 
+    // menu that allows you to choose the pilot
     public void pilotSelection() {
 
     }
 
     // 3 menus linked to the airplane
 
+    // menu that will display information about the airplane you generated
     public void airplaneInfo() {
 
     }
 
+    // menu for controlling the airplane
     public void airplaneSettings(){
 
     }
 
+    // menu that displays the information about the previouly chosen pilot
     public void pilotInfo(){
 
     }
