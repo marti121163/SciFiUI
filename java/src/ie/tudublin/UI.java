@@ -7,7 +7,7 @@ import sun.java2d.pipe.ValidatePipe;
 
 public class UI extends PApplet
 {
-    Airports selected1;
+    Airports selectedAirport;
     Button b;
     Plane plane1;
 
@@ -76,9 +76,9 @@ public class UI extends PApplet
     public void renderMenu() {
         //menuBox1.render();
         // renders outline
-        if (selected1 != null) {
+        if (selectedAirport != null) {
             menuBox1.render();
-            menuBox1.airportInfo(selected1);
+            menuBox1.airportInfo(selectedAirport);
         }
     }
 
@@ -105,11 +105,6 @@ public class UI extends PApplet
         airport6.render();
 
         renderMenu();
-        // menu boxes
-        //menuBox1.render();
-        //menuBox2.render();
-        //menuBox3.render();
-
         //b.render();
 
         //plane1.update();
@@ -144,25 +139,28 @@ public class UI extends PApplet
     public void mouseClicked() {
         if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
             System.out.println("Val Verde Airport Clicked");
-            selected1 = airport1;
-            
+            selectedAirport = airport1;
         } else if (mouseX > 495 && mouseX < (495 + 145) && mouseY > 75 && mouseY < (75 + 30)) {
             System.out.println("Los Santos Airport Clicked");
-            selected1 = airport2;
-
+            selectedAirport = airport2;
         } else if (mouseX > 600 && mouseX < (600 + 145) && mouseY > 290 && mouseY < (290 + 30)) {
             System.out.println("Yerba Airport Clicked");
+            selectedAirport = airport3;
         } else if (mouseX > 1350 && mouseX < (1350 + 145) && mouseY > 550 && mouseY < (550 + 30)) {
             System.out.println("Wakanda Airport Clicked");
+            selectedAirport = airport4;
         } else if (mouseX > 1670 && mouseX < (1670 + 145) && mouseY > 140 && mouseY < (140 + 30)) {
             System.out.println("Tansia Airport Clicked");
+            selectedAirport = airport5;
         } else if (mouseX > 1600 && mouseX < (1600 + 145) && mouseY > 285 && mouseY < (285 + 30)) {
             System.out.println("Panau Airport Clicked");
+            selectedAirport = airport6;
         } else {
-            selected1 = null;
+            selectedAirport = null;
         }
     } // mouseClicked end
 
+    // function for changing the colour of the airport box when you hover onto it
     boolean overRect(int x, int y, int width, int height)  {
         if (mouseX >= x && mouseX <= x+width && 
             mouseY >= y && mouseY <= y+height) {
