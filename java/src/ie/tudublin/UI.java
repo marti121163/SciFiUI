@@ -68,11 +68,15 @@ public class UI extends PApplet
         menuBox = new Menus(this, 3, 686, 1916, 393, 30, 40);
 
         // airplanes
-        airplane1 = new Airplanes("MIA728", "50", "??", "28", "best", "1998", "20/20");
+        airplane1 = new Airplanes("MIA728", "50", "30t", "28", "best", "1998", "20/20");
+        airplane1 = new Airplanes("MIB318", "130", "60t", "61", "medium", "1989", "14/20");
 
 
         // pilots
-        pilot1 = new Pilots("Carol Danvers", "Female", "23-10-1975", "Boston, MA, USA", "reseach ranks", "25");
+        pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks", "25");
+        pilot1 = new Pilots("Martina Nieckarz", "Female", "23-10-1998", "Bray, Wicklow, IE", "reseach ranks", "5");
+
+
 
         b = new Button(this, 50, 720, 100, 50, "SELECT");
         plane1 = new Plane(this, width / 2, height * .75f, 50);
