@@ -8,8 +8,12 @@ import sun.java2d.pipe.ValidatePipe;
 public class UI extends PApplet
 {
     Airports selectedAirport;
-    Button buttonNext;
-    Plane plane1;
+
+    Button buttonAirplane1;
+    Button buttonAirplane2;
+    Button buttonAirplane3;
+    Button buttonAirplane4;
+    //Plane plane1;
 
     PImage map;
 
@@ -84,8 +88,13 @@ public class UI extends PApplet
         pilot3 = new Pilots("Steve Rogers", "Male", "23-10-1958", "Brooklyn, New York, USA", "reseach ranks", "45");
 
 
-        buttonNext = new Button(this, 900, 920, 100, 50, ">");
-        plane1 = new Plane(this, width / 2, height * .75f, 50);
+        buttonAirplane1 = new Button(this, 600, 980, 150, 50, "Airplane 1");
+        buttonAirplane2 = new Button(this, 760, 980, 150, 50, "Airplane 2");
+        buttonAirplane3 = new Button(this, 910, 980, 150, 50, "Airplane 3");
+        buttonAirplane4 = new Button(this, 1060, 980, 150, 50, "Airplane 4");
+
+
+        //plane1 = new Plane(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, width / 2, height / 2, 100);
 
     }
@@ -98,8 +107,12 @@ public class UI extends PApplet
             menuBox.airportInfoTemp();
             menuBox.airportInfo(selectedAirport);
             menuBox.airplaneSelection(airplane1);
-            buttonNext.render();
-                //if()
+
+            //airplane selection buttons
+            buttonAirplane1.render();
+            buttonAirplane2.render();
+            buttonAirplane3.render();
+            buttonAirplane4.render();
         }
     }
 
@@ -127,7 +140,6 @@ public class UI extends PApplet
         airport6.render();
 
         renderMenu();
-        //b.render();
 
         //plane1.update();
         //plane1.render();
@@ -180,6 +192,11 @@ public class UI extends PApplet
         } else {
             // if u click on any "blank space" (as in not a menu) then whatver menu was displayed will dissapear
             selectedAirport = null;
+        }
+
+        if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
+            //System.out.println("Val Verde Airport Clicked");
+            selectedAirport = airport1;
         }
     } // mouseClicked end
 

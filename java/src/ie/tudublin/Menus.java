@@ -76,21 +76,21 @@ public class Menus
 
         ui.stroke(0);
         ui.textSize(25);
-        ui.text("Model: ", 620, 780);
-        ui.text("Capacity: ", 620, 800);
-        ui.text("Weight: ", 620, 820);
-        ui.text("No. of Previous Flights: ", 620, 840);
-        ui.text("Safety Level: ", 620, 860);
-        ui.text("Manufacture Year: ", 620, 880);
-        ui.text("Airplane Speed: ", 620, 900);
+        ui.text("Model: ", 820, 780);
+        ui.text("Capacity: ", 820, 800);
+        ui.text("Weight: ", 820, 820);
+        ui.text("No. of Previous Flights: ", 820, 840);
+        ui.text("Safety Level: ", 820, 860);
+        ui.text("Manufacture Year: ", 820, 880);
+        ui.text("Airplane Speed: ", 820, 900);
 
-        ui.text(airplane.getModel(), 800, 780);
-        ui.text(airplane.getCapacity(), 800, 800);
-        ui.text(airplane.getWeight(), 800, 820);
-        ui.text(airplane.getNoOfPrvFlights(), 800, 840);
-        ui.text(airplane.getSafetyLevel(), 800, 860);
-        ui.text(airplane.getManufactureYear(), 800, 880);
-        ui.text(airplane.getAirplaneSpeed(), 800, 900);
+        ui.text(airplane.getModel(), 1000, 780);
+        ui.text(airplane.getCapacity(), 1000, 800);
+        ui.text(airplane.getWeight(), 1000, 820);
+        ui.text(airplane.getNoOfPrvFlights(), 1000, 840);
+        ui.text(airplane.getSafetyLevel(), 1000, 860);
+        ui.text(airplane.getManufactureYear(), 1000, 880);
+        ui.text(airplane.getAirplaneSpeed(), 1000, 900);
     }
 
     // menu that allows you to choose the pilot
