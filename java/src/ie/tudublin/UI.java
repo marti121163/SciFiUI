@@ -8,6 +8,7 @@ import sun.java2d.pipe.ValidatePipe;
 public class UI extends PApplet
 {
     Airports selectedAirport;
+    Airplanes selectedAirplane;
 
     Button buttonAirplane1;
     Button buttonAirplane2;
@@ -27,6 +28,7 @@ public class UI extends PApplet
     Airplanes airplane1;
     Airplanes airplane2;
     Airplanes airplane3;
+    Airplanes airplane4;
 
     Pilots pilot1;
     Pilots pilot2;
@@ -78,20 +80,21 @@ public class UI extends PApplet
         // airplanes
         airplane1 = new Airplanes("KIA728", "50", "30t", "28", "medium", "1998", "18/20");
         airplane2 = new Airplanes("MIB318", "130", "50t", "61", "low", "1989", "12/20");
-        airplane3 = new Airplanes("BDE728", "250", "70t", "15", "high", "2007", "16/20");
+        airplane3 = new Airplanes("BDE178", "250", "70t", "15", "high", "2007", "16/20");
+        airplane4 = new Airplanes("JET042", "25", "10t", "5", "medium", "2012", "10/20");
 
 
 
         // pilots
         pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks", "22");
         pilot2 = new Pilots("Martina Nieckarz", "Female", "23-10-1998", "Bray, Wicklow, IE", "reseach ranks", "5");
-        pilot3 = new Pilots("Steve Rogers", "Male", "23-10-1958", "Brooklyn, New York, USA", "reseach ranks", "45");
+        pilot3 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, New York, USA", "reseach ranks", "45");
 
 
-        buttonAirplane1 = new Button(this, 600, 980, 150, 50, "Airplane 1");
-        buttonAirplane2 = new Button(this, 760, 980, 150, 50, "Airplane 2");
-        buttonAirplane3 = new Button(this, 910, 980, 150, 50, "Airplane 3");
-        buttonAirplane4 = new Button(this, 1060, 980, 150, 50, "Airplane 4");
+        buttonAirplane1 = new Button(this, 625, 980, 150, 50, "Airplane 1");
+        buttonAirplane2 = new Button(this, 795, 980, 150, 50, "Airplane 2");
+        buttonAirplane3 = new Button(this, 965, 980, 150, 50, "Airplane 3");
+        buttonAirplane4 = new Button(this, 1135, 980, 150, 50, "Airplane 4");
 
 
         //plane1 = new Plane(this, width / 2, height * .75f, 50);
@@ -106,13 +109,25 @@ public class UI extends PApplet
             menuBox.render();
             menuBox.airportInfoTemp();
             menuBox.airportInfo(selectedAirport);
-            menuBox.airplaneSelection(airplane1);
 
             //airplane selection buttons
             buttonAirplane1.render();
             buttonAirplane2.render();
             buttonAirplane3.render();
             buttonAirplane4.render();
+
+            //menuBox.airplaneSelection(selectedAirplane);
+
+            if (selectedAirplane == airplane1){
+                menuBox.airplaneSelection(airplane1);
+            } else if (selectedAirplane == airplane2){
+                menuBox.airplaneSelection(airplane2);
+            } else if (selectedAirplane == airplane3){
+                menuBox.airplaneSelection(airplane3);
+            } else if (selectedAirplane == airplane4){
+                menuBox.airplaneSelection(airplane4);
+            }
+
         }
     }
 
@@ -172,31 +187,32 @@ public class UI extends PApplet
     // had to hard code it, otherwise it wouldn't work
     public void mouseClicked() {
         if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
-            //System.out.println("Val Verde Airport Clicked");
             selectedAirport = airport1;
         } else if (mouseX > 495 && mouseX < (495 + 145) && mouseY > 75 && mouseY < (75 + 30)) {
-            //System.out.println("Los Santos Airport Clicked");
             selectedAirport = airport2;
         } else if (mouseX > 600 && mouseX < (600 + 145) && mouseY > 290 && mouseY < (290 + 30)) {
-            //System.out.println("Yerba Airport Clicked");
             selectedAirport = airport3;
         } else if (mouseX > 1350 && mouseX < (1350 + 145) && mouseY > 550 && mouseY < (550 + 30)) {
-            //System.out.println("Wakanda Airport Clicked");
             selectedAirport = airport4;
         } else if (mouseX > 1670 && mouseX < (1670 + 145) && mouseY > 140 && mouseY < (140 + 30)) {
-            //System.out.println("Tansia Airport Clicked");
             selectedAirport = airport5;
         } else if (mouseX > 1600 && mouseX < (1600 + 145) && mouseY > 285 && mouseY < (285 + 30)) {
-            //System.out.println("Panau Airport Clicked");
             selectedAirport = airport6;
         } else {
             // if u click on any "blank space" (as in not a menu) then whatver menu was displayed will dissapear
             selectedAirport = null;
         }
 
-        if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
-            //System.out.println("Val Verde Airport Clicked");
-            selectedAirport = airport1;
+        if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
+            selectedAirplane = airplane1; 
+        } else if (mouseX > 795 && mouseX < (795 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
+            selectedAirplane = airplane2;
+        } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
+            selectedAirplane = airplane3;
+        } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
+            selectedAirplane = airplane4;
+        } else {
+            selectedAirplane = null;
         }
     } // mouseClicked end
 
