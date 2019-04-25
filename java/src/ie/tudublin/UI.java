@@ -8,7 +8,7 @@ import sun.java2d.pipe.ValidatePipe;
 public class UI extends PApplet
 {
     Airports selectedAirport;
-    Button b;
+    Button buttonNext;
     Plane plane1;
 
     PImage map;
@@ -84,7 +84,7 @@ public class UI extends PApplet
         pilot3 = new Pilots("Steve Rogers", "Male", "23-10-1958", "Brooklyn, New York, USA", "reseach ranks", "45");
 
 
-        b = new Button(this, 50, 720, 100, 50, "SELECT");
+        buttonNext = new Button(this, 900, 920, 100, 50, ">");
         plane1 = new Plane(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 1, width / 2, height / 2, 100);
 
@@ -97,6 +97,9 @@ public class UI extends PApplet
             menuBox.render();
             menuBox.airportInfoTemp();
             menuBox.airportInfo(selectedAirport);
+            menuBox.airplaneSelection(airplane1);
+            buttonNext.render();
+                //if()
         }
     }
 

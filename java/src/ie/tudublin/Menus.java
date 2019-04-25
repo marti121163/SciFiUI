@@ -44,7 +44,7 @@ public class Menus
 
     // MENUS
 
-    // these one will display all the "headings" before the : (eg. name: Val Verde airport, or "location" etc)
+    // this one will display all the "headings" before the : (eg. name: Val Verde airport, or "location" etc)
     public void airportInfoTemp(){
         ui.stroke(0);
         ui.textSize(25);
@@ -54,7 +54,6 @@ public class Menus
         ui.text("Year Built: ", 120, 840);
         ui.text("Features: ", 120, 860);
     }
-
 
 
     // 3 menu boxes linked to the airport
@@ -71,13 +70,32 @@ public class Menus
     }
 
     // menu that gives you an option of selecting a airplane before you generate it
-    public void airplaneSelection() {
+    public void airplaneSelection(Airplanes airplane) {
+        ui.stroke(0);
+        ui.textSize(25);
 
+        ui.stroke(0);
+        ui.textSize(25);
+        ui.text("Model: ", 620, 780);
+        ui.text("Capacity: ", 620, 800);
+        ui.text("Weight: ", 620, 820);
+        ui.text("No. of Previous Flights: ", 620, 840);
+        ui.text("Safety Level: ", 620, 860);
+        ui.text("Manufacture Year: ", 620, 880);
+        ui.text("Airplane Speed: ", 620, 900);
+
+        ui.text(airplane.getModel(), 800, 780);
+        ui.text(airplane.getCapacity(), 800, 800);
+        ui.text(airplane.getWeight(), 800, 820);
+        ui.text(airplane.getNoOfPrvFlights(), 800, 840);
+        ui.text(airplane.getSafetyLevel(), 800, 860);
+        ui.text(airplane.getManufactureYear(), 800, 880);
+        ui.text(airplane.getAirplaneSpeed(), 800, 900);
     }
 
     // menu that allows you to choose the pilot
     public void pilotSelection() {
-        
+
     }
 
     // 3 menus linked to the airplane
