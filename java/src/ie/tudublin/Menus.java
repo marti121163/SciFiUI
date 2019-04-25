@@ -77,7 +77,7 @@ public class Menus
 
     // menu that allows you to choose the pilot
     public void pilotSelection() {
-
+        
     }
 
     // 3 menus linked to the airplane

@@ -21,8 +21,12 @@ public class UI extends PApplet
     Airports airport6;
 
     Airplanes airplane1;
+    Airplanes airplane2;
+    Airplanes airplane3;
 
     Pilots pilot1;
+    Pilots pilot2;
+    Pilots pilot3;
 
     Menus menuBox;
 
@@ -68,14 +72,16 @@ public class UI extends PApplet
         menuBox = new Menus(this, 3, 686, 1916, 393, 30, 40);
 
         // airplanes
-        airplane1 = new Airplanes("MIA728", "50", "30t", "28", "best", "1998", "20/20");
-        airplane1 = new Airplanes("MIB318", "130", "60t", "61", "medium", "1989", "14/20");
+        airplane1 = new Airplanes("KIA728", "50", "30t", "28", "medium", "1998", "18/20");
+        airplane2 = new Airplanes("MIB318", "130", "50t", "61", "low", "1989", "12/20");
+        airplane3 = new Airplanes("BDE728", "250", "70t", "15", "high", "2007", "16/20");
+
 
 
         // pilots
-        pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks", "25");
-        pilot1 = new Pilots("Martina Nieckarz", "Female", "23-10-1998", "Bray, Wicklow, IE", "reseach ranks", "5");
-
+        pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks", "22");
+        pilot2 = new Pilots("Martina Nieckarz", "Female", "23-10-1998", "Bray, Wicklow, IE", "reseach ranks", "5");
+        pilot3 = new Pilots("Steve Rogers", "Male", "23-10-1958", "Brooklyn, New York, USA", "reseach ranks", "45");
 
 
         b = new Button(this, 50, 720, 100, 50, "SELECT");
