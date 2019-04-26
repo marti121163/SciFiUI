@@ -13,11 +13,12 @@ public class Airports
     // airport details
     private String name;
     private String location;
+    private String ceo;
     private String yearlyPassengers;
     private String yearBuilt;
     private String features;
 
-    public Airports(UI ui, float x, float y, float width, float height, String name, String location, 
+    public Airports(UI ui, float x, float y, float width, float height, String name, String location, String ceo,
     String yearlyPassengers, String yearBuilt, String features)
     {
         this.ui = ui;
@@ -29,6 +30,7 @@ public class Airports
         // airport info 
         this.name = name;
         this.location = location;
+        this.ceo = ceo;
         this.yearlyPassengers = yearlyPassengers;
         this.yearBuilt = yearBuilt;
         this.features = features;
@@ -193,5 +195,19 @@ public class Airports
      */
     public void setFeatures(String features) {
         this.features = features;
+    }
+
+    /**
+     * @return the ceo
+     */
+    public String getCeo() {
+        return ceo;
+    }
+
+    /**
+     * @param ceo the ceo to set
+     */
+    public void setCeo(String ceo) {
+        this.ceo = ceo;
     }
 }

@@ -48,8 +48,9 @@ public class Menus
     public void airportInfoTemp(){
         ui.stroke(0);
         ui.textSize(25);
-        ui.text("Name: ", 80, 950);
-        ui.text("Location: ", 96, 975);
+        ui.text("Name: ", 80, 925);
+        ui.text("Location: ", 96, 950);
+        ui.text("CEO: ", 71, 975);
         ui.text("Yearly Passengers: ", 154, 1000);
         ui.text("Year Built: ", 103, 1025);
         ui.text("Features: ", 97, 1050);
@@ -62,11 +63,12 @@ public class Menus
     public void airportInfo(Airports airport) {
         ui.stroke(0);
         ui.textSize(25);
-        ui.text(airport.getName(), 280, 780);
-        ui.text(airport.getLocation(), 280, 800);
-        ui.text(airport.getYearlyPassengers(), 280, 820);
-        ui.text(airport.getYearBuilt(), 280, 840);
-        ui.text(airport.getFeatures(), 280, 860);
+        ui.text(airport.getName(), 280, 925);
+        ui.text(airport.getLocation(), 280, 950);
+        ui.text(airport.getCeo(), 280, 975);
+        ui.text(airport.getYearlyPassengers(), 280, 1000);
+        ui.text(airport.getYearBuilt(), 280, 1025);
+        ui.text(airport.getFeatures(), 300, 1050);
     }
 
     // menu that gives you an option of selecting a airplane before you generate it

@@ -71,12 +71,12 @@ public class UI extends PApplet
         map = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\map.png");
 
         // airport buttons setup
-        airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport", "Val Verde", "25,000", "1986", "Something Fancy");
-        airport2 = new Airports(this, 495, 76, width, height, "Los Santos Airport", "Los Santos", "95,000", "1956", "Something Fancy 2");
-        airport3 = new Airports(this, 600, 290, width, height, "Yerba Airport", "Yerba", "24,500", "1996", "Something Fancy 3");
-        airport4 = new Airports(this, 1350, 550, width, height, "Wakanda Airport", "Wakanda", "165,800", "1986", "Something Fancy 4");
-        airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport", "Val Verde", "7,000", "2006", "Something Fancy 5");
-        airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport", "Panau", "116,000", "1916", "Something Fancy 6");
+        airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport", "Val Verde", "Austin Roberts", "25,000", "1986", "Something Fancy");
+        airport2 = new Airports(this, 495, 76, width, height, "Los Santos Airport", "Los Santos", "CJ Williams", "95,000", "1956", "Something Fancy 2");
+        airport3 = new Airports(this, 600, 290, width, height, "Yerba Airport", "Yerba", "Kelly Smith", "24,500", "1996", "Something Fancy 3");
+        airport4 = new Airports(this, 1350, 550, width, height, "Wakanda Airport", "Wakanda", "Brie Larson", "165,800", "1986", "Something Fancy 4");
+        airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport", "Val Verde", "Wanda Maximoff", "7,000", "2006", "Something Fancy 5");
+        airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport", "Panau", "Mina Myoui", "116,000", "1916", "Something Fancy 6");
 
         // menu box outline
         menuBox = new Menus(this, 3, 686, 1916, 393, 30, 40);
