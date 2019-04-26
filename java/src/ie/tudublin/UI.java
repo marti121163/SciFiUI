@@ -88,18 +88,18 @@ public class UI extends PApplet
         airplane4 = new Airplanes("JET042", "25", "10t", "5", "medium", "2012", "10/20");
 
 
-
         // pilots
         pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks", "22");
         pilot2 = new Pilots("Martina Nieckarz", "Female", "23-10-1998", "Bray, Wicklow, IE", "reseach ranks", "5");
         pilot3 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, New York, USA", "reseach ranks", "45");
 
-
+        // buttons for airplane selection
         buttonAirplane1 = new Button(this, 625, 1010, 150, 50, "Airplane 1");
         buttonAirplane2 = new Button(this, 795, 1010, 150, 50, "Airplane 2");
         buttonAirplane3 = new Button(this, 965, 1010, 150, 50, "Airplane 3");
         buttonAirplane4 = new Button(this, 1135, 1010, 150, 50, "Airplane 4");
 
+        // buttons for pilot seleciton
         buttonPilot1 = new Button(this, 1480, 1010, 150, 50, "Pilot 1");
         buttonPilot2 = new Button(this, 1640, 1010, 150, 50, "Pilot 2");
 

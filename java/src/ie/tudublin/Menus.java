@@ -48,11 +48,11 @@ public class Menus
     public void airportInfoTemp(){
         ui.stroke(0);
         ui.textSize(25);
-        ui.text("Name: ", 120, 780);
-        ui.text("Location: ", 120, 800);
-        ui.text("Yearly Passengers: ", 120, 820);
-        ui.text("Year Built: ", 120, 840);
-        ui.text("Features: ", 120, 860);
+        ui.text("Name: ", 120, 950);
+        ui.text("Location: ", 120, 970);
+        ui.text("Yearly Passengers: ", 120, 990);
+        ui.text("Year Built: ", 120, 1010);
+        ui.text("Features: ", 120, 1030);
     }
 
 
