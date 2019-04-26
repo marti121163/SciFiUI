@@ -116,18 +116,17 @@ public class UI extends PApplet
             buttonAirplane3.render();
             buttonAirplane4.render();
 
-            //menuBox.airplaneSelection(selectedAirplane);
 
-            if (selectedAirplane == airplane1){
+            // this lets you hover over different airplanes and decide on which one you want to use
+            if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
                 menuBox.airplaneSelection(airplane1);
-            } else if (selectedAirplane == airplane2){
+            } else if (mouseX > 795 && mouseX < (795 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
                 menuBox.airplaneSelection(airplane2);
-            } else if (selectedAirplane == airplane3){
+            } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
                 menuBox.airplaneSelection(airplane3);
-            } else if (selectedAirplane == airplane4){
+            } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
                 menuBox.airplaneSelection(airplane4);
             }
-
         }
     }
 
@@ -198,22 +197,22 @@ public class UI extends PApplet
             selectedAirport = airport5;
         } else if (mouseX > 1600 && mouseX < (1600 + 145) && mouseY > 285 && mouseY < (285 + 30)) {
             selectedAirport = airport6;
-        } else {
-            // if u click on any "blank space" (as in not a menu) then whatver menu was displayed will dissapear
-            selectedAirport = null;
+        // } else {
+        //     // if u click on any "blank space" (as in not a menu) then whatver menu was displayed will dissapear
+        //     selectedAirport = null;
         }
 
+        // funtion for when you click on an airplane you select it
         if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
-            selectedAirplane = airplane1; 
+            selectedAirplane = airplane1;
         } else if (mouseX > 795 && mouseX < (795 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
             selectedAirplane = airplane2;
         } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
             selectedAirplane = airplane3;
         } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
             selectedAirplane = airplane4;
-        } else {
-            selectedAirplane = null;
         }
+
     } // mouseClicked end
 
     // function for changing the colour of the airport box when you hover onto it

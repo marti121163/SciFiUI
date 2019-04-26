@@ -4,7 +4,12 @@ import processing.core.PApplet;
 
 public class Airplanes 
 {
-
+    UI ui;
+    private float x;
+    private float y;
+    private float width;
+    private float height;
+    private String name; 
 
     // airplane details
     private String model;
@@ -127,5 +132,23 @@ public class Airplanes
     public void setAirplaneSpeed(String airplaneSpeed) {
         this.airplaneSpeed = airplaneSpeed;
     }
+
+	public void render() {
+        //ui.noFill();
+        ui.fill(255, 255, 255);
+        ui.stroke(0);
+        ui.rect(x, y, width, height);
+        ui.textAlign(PApplet.CENTER, PApplet.CENTER);
+        ui.fill(0);
+        ui.textSize(15);
+        ui.text(name, x + width * 0.5f, y + height * 0.5f);
+
+        if (ui.overRect((int)x, (int)y, (int)width, (int)height)) {
+            ui.fill(230);
+            ui.rect(x, y, width, height);
+            ui.fill(0);
+            ui.text(name, x + width * 0.5f, y + height * 0.5f);
+        }
+	}
 
 }    
