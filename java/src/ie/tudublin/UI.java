@@ -9,11 +9,15 @@ public class UI extends PApplet
 {
     Airports selectedAirport;
     Airplanes selectedAirplane;
+    Pilots selectedPilot;
 
     Button buttonAirplane1;
     Button buttonAirplane2;
     Button buttonAirplane3;
     Button buttonAirplane4;
+
+    Button buttonPilot1;
+    Button buttonPilot2;
     //Plane plane1;
 
     PImage map;
@@ -56,9 +60,9 @@ public class UI extends PApplet
 
     public void settings()
     {
-        size(1920, 1080);
+        //size(1920, 1080);
         // Use fullscreen instead of size to make your interface fullscreen
-        //fullScreen(); 
+        fullScreen(); 
     }
 
     public void setup()
@@ -91,14 +95,16 @@ public class UI extends PApplet
         pilot3 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, New York, USA", "reseach ranks", "45");
 
 
-        buttonAirplane1 = new Button(this, 625, 980, 150, 50, "Airplane 1");
-        buttonAirplane2 = new Button(this, 795, 980, 150, 50, "Airplane 2");
-        buttonAirplane3 = new Button(this, 965, 980, 150, 50, "Airplane 3");
-        buttonAirplane4 = new Button(this, 1135, 980, 150, 50, "Airplane 4");
+        buttonAirplane1 = new Button(this, 625, 1010, 150, 50, "Airplane 1");
+        buttonAirplane2 = new Button(this, 795, 1010, 150, 50, "Airplane 2");
+        buttonAirplane3 = new Button(this, 965, 1010, 150, 50, "Airplane 3");
+        buttonAirplane4 = new Button(this, 1135, 1010, 150, 50, "Airplane 4");
 
+        buttonPilot1 = new Button(this, 1480, 1010, 150, 50, "Pilot 1");
+        buttonPilot2 = new Button(this, 1640, 1010, 150, 50, "Pilot 2");
 
         //plane1 = new Plane(this, width / 2, height * .75f, 50);
-        radar = new Radar(this, 1, width / 2, height / 2, 100);
+        radar = new Radar(this, 500, width / 2, height / 2, 100);
 
     }
 
@@ -116,6 +122,12 @@ public class UI extends PApplet
             buttonAirplane3.render();
             buttonAirplane4.render();
 
+            buttonPilot1.render();
+            buttonPilot2.render();
+
+            //radar.update();
+            //radar.render();
+
 
             // this lets you hover over different airplanes and decide on which one you want to use
             if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
@@ -127,6 +139,16 @@ public class UI extends PApplet
             } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
                 menuBox.airplaneSelection(airplane4);
             }
+
+
+            // same as above but for pilot selection
+
+
+
+            // if (selectedAirplane != null && selectedPilot != null){
+
+            // }
+
         }
     }
 
@@ -212,6 +234,9 @@ public class UI extends PApplet
         } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
             selectedAirplane = airplane4;
         }
+
+
+
 
     } // mouseClicked end
 
