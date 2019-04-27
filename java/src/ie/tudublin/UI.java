@@ -23,6 +23,8 @@ public class UI extends PApplet
     Button buttonPilot2;
     //Plane plane1;
 
+    BasicButton generateButton;
+
     // images
     PImage map;
     PImage airportImg1;
@@ -162,9 +164,8 @@ public class UI extends PApplet
             pilotButtons.add(pilotButton);
         }
 
-        // // buttons for pilot seleciton
-        // buttonPilot1 = new PilotButton(this, 1480, 1010, 150, 50, "Pilot 1");
-        // buttonPilot2 = new PilotButton(this, 1640, 1010, 150, 50, "Pilot 2");
+        // action buttons
+        generateButton = new BasicButton(this, 0, 0, 150, 50, "GENERATE");
 
         //plane1 = new Plane(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 500, 500, 810, 60);
@@ -241,10 +242,10 @@ public class UI extends PApplet
 
             // }
 
-            if (selectedAirplane == null && selectedPilot == null){
-                
-            }
+            if (selectedAirplane != null && selectedPilot != null){
+                generateButton.render();
 
+            }
         }
     }
 
@@ -338,16 +339,6 @@ public class UI extends PApplet
                 break;
             }
         }
-
-
-
-        // if (mouseX > 1480 && mouseX < (1480 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-        //     selectedPilot = pilot1;
-        // } else if (mouseX > 1640 && mouseX < (1640 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-        //     selectedPilot = pilot2;
-        // }
-
-        System.out.println("end");
     } // mouseClicked end
 
     // function for changing the colour of the airport box when you hover onto it
@@ -358,4 +349,10 @@ public class UI extends PApplet
           return false;
         }
     }
+
+    public void generateAirplane(){
+        line(x1, y1, x2, y2);
+    }
+
 }
+

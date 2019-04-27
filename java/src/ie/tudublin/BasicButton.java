@@ -5,7 +5,7 @@ import processing.core.PApplet;
 public class BasicButton extends Button
 {
 
-    public BasicButton(UI ui, float x, float y, float width, float height, String text, Airplanes airplane)
+    public BasicButton(UI ui, float x, float y, float width, float height, String text)
     {
         super(ui, x, y, width, height, text);
     }
