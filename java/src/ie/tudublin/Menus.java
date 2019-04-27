@@ -86,8 +86,6 @@ public class Menus
         ui.stroke(0);
         ui.textSize(25);
 
-
-
         ui.stroke(0);
         ui.textSize(25);
         ui.text("Model: ", 820, 780);

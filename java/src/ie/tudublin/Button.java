@@ -28,5 +28,10 @@ public class Button
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text(text, x + width * 0.5f, y + height * 0.5f);
+
+        if (ui.overRect((int)x, (int)y, (int)width, (int)height)) {
+            ui.fill(50);
+            ui.rect(x, y, width, height);
+            ui.fill(0);        }
     }
 }

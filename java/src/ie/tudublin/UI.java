@@ -29,6 +29,8 @@ public class UI extends PApplet
     PImage airportImg4;
     PImage airportImg5;
     PImage airportImg6;
+    PImage pilotImg1;
+    PImage pilotImg2;
 
     // airports
     Airports airport1;
@@ -79,16 +81,22 @@ public class UI extends PApplet
     public void setup()
     {
         // this loads in my premade map
-        map = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\map.jpg");
+        map = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\map.png");
 
-
+        String mainPath = "C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI";
         // loads in airport images
-        airportImg1 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg1.png");
+        airportImg1 = loadImage(mainPath + "\\images\\airportImg1.png");
         airportImg2 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg2.png");
         airportImg3 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg3.png");
         airportImg4 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg4.png");
         airportImg5 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg5.png");
         airportImg6 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg6.png");
+
+        // loads in pilot images
+        pilotImg1 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\pilot1.jpg");
+        pilotImg2 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\pilot2.jpg");
+
+
 
         // airport buttons setup
         airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport", "Val Verde", "Austin Roberts", "25,000", "1986", "Something Fancy");
@@ -110,7 +118,7 @@ public class UI extends PApplet
 
         // pilots
         pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks");
-        pilot2 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, New York, USA", "reseach ranks");
+        pilot2 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, NY, USA", "reseach ranks");
 
         // buttons for airplane selection
         buttonAirplane1 = new Button(this, 625, 1010, 150, 50, "Airplane 1");
@@ -163,15 +171,17 @@ public class UI extends PApplet
             }
 
             // this lets you hover over different airplanes and decide on which one you want to use
-            if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
+            if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
                 menuBox.airplaneSelection(airplane1);
-            } else if (mouseX > 795 && mouseX < (795 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
+            } else if (mouseX > 795 && mouseX < (1010 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
                 menuBox.airplaneSelection(airplane2);
-            } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
+            } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
                 menuBox.airplaneSelection(airplane3);
-            } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
+            } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
                 menuBox.airplaneSelection(airplane4);
-            }
+            } else if (selectedAirplane != null) {
+                menuBox.airplaneSelection(selectedAirplane);
+            } 
 
             // buttonPilot1 = new Button(this, 1480, 1010, 150, 50, "Pilot 1");
             // buttonPilot2 = new Button(this, 1640, 1010, 150, 50, "Pilot 2");
@@ -181,6 +191,12 @@ public class UI extends PApplet
                 menuBox.pilotSelection(pilot1);
             } else if (mouseX > 1640 && mouseX < (1640 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
                 menuBox.pilotSelection(pilot2);
+            }
+
+            if (selectedPilot == pilot1) {
+                image(pilotImg1, 1500, 780);
+            } else if (selectedPilot == pilot2) {
+                image(pilotImg2, 1500, 800);
             }
 
             // this lets you hover over different airplanes and decide on which one you want to use
@@ -274,6 +290,13 @@ public class UI extends PApplet
         } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
             selectedAirplane = airplane4;
         }
+
+        if (mouseX > 1480 && mouseX < (1480 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+            selectedPilot = pilot1;
+        } else if (mouseX > 1640 && mouseX < (1640 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+            selectedPilot = pilot2;
+        }
+
     } // mouseClicked end
 
     // function for changing the colour of the airport box when you hover onto it
