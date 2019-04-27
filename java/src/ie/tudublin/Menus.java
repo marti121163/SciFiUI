@@ -141,19 +141,18 @@ public class Menus
 
     }
 
-    public void airportHover(int mouseX, int mouseY){
-         // this lets you hover over different airplanes and decide on which one you want to use
-         if (ui.overRect(625, 1010, 150, 50)) {
-            airplaneSelection(ui.airplane1);
-        } else if (mouseX > 795 && mouseX < (1010 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-            airplaneSelection(ui.airplane2);
-        } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-            airplaneSelection(ui.airplane3);
-        } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-            airplaneSelection(ui.airplane4);
-        } else if (ui.selectedAirplane != null) {
-            airplaneSelection(ui.selectedAirplane);
-        } 
+    public void airplaneHover(int mouseX, int mouseY, Button airplaneButton){
+        if (ui.overRect((int) airplaneButton.getX(), (int) airplaneButton.getY(), (int) airplaneButton.getWidth(), (int) airplaneButton.getHeight())) {
+            //airplaneSelection(airplane);
+        }
 
     }
 }
+
+// airplane button array list
+// 0 1 2 3 4 5
+// button1, button2
+
+// airplane array list
+// 0 1 2 3 4 5
+// airplane1, airplane2 

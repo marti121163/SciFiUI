@@ -1,5 +1,7 @@
 package ie.tudublin;
 
+import java.util.ArrayList;
+
 //import javafx.scene.control.Menu;
 import processing.core.PApplet;
 import processing.core.PImage;
@@ -53,7 +55,11 @@ public class UI extends PApplet
 
     Menus menuBox;
 
+    public int airplaneButtonAmount = 4;
+
     boolean[] keys = new boolean[1024];
+
+    private ArrayList<Button> airplaneButtons = new ArrayList<Button>();
 
     public void keyPressed()
     {
@@ -121,15 +127,22 @@ public class UI extends PApplet
         pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks");
         pilot2 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, NY, USA", "reseach ranks");
 
-        // buttons for airplane selection
-        buttonAirplane1 = new Button(this, 625, 1010, 150, 50, "Airplane 1");
-        buttonAirplane2 = new Button(this, 795, 1010, 150, 50, "Airplane 2");
-        buttonAirplane3 = new Button(this, 965, 1010, 150, 50, "Airplane 3");
-        buttonAirplane4 = new Button(this, 1135, 1010, 150, 50, "Airplane 4");
+    
+
+        int airplaneButtonGap = 170;
+        int startingAirplaneButtonX = 625;
+        int airplaneButtonY = 1010;
+        int airplaneButtonH = 50;
+        int airplaneButtonW = 150;
+        for (int i = 0; i < airplaneButtonAmount; i++) {
+            String airplaneName = "Airport " + (i + 1);
+            Button airplaneButton = new AirplaneButton(this, startingAirplaneButtonX + i * airplaneButtonGap, airplaneButtonY, airplaneButtonW, airplaneButtonH, airplaneName);
+            airplaneButtons.add(airplaneButton);
+        }
 
         // buttons for pilot seleciton
-        buttonPilot1 = new Button(this, 1480, 1010, 150, 50, "Pilot 1");
-        buttonPilot2 = new Button(this, 1640, 1010, 150, 50, "Pilot 2");
+        buttonPilot1 = new PilotButton(this, 1480, 1010, 150, 50, "Pilot 1");
+        buttonPilot2 = new PilotButton(this, 1640, 1010, 150, 50, "Pilot 2");
 
         //plane1 = new Plane(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 500, 500, 810, 60);
@@ -145,10 +158,11 @@ public class UI extends PApplet
             menuBox.airportInfo(selectedAirport);
 
             //airplane selection buttons
-            buttonAirplane1.render();
-            buttonAirplane2.render();
-            buttonAirplane3.render();
-            buttonAirplane4.render();
+            for (int i = 0; i < airplaneButtons.size(); i++) {
+                Button button = airplaneButtons.get(i);
+                button.render();
+            }
+              
 
             buttonPilot1.render();
             buttonPilot2.render();
@@ -184,7 +198,9 @@ public class UI extends PApplet
             //     menuBox.airplaneSelection(selectedAirplane);
             // } 
 
-            menuBox.airportHover(mouseX, mouseY);
+            for(int i = 0; i < airplaneButtons.size(); i++){
+                menuBox.airplaneHover(mouseX, mouseY, airplaneButtons.get(i));
+            }
 
             // same as above but for pilot selection
             if (mouseX > 1480 && mouseX < (1480 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
