@@ -4,9 +4,13 @@ import processing.core.PApplet;
 
 public class PilotButton extends Button
 {
-    public PilotButton(UI ui, float x, float y, float width, float height, String text)
+    
+    private Pilots pilot;
+
+    public PilotButton(UI ui, float x, float y, float width, float height, String text, Pilots pilot)
     {
         super(ui, x, y, width, height, text);
+        this.pilot = pilot;
     }
 
     public void render()
@@ -100,5 +104,19 @@ public class PilotButton extends Button
      */
     public void setText(String text) {
         this.text = text;
+    }
+
+    /**
+     * @return the pilot
+     */
+    public Pilots getPilot() {
+        return pilot;
+    }
+
+    /**
+     * @param pilot the pilot to set
+     */
+    public void setPilot(Pilots pilot) {
+        this.pilot = pilot;
     }
 }

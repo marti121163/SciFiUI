@@ -148,5 +148,13 @@ public class Menus
         } 
         return false;
     }
+
+    public boolean pilotHover(int mouseX, int mouseY, PilotButton pilotButton){
+        if (ui.overRect((int) pilotButton.getX(), (int) pilotButton.getY(), (int) pilotButton.getWidth(), (int) pilotButton.getHeight())) {
+            pilotSelection(pilotButton.getPilot());
+            return true;
+        } 
+        return false;
+    }
 }
 
