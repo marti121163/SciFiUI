@@ -1,6 +1,7 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Airports
 {
@@ -17,9 +18,10 @@ public class Airports
     private String yearlyPassengers;
     private String yearBuilt;
     private String features;
+    private PImage airportIcon;
 
     public Airports(UI ui, float x, float y, float width, float height, String name, String location, String ceo,
-    String yearlyPassengers, String yearBuilt, String features)
+    String yearlyPassengers, String yearBuilt, String features, PImage airportIcon)
     {
         this.ui = ui;
         this.x = x;
@@ -34,6 +36,7 @@ public class Airports
         this.yearlyPassengers = yearlyPassengers;
         this.yearBuilt = yearBuilt;
         this.features = features;
+        this.airportIcon = airportIcon;
 
     }
 
@@ -209,5 +212,19 @@ public class Airports
      */
     public void setCeo(String ceo) {
         this.ceo = ceo;
+    }
+
+    /**
+     * @return the airportIcon
+     */
+    public PImage getAirportIcon() {
+        return airportIcon;
+    }
+
+    /**
+     * @param airportIcon the airportIcon to set
+     */
+    public void setAirportIcon(PImage airportIcon) {
+        this.airportIcon = airportIcon;
     }
 }

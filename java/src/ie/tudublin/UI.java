@@ -84,27 +84,28 @@ public class UI extends PApplet
         map = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\map.png");
 
         String mainPath = "C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI";
+
         // loads in airport images
         airportImg1 = loadImage(mainPath + "\\images\\airportImg1.png");
-        airportImg2 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg2.png");
-        airportImg3 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg3.png");
-        airportImg4 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg4.png");
-        airportImg5 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg5.png");
-        airportImg6 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg6.png");
+        airportImg2 = loadImage(mainPath + "\\images\\airportImg2.png");
+        airportImg3 = loadImage(mainPath + "\\images\\airportImg3.png");
+        airportImg4 = loadImage(mainPath + "\\images\\airportImg4.png");
+        airportImg5 = loadImage(mainPath + "\\images\\airportImg5.png");
+        airportImg6 = loadImage(mainPath + "\\images\\airportImg6.png");
 
         // loads in pilot images
-        pilotImg1 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\pilot1.jpg");
-        pilotImg2 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\pilot2.jpg");
+        pilotImg1 = loadImage(mainPath + "\\images\\pilot1.jpg");
+        pilotImg2 = loadImage(mainPath + "\\images\\pilot2.jpg");
 
 
 
         // airport buttons setup
-        airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport", "Val Verde", "Austin Roberts", "25,000", "1986", "Something Fancy");
-        airport2 = new Airports(this, 495, 76, width, height, "Los Santos Airport", "Los Santos", "CJ Williams", "95,000", "1956", "Something Fancy 2");
-        airport3 = new Airports(this, 600, 290, width, height, "Yerba Airport", "Yerba", "Kelly Smith", "24,500", "1996", "Something Fancy 3");
-        airport4 = new Airports(this, 1350, 550, width, height, "Wakanda Airport", "Wakanda", "Brie Larson", "165,800", "1986", "Something Fancy 4");
-        airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport", "Val Verde", "Wanda Maximoff", "7,000", "2006", "Something Fancy 5");
-        airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport", "Panau", "Mina Myoui", "116,000", "1916", "Something Fancy 6");
+        airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport", "Val Verde", "Austin Roberts", "25,000", "1986", "Something Fancy", airportImg1);
+        airport2 = new Airports(this, 495, 76, width, height, "Los Santos Airport", "Los Santos", "CJ Williams", "95,000", "1956", "Something Fancy 2", airportImg2);
+        airport3 = new Airports(this, 600, 290, width, height, "Yerba Airport", "Yerba", "Kelly Smith", "24,500", "1996", "Something Fancy 3", airportImg3);
+        airport4 = new Airports(this, 1350, 550, width, height, "Wakanda Airport", "Wakanda", "Brie Larson", "165,800", "1986", "Something Fancy 4", airportImg4);
+        airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport", "Val Verde", "Wanda Maximoff", "7,000", "2006", "Something Fancy 5", airportImg5);
+        airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport", "Panau", "Mina Myoui", "116,000", "1916", "Something Fancy 6", airportImg6);
 
         // menu box outline
         menuBox = new Menus(this, 3, 686, 1916, 393, 30, 40);
@@ -156,35 +157,34 @@ public class UI extends PApplet
             radar.render();
 
             // this shows the airport images when you click on them
-            if (selectedAirport == airport1) {
-                image(airportImg1, 40, 745);
-            } else if (selectedAirport == airport2) {
-                image(airportImg2, 40, 745);
-            } else if (selectedAirport == airport3) {
-                image(airportImg3, 40, 745);
-            } else if (selectedAirport == airport4) {
-                image(airportImg4, 40, 745);
-            } else if (selectedAirport == airport5) {
-                image(airportImg5, 40, 745);
-            } else if (selectedAirport == airport6) {
-                image(airportImg6, 40, 745);
-            }
+            // if (selectedAirport == airport1) {
+            //     image(airportImg1, 40, 745);
+            // } else if (selectedAirport == airport2) {
+            //     image(airportImg2, 40, 745);
+            // } else if (selectedAirport == airport3) {
+            //     image(airportImg3, 40, 745);
+            // } else if (selectedAirport == airport4) {
+            //     image(airportImg4, 40, 745);
+            // } else if (selectedAirport == airport5) {
+            //     image(airportImg5, 40, 745);
+            // } else if (selectedAirport == airport6) {
+            //     image(airportImg6, 40, 745);
+            // }
 
-            // this lets you hover over different airplanes and decide on which one you want to use
-            if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-                menuBox.airplaneSelection(airplane1);
-            } else if (mouseX > 795 && mouseX < (1010 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-                menuBox.airplaneSelection(airplane2);
-            } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-                menuBox.airplaneSelection(airplane3);
-            } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-                menuBox.airplaneSelection(airplane4);
-            } else if (selectedAirplane != null) {
-                menuBox.airplaneSelection(selectedAirplane);
-            } 
+            // // this lets you hover over different airplanes and decide on which one you want to use
+            // if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+            //     menuBox.airplaneSelection(airplane1);
+            // } else if (mouseX > 795 && mouseX < (1010 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+            //     menuBox.airplaneSelection(airplane2);
+            // } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+            //     menuBox.airplaneSelection(airplane3);
+            // } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+            //     menuBox.airplaneSelection(airplane4);
+            // } else if (selectedAirplane != null) {
+            //     menuBox.airplaneSelection(selectedAirplane);
+            // } 
 
-            // buttonPilot1 = new Button(this, 1480, 1010, 150, 50, "Pilot 1");
-            // buttonPilot2 = new Button(this, 1640, 1010, 150, 50, "Pilot 2");
+            menuBox.airportHover(mouseX, mouseY);
 
             // same as above but for pilot selection
             if (mouseX > 1480 && mouseX < (1480 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {

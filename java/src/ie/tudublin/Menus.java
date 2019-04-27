@@ -11,7 +11,7 @@ public class Menus
     private float height;
     private float smallBoxSize;
     private float bigBoxSize;
-
+    
     
 
     public Menus(UI ui, float x, float y, float width, float height, float smallBoxSize, float bigBoxSize)
@@ -79,6 +79,7 @@ public class Menus
         ui.text(airport.getYearlyPassengers(), 400, 1000);
         ui.text(airport.getYearBuilt(), 400, 1025);
         ui.text(airport.getFeatures(), 400, 1050);
+        ui.image(airport.getAirportIcon(), 40, 745);
     }
 
     // menu that gives you an option of selecting a airplane before you generate it
@@ -137,6 +138,22 @@ public class Menus
 
     // menu that displays the information about the previouly chosen pilot
     public void pilotInfo(){
+
+    }
+
+    public void airportHover(int mouseX, int mouseY){
+         // this lets you hover over different airplanes and decide on which one you want to use
+         if (ui.overRect(625, 1010, 150, 50)) {
+            airplaneSelection(ui.airplane1);
+        } else if (mouseX > 795 && mouseX < (1010 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+            airplaneSelection(ui.airplane2);
+        } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+            airplaneSelection(ui.airplane3);
+        } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+            airplaneSelection(ui.airplane4);
+        } else if (ui.selectedAirplane != null) {
+            airplaneSelection(ui.selectedAirplane);
+        } 
 
     }
 }
