@@ -141,18 +141,12 @@ public class Menus
 
     }
 
-    public void airplaneHover(int mouseX, int mouseY, Button airplaneButton){
+    public boolean airplaneHover(int mouseX, int mouseY, AirplaneButton airplaneButton){
         if (ui.overRect((int) airplaneButton.getX(), (int) airplaneButton.getY(), (int) airplaneButton.getWidth(), (int) airplaneButton.getHeight())) {
-            //airplaneSelection(airplane);
-        }
-
+            airplaneSelection(airplaneButton.getAirplane());
+            return true;
+        } 
+        return false;
     }
 }
 
-// airplane button array list
-// 0 1 2 3 4 5
-// button1, button2
-
-// airplane array list
-// 0 1 2 3 4 5
-// airplane1, airplane2 

@@ -59,7 +59,8 @@ public class UI extends PApplet
 
     boolean[] keys = new boolean[1024];
 
-    private ArrayList<Button> airplaneButtons = new ArrayList<Button>();
+    private ArrayList<AirplaneButton> airplaneButtons = new ArrayList<AirplaneButton>();
+    private ArrayList<Airplanes> airplaneList = new ArrayList<Airplanes>();
 
     public void keyPressed()
     {
@@ -121,7 +122,10 @@ public class UI extends PApplet
         airplane2 = new Airplanes("MIB318", "130", "50t", "61", "low", "1989", "12/20");
         airplane3 = new Airplanes("BDE178", "250", "70t", "15", "high", "2007", "16/20");
         airplane4 = new Airplanes("JET042", "25", "10t", "5", "medium", "2012", "10/20");
-
+        airplaneList.add(airplane1);
+        airplaneList.add(airplane2);
+        airplaneList.add(airplane3);
+        airplaneList.add(airplane4);
 
         // pilots
         pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks");
@@ -135,8 +139,8 @@ public class UI extends PApplet
         int airplaneButtonH = 50;
         int airplaneButtonW = 150;
         for (int i = 0; i < airplaneButtonAmount; i++) {
-            String airplaneName = "Airport " + (i + 1);
-            Button airplaneButton = new AirplaneButton(this, startingAirplaneButtonX + i * airplaneButtonGap, airplaneButtonY, airplaneButtonW, airplaneButtonH, airplaneName);
+            String airplaneName = "Airplane " + (i + 1);
+            AirplaneButton airplaneButton = new AirplaneButton(this, startingAirplaneButtonX + i * airplaneButtonGap, airplaneButtonY, airplaneButtonW, airplaneButtonH, airplaneName, airplaneList.get(i));
             airplaneButtons.add(airplaneButton);
         }
 
@@ -159,7 +163,7 @@ public class UI extends PApplet
 
             //airplane selection buttons
             for (int i = 0; i < airplaneButtons.size(); i++) {
-                Button button = airplaneButtons.get(i);
+                AirplaneButton button = airplaneButtons.get(i);
                 button.render();
             }
               
@@ -170,38 +174,23 @@ public class UI extends PApplet
             radar.update();
             radar.render();
 
-            // this shows the airport images when you click on them
-            // if (selectedAirport == airport1) {
-            //     image(airportImg1, 40, 745);
-            // } else if (selectedAirport == airport2) {
-            //     image(airportImg2, 40, 745);
-            // } else if (selectedAirport == airport3) {
-            //     image(airportImg3, 40, 745);
-            // } else if (selectedAirport == airport4) {
-            //     image(airportImg4, 40, 745);
-            // } else if (selectedAirport == airport5) {
-            //     image(airportImg5, 40, 745);
-            // } else if (selectedAirport == airport6) {
-            //     image(airportImg6, 40, 745);
-            // }
 
-            // // this lets you hover over different airplanes and decide on which one you want to use
-            // if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-            //     menuBox.airplaneSelection(airplane1);
-            // } else if (mouseX > 795 && mouseX < (1010 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-            //     menuBox.airplaneSelection(airplane2);
-            // } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-            //     menuBox.airplaneSelection(airplane3);
-            // } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
-            //     menuBox.airplaneSelection(airplane4);
-            // } else if (selectedAirplane != null) {
-            //     menuBox.airplaneSelection(selectedAirplane);
-            // } 
-
+            // Checks if airplane button is hovered over then display info about it
+            // else if its not hovered over and an airplane button has been clicked then 
+            // display the info on that
+            boolean hoveredOver = false;
             for(int i = 0; i < airplaneButtons.size(); i++){
-                menuBox.airplaneHover(mouseX, mouseY, airplaneButtons.get(i));
+                
+                boolean hoveredOver2 = menuBox.airplaneHover(mouseX, mouseY, airplaneButtons.get(i));
+                if (hoveredOver2 == true) {
+                    hoveredOver = true;
+                    break;
+                }
             }
-
+            if (hoveredOver == false && selectedAirplane != null) {
+                menuBox.airplaneSelection(selectedAirplane);
+            }
+            
             // same as above but for pilot selection
             if (mouseX > 1480 && mouseX < (1480 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
                 menuBox.pilotSelection(pilot1);
@@ -279,6 +268,7 @@ public class UI extends PApplet
     // fuction for displaying a menu for each airport, 30 is height and 145 is the width
     // had to hard code it, otherwise it wouldn't work
     public void mouseClicked() {
+        System.out.println("start");
         if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
             selectedAirport = airport1;
         } else if (mouseX > 495 && mouseX < (495 + 145) && mouseY > 75 && mouseY < (75 + 30)) {
@@ -297,14 +287,12 @@ public class UI extends PApplet
         }
 
         // funtion for when you click on an airplane you select it
-        if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
-            selectedAirplane = airplane1;
-        } else if (mouseX > 795 && mouseX < (795 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
-            selectedAirplane = airplane2;
-        } else if (mouseX > 965 && mouseX < (965 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
-            selectedAirplane = airplane3;
-        } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
-            selectedAirplane = airplane4;
+        for(int i = 0; i < airplaneButtons.size(); i++){
+            AirplaneButton airplaneButton = airplaneButtons.get(i);
+            if (overRect((int) airplaneButton.getX(), (int) airplaneButton.getY(), (int) airplaneButton.getWidth(), (int) airplaneButton.getHeight())) {
+                selectedAirplane = airplaneButton.getAirplane();
+                break;
+            }
         }
 
         if (mouseX > 1480 && mouseX < (1480 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
@@ -313,6 +301,7 @@ public class UI extends PApplet
             selectedPilot = pilot2;
         }
 
+        System.out.println("end");
     } // mouseClicked end
 
     // function for changing the colour of the airport box when you hover onto it

@@ -4,11 +4,12 @@ import processing.core.PApplet;
 
 public class AirplaneButton extends Button
 {
-    UI ui;
+    private Airplanes airplane;
 
-    public AirplaneButton(UI ui, float x, float y, float width, float height, String text)
+    public AirplaneButton(UI ui, float x, float y, float width, float height, String text, Airplanes airplane)
     {
         super(ui, x, y, width, height, text);
+        this.airplane = airplane;
     }
 
     public void render()
@@ -102,5 +103,19 @@ public class AirplaneButton extends Button
      */
     public void setText(String text) {
         this.text = text;
+    }
+
+    /**
+     * @return the airplane
+     */
+    public Airplanes getAirplane() {
+        return airplane;
+    }
+
+    /**
+     * @param airplane the airplane to set
+     */
+    public void setAirplane(Airplanes airplane) {
+        this.airplane = airplane;
     }
 }

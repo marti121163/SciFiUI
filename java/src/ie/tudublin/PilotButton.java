@@ -4,8 +4,6 @@ import processing.core.PApplet;
 
 public class PilotButton extends Button
 {
-    UI ui;
-
     public PilotButton(UI ui, float x, float y, float width, float height, String text)
     {
         super(ui, x, y, width, height, text);
