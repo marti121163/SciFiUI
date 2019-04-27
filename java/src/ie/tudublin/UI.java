@@ -11,6 +11,7 @@ public class UI extends PApplet
     Airplanes selectedAirplane;
     Pilots selectedPilot;
 
+    // buttons
     Button buttonAirplane1;
     Button buttonAirplane2;
     Button buttonAirplane3;
@@ -20,8 +21,16 @@ public class UI extends PApplet
     Button buttonPilot2;
     //Plane plane1;
 
+    // images
     PImage map;
+    PImage airportImg1;
+    PImage airportImg2;
+    PImage airportImg3;
+    PImage airportImg4;
+    PImage airportImg5;
+    PImage airportImg6;
 
+    // airports
     Airports airport1;
     Airports airport2;
     Airports airport3;
@@ -29,11 +38,13 @@ public class UI extends PApplet
     Airports airport5;
     Airports airport6;
 
+    // airplanes
     Airplanes airplane1;
     Airplanes airplane2;
     Airplanes airplane3;
     Airplanes airplane4;
 
+    // planes
     Pilots pilot1;
     Pilots pilot2;
     Pilots pilot3;
@@ -68,7 +79,16 @@ public class UI extends PApplet
     public void setup()
     {
         // this loads in my premade map
-        map = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\map.png");
+        map = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\map.jpg");
+
+
+        // loads in airport images
+        airportImg1 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg1.png");
+        airportImg2 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg2.png");
+        airportImg3 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg3.png");
+        airportImg4 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg4.png");
+        airportImg5 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg5.png");
+        airportImg6 = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\airportImg6.png");
 
         // airport buttons setup
         airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport", "Val Verde", "Austin Roberts", "25,000", "1986", "Something Fancy");
@@ -104,7 +124,7 @@ public class UI extends PApplet
         buttonPilot2 = new Button(this, 1640, 1010, 150, 50, "Pilot 2");
 
         //plane1 = new Plane(this, width / 2, height * .75f, 50);
-        radar = new Radar(this, 500, width / 2, height / 2, 100);
+        radar = new Radar(this, 500, 500, 810, 60);
 
     }
 
@@ -113,7 +133,7 @@ public class UI extends PApplet
         // renders outline
         if (selectedAirport != null) {
             menuBox.render();
-            menuBox.airportInfoTemp();
+            //menuBox.airportInfoTemp();
             menuBox.airportInfo(selectedAirport);
 
             //airplane selection buttons
@@ -125,8 +145,23 @@ public class UI extends PApplet
             buttonPilot1.render();
             buttonPilot2.render();
 
-            //radar.update();
-            //radar.render();
+            radar.update();
+            radar.render();
+
+            // this shows the airport images when you click on them
+            if (selectedAirport == airport1) {
+                image(airportImg1, 40, 745);
+            } else if (selectedAirport == airport2) {
+                image(airportImg2, 40, 745);
+            } else if (selectedAirport == airport3) {
+                image(airportImg3, 40, 745);
+            } else if (selectedAirport == airport4) {
+                image(airportImg4, 40, 745);
+            } else if (selectedAirport == airport5) {
+                image(airportImg5, 40, 745);
+            } else if (selectedAirport == airport6) {
+                image(airportImg6, 40, 745);
+            }
 
 
             // this lets you hover over different airplanes and decide on which one you want to use

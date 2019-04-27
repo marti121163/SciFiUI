@@ -45,16 +45,17 @@ public class Menus
     // MENUS
 
     // this one will display all the "headings" before the : (eg. name: Val Verde airport, or "location" etc)
-    public void airportInfoTemp(){
-        ui.stroke(0);
-        ui.textSize(25);
-        ui.text("Name: ", 80, 925);
-        ui.text("Location: ", 96, 950);
-        ui.text("CEO: ", 71, 975);
-        ui.text("Yearly Passengers: ", 154, 1000);
-        ui.text("Year Built: ", 103, 1025);
-        ui.text("Features: ", 97, 1050);
-    }
+    // public void airportInfoTemp(){
+    //     ui.stroke(0);
+    //     ui.textSize(25);
+    //     ui.text("AIRPORT INFO", 280, 705);
+    //     ui.text("Name: ", 80, 925);
+    //     ui.text("Location: ", 96, 950);
+    //     ui.text("CEO: ", 71, 975);
+    //     ui.text("Yearly Passengers: ", 154, 1000);
+    //     ui.text("Year Built: ", 103, 1025);
+    //     ui.text("Features: ", 97, 1050);
+    // }
 
 
     // 3 menu boxes linked to the airport
@@ -63,18 +64,29 @@ public class Menus
     public void airportInfo(Airports airport) {
         ui.stroke(0);
         ui.textSize(25);
-        ui.text(airport.getName(), 280, 925);
-        ui.text(airport.getLocation(), 280, 950);
-        ui.text(airport.getCeo(), 280, 975);
-        ui.text(airport.getYearlyPassengers(), 280, 1000);
-        ui.text(airport.getYearBuilt(), 280, 1025);
-        ui.text(airport.getFeatures(), 300, 1050);
+
+        ui.text("AIRPORT INFO", 280, 705);
+        ui.text("Name: ", 80, 925);
+        ui.text("Location: ", 96, 950);
+        ui.text("CEO: ", 71, 975);
+        ui.text("Yearly Passengers: ", 154, 1000);
+        ui.text("Year Built: ", 103, 1025);
+        ui.text("Features: ", 97, 1050);
+
+        ui.text(airport.getName(), 400, 925);
+        ui.text(airport.getLocation(), 400, 950);
+        ui.text(airport.getCeo(), 400, 975);
+        ui.text(airport.getYearlyPassengers(), 400, 1000);
+        ui.text(airport.getYearBuilt(), 400, 1025);
+        ui.text(airport.getFeatures(), 400, 1050);
     }
 
     // menu that gives you an option of selecting a airplane before you generate it
     public void airplaneSelection(Airplanes airplane) {
         ui.stroke(0);
         ui.textSize(25);
+
+
 
         ui.stroke(0);
         ui.textSize(25);
