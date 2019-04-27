@@ -108,7 +108,20 @@ public class Menus
     }
 
     // menu that allows you to choose the pilot
-    public void pilotSelection() {
+    public void pilotSelection(Pilots pilot) {
+        ui.stroke(0);
+        ui.textSize(25);
+        ui.text("Name : ", 1425, 780);
+        ui.text("Gender: ", 1498, 890);
+        ui.text("DOB: ", 1481, 920);
+        ui.text("Place of birth: ", 1535, 950);
+        ui.text("Rank: ", 1485, 980);
+
+        ui.text(pilot.getPilotName(), 1580, 780);
+        ui.text(pilot.getGender(), 1750, 890);
+        ui.text(pilot.getDob(), 1750, 920);
+        ui.text(pilot.getPlaceofBirth(), 1745, 950);
+        ui.text(pilot.getRank(), 1750, 980);
 
     }
 

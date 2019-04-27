@@ -109,9 +109,8 @@ public class UI extends PApplet
 
 
         // pilots
-        pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks", "22");
-        pilot2 = new Pilots("Martina Nieckarz", "Female", "23-10-1998", "Bray, Wicklow, IE", "reseach ranks", "5");
-        pilot3 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, New York, USA", "reseach ranks", "45");
+        pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks");
+        pilot2 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, New York, USA", "reseach ranks");
 
         // buttons for airplane selection
         buttonAirplane1 = new Button(this, 625, 1010, 150, 50, "Airplane 1");
@@ -163,7 +162,6 @@ public class UI extends PApplet
                 image(airportImg6, 40, 745);
             }
 
-
             // this lets you hover over different airplanes and decide on which one you want to use
             if (mouseX > 625 && mouseX < (625 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
                 menuBox.airplaneSelection(airplane1);
@@ -175,10 +173,17 @@ public class UI extends PApplet
                 menuBox.airplaneSelection(airplane4);
             }
 
+            // buttonPilot1 = new Button(this, 1480, 1010, 150, 50, "Pilot 1");
+            // buttonPilot2 = new Button(this, 1640, 1010, 150, 50, "Pilot 2");
 
             // same as above but for pilot selection
+            if (mouseX > 1480 && mouseX < (1480 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+                menuBox.pilotSelection(pilot1);
+            } else if (mouseX > 1640 && mouseX < (1640 + 150) && mouseY > 1010 && mouseY < (1010 + 50)) {
+                menuBox.pilotSelection(pilot2);
+            }
 
-
+            // this lets you hover over different airplanes and decide on which one you want to use
 
             // if (selectedAirplane != null && selectedPilot != null){
 
@@ -269,10 +274,6 @@ public class UI extends PApplet
         } else if (mouseX > 1135 && mouseX < (1135 + 150) && mouseY > 980 && mouseY < (980 + 50)) {
             selectedAirplane = airplane4;
         }
-
-
-
-
     } // mouseClicked end
 
     // function for changing the colour of the airport box when you hover onto it
