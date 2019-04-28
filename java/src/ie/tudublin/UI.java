@@ -21,7 +21,7 @@ public class UI extends PApplet
 
     Button buttonPilot1;
     Button buttonPilot2;
-    //Plane plane1;
+    Plane plane1;
 
     BasicButton generateButton;
 
@@ -56,6 +56,8 @@ public class UI extends PApplet
     Pilots pilot3;
 
     Menus menuBox;
+
+    Radar radar;
 
     public int airplaneButtonAmount = 4;
     public int pilotButtonAmount = 2;
@@ -94,9 +96,10 @@ public class UI extends PApplet
     public void setup()
     {
         // this loads in my premade map
-        map = loadImage("C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI\\images\\map.png");
-
         String mainPath = "C:\\Users\\marty\\Desktop\\Projects\\OOP Assignment\\SciFiUI";
+
+        map = loadImage(mainPath + "\\images\\map.png");
+
 
         // loads in airport images
         airportImg1 = loadImage(mainPath + "\\images\\airportImg1.png");
@@ -167,7 +170,7 @@ public class UI extends PApplet
         // action buttons
         generateButton = new BasicButton(this, 0, 0, 150, 50, "GENERATE");
 
-        //plane1 = new Plane(this, width / 2, height * .75f, 50);
+        plane1 = new Plane(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 500, 500, 810, 60);
 
     }
@@ -177,6 +180,9 @@ public class UI extends PApplet
         // renders outline
         if (selectedAirport != null) {
             menuBox.render();
+
+            radar.update();
+            radar.render();
 
             text("AIRPORT INFO", 280, 705);
             text("AIRPLANE SELECTION", 960, 705);
@@ -195,13 +201,6 @@ public class UI extends PApplet
                 PilotButton button = pilotButtons.get(i);
                 button.render();
             }
-              
-
-            // buttonPilot1.render();
-            // buttonPilot2.render();
-
-            radar.update();
-            radar.render();
 
 
             // Checks if airplane button is hovered over then display info about it
@@ -234,17 +233,6 @@ public class UI extends PApplet
                 menuBox.pilotSelection(selectedPilot);
             }
 
-            // if (selectedPilot == pilot1) {
-            //     image(pilotImg1, 1500, 780);
-            // } else if (selectedPilot == pilot2) {
-            //     image(pilotImg2, 1500, 800);
-            // }
-
-            // this lets you hover over different airplanes and decide on which one you want to use
-
-            // if (selectedAirplane != null && selectedPilot != null){
-
-            // }
 
             if (selectedAirplane != null && selectedPilot != null){
                 generateButton.render();
@@ -253,7 +241,6 @@ public class UI extends PApplet
         }
     }
 
-    Radar radar;
 
     public void draw()
     {
@@ -277,34 +264,11 @@ public class UI extends PApplet
         airport6.render();
 
         renderMenu();
-
-        //plane1.update();
-        //plane1.render();
-
-
-        if (checkKey(LEFT))
-        {
-            System.out.println("Left arrow key pressed");
-        }
-
-        if (checkKey(RIGHT))
-        {
-            System.out.println("Right arrow key pressed");
-        }
-
-        if (checkKey(UP))
-        {
-            System.out.println("Up arrow key pressed");
-        }
-
-        if (checkKey(DOWN))
-        {
-            System.out.println("Down arrow key pressed");
-        }
+        
     }
 
     // fuction for displaying a menu for each airport, 30 is height and 145 is the width
-    // had to hard code it, otherwise it wouldn't work
+    // i tried not hard coding it and it messed everything up so i decided to leave it this way
     public void mouseClicked() {
         System.out.println("start");
         if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
@@ -319,9 +283,6 @@ public class UI extends PApplet
             selectedAirport = airport5;
         } else if (mouseX > 1600 && mouseX < (1600 + 145) && mouseY > 285 && mouseY < (285 + 30)) {
             selectedAirport = airport6;
-        // } else {
-        //     // if u click on any "blank space" (as in not a menu) then whatver menu was displayed will dissapear
-        //     selectedAirport = null;
         }
 
         // funtion for when you click on an airplane you select it
@@ -343,10 +304,11 @@ public class UI extends PApplet
         }
 
         if(mouseX > 0 && mouseX < (0 + 150) && mouseY > 0 && mouseY < (0 + 50)){
-            generateAirplane();
-
-            //set selectedAirplane = null && selectedPilot = null;
+            plane1.update();
+            plane1.render();
         }
+            //set selectedAirplane = null && selectedPilot = null;
+        //}
 
         // for loop
         // when you click on an airplane
@@ -367,8 +329,8 @@ public class UI extends PApplet
         // draw the airplane
         // place above the right airport
 
-        size(100, 100);
-        line(42, 14, 42, 70);
+        
+        //line(42, 14, 42, 70);
         // line(42, 14, 50, 05);
         // line(50, 05, 57, 13);
         // line(57, 14, 57, 70);
