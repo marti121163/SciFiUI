@@ -33,6 +33,12 @@ public class UI extends PApplet
     PImage airportImg4;
     PImage airportImg5;
     PImage airportImg6;
+
+    PImage airplaneImg1;
+    PImage airplaneImg2;
+    PImage airplaneImg3;
+    PImage airplaneImg4;
+
     PImage pilotImg1;
     PImage pilotImg2;
 
@@ -100,6 +106,8 @@ public class UI extends PApplet
 
         map = loadImage(mainPath + "\\images\\map.png");
 
+        // menu box outline
+        menuBox = new Menus(this, 3, 686, 1916, 393, 30, 40);
 
         // loads in airport images
         airportImg1 = loadImage(mainPath + "\\images\\airportImg1.png");
@@ -109,12 +117,17 @@ public class UI extends PApplet
         airportImg5 = loadImage(mainPath + "\\images\\airportImg5.png");
         airportImg6 = loadImage(mainPath + "\\images\\airportImg6.png");
 
+        // loads in airplane images
+        airplaneImg1 = loadImage(mainPath + "\\images\\airlane1.jpg");
+        airplaneImg2 = loadImage(mainPath + "\\images\\airplane2.jpg");
+        airplaneImg3 = loadImage(mainPath + "\\images\\airplane3.jpg");
+        airplaneImg4 = loadImage(mainPath + "\\images\\airplane4.jpg");
+
         // loads in pilot images
         pilotImg1 = loadImage(mainPath + "\\images\\pilot1.jpg");
         pilotImg2 = loadImage(mainPath + "\\images\\pilot2.jpg");
 
-
-
+    
         // airport buttons setup
         airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport", "Val Verde", "Austin Roberts", "25,000", "1986", "Something Fancy", airportImg1);
         airport2 = new Airports(this, 495, 76, width, height, "Los Santos Airport", "Los Santos", "CJ Williams", "95,000", "1956", "Something Fancy 2", airportImg2);
@@ -123,14 +136,12 @@ public class UI extends PApplet
         airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport", "Val Verde", "Wanda Maximoff", "7,000", "2006", "Something Fancy 5", airportImg5);
         airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport", "Panau", "Mina Myoui", "116,000", "1916", "Something Fancy 6", airportImg6);
 
-        // menu box outline
-        menuBox = new Menus(this, 3, 686, 1916, 393, 30, 40);
 
         // airplanes
-        airplane1 = new Airplanes("KIA728", "50", "30t", "28", "medium", "1998", "18/20");
-        airplane2 = new Airplanes("MIB318", "130", "50t", "61", "low", "1989", "12/20");
-        airplane3 = new Airplanes("BDE178", "250", "70t", "15", "high", "2007", "16/20");
-        airplane4 = new Airplanes("JET042", "25", "10t", "5", "medium", "2012", "10/20");
+        airplane1 = new Airplanes("KIA728", "50", "30t", "28", "medium", "1998", "18/20", airplaneImg1);
+        airplane2 = new Airplanes("MIB318", "130", "50t", "61", "low", "1989", "12/20", airplaneImg2);
+        airplane3 = new Airplanes("BDE178", "250", "70t", "15", "high", "2007", "16/20", airplaneImg3);
+        airplane4 = new Airplanes("JET042", "25", "10t", "5", "medium", "2012", "10/20", airplaneImg4);
         airplaneList.add(airplane1);
         airplaneList.add(airplane2);
         airplaneList.add(airplane3);
@@ -304,8 +315,7 @@ public class UI extends PApplet
         }
 
         if(mouseX > 0 && mouseX < (0 + 150) && mouseY > 0 && mouseY < (0 + 50)){
-            plane1.update();
-            plane1.render();
+            generateAirplane();
         }
             //set selectedAirplane = null && selectedPilot = null;
         //}
@@ -329,33 +339,9 @@ public class UI extends PApplet
         // draw the airplane
         // place above the right airport
 
+        //plane1.update();
+        plane1.draw();
         
-        //line(42, 14, 42, 70);
-        // line(42, 14, 50, 05);
-        // line(50, 05, 57, 13);
-        // line(57, 14, 57, 70);
-        // line(42, 70, 50, 79);
-        // line(50, 79, 57, 70);
-        // line(42, 63, 57, 63);
-        // line(42, 30, 57, 30);
-        // line(42, 22, 57, 22);
-        // line(44, 73, 55, 73);
-        // line(34, 76, 44, 73);
-        // line(34, 76, 34, 81);
-        // line(34, 81, 50, 78);
-        // line(50, 78, 65, 81);
-        // line(65, 81, 65, 76);
-        // line(65, 76, 55, 73);
-        // line(57, 25, 84, 55);
-        // line(84, 55, 84, 58);
-        // line(84, 58, 82, 58);
-        // line(82, 58, 66, 48);
-        // line(66, 48, 57, 48);
-        // line(42, 25, 16, 55);
-        // line(16, 55, 16, 58);
-        // line(16, 58, 18, 58);
-        // line(18, 58, 34, 48);
-        // line(34, 48, 42, 48);
     }
 
     // function that's gonna get called in mouseClicked

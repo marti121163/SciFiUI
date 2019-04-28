@@ -29,6 +29,20 @@ public class Plane
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text("Plane", x, y);
 
+        
+
+    }
+
+    public void update()
+    {
+        x += dx;
+        if ((x > ui.width - radius) || (x < radius))
+        {
+            dx *= -1;
+        }
+    }
+
+	public void draw() {
         ui.line(42, 14, 42, 70);
         ui.line(42, 14, 50, 05);
         ui.line(50, 05, 57, 13);
@@ -55,15 +69,5 @@ public class Plane
         ui.line(16, 58, 18, 58);
         ui.line(18, 58, 34, 48);
         ui.line(34, 48, 42, 48);
-
-    }
-
-    public void update()
-    {
-        x += dx;
-        if ((x > ui.width - radius) || (x < radius))
-        {
-            dx *= -1;
-        }
-    }
+	}
 }
