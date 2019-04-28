@@ -134,8 +134,8 @@ public class UI extends PApplet
         airplaneList.add(airplane4);
 
         // pilots
-        pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks");
-        pilot2 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, NY, USA", "reseach ranks");
+        pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks", pilotImg1);
+        pilot2 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, NY, USA", "reseach ranks", pilotImg2);
         pilotList.add(pilot1);
         pilotList.add(pilot2);
 
@@ -177,7 +177,11 @@ public class UI extends PApplet
         // renders outline
         if (selectedAirport != null) {
             menuBox.render();
-            //menuBox.airportInfoTemp();
+
+            text("AIRPORT INFO", 280, 705);
+            text("AIRPLANE SELECTION", 960, 705);
+            text("PILOT SELECTION", 1645, 705);
+
             menuBox.airportInfo(selectedAirport);
 
             //airplane selection buttons
@@ -230,11 +234,11 @@ public class UI extends PApplet
                 menuBox.pilotSelection(selectedPilot);
             }
 
-            if (selectedPilot == pilot1) {
-                image(pilotImg1, 1500, 780);
-            } else if (selectedPilot == pilot2) {
-                image(pilotImg2, 1500, 800);
-            }
+            // if (selectedPilot == pilot1) {
+            //     image(pilotImg1, 1500, 780);
+            // } else if (selectedPilot == pilot2) {
+            //     image(pilotImg2, 1500, 800);
+            // }
 
             // this lets you hover over different airplanes and decide on which one you want to use
 
@@ -340,6 +344,8 @@ public class UI extends PApplet
 
         if(mouseX > 0 && mouseX < (0 + 150) && mouseY > 0 && mouseY < (0 + 50)){
             generateAirplane();
+
+            //set selectedAirplane = null && selectedPilot = null;
         }
 
         // for loop
@@ -363,31 +369,31 @@ public class UI extends PApplet
 
         size(100, 100);
         line(42, 14, 42, 70);
-        line(42, 14, 50, 05);
-        line(50, 05, 57, 13);
-        line(57, 14, 57, 70);
-        line(42, 70, 50, 79);
-        line(50, 79, 57, 70);
-        line(42, 63, 57, 63);
-        line(42, 30, 57, 30);
-        line(42, 22, 57, 22);
-        line(44, 73, 55, 73);
-        line(34, 76, 44, 73);
-        line(34, 76, 34, 81);
-        line(34, 81, 50, 78);
-        line(50, 78, 65, 81);
-        line(65, 81, 65, 76);
-        line(65, 76, 55, 73);
-        line(57, 25, 84, 55);
-        line(84, 55, 84, 58);
-        line(84, 58, 82, 58);
-        line(82, 58, 66, 48);
-        line(66, 48, 57, 48);
-        line(42, 25, 16, 55);
-        line(16, 55, 16, 58);
-        line(16, 58, 18, 58);
-        line(18, 58, 34, 48);
-        line(34, 48, 42, 48);
+        // line(42, 14, 50, 05);
+        // line(50, 05, 57, 13);
+        // line(57, 14, 57, 70);
+        // line(42, 70, 50, 79);
+        // line(50, 79, 57, 70);
+        // line(42, 63, 57, 63);
+        // line(42, 30, 57, 30);
+        // line(42, 22, 57, 22);
+        // line(44, 73, 55, 73);
+        // line(34, 76, 44, 73);
+        // line(34, 76, 34, 81);
+        // line(34, 81, 50, 78);
+        // line(50, 78, 65, 81);
+        // line(65, 81, 65, 76);
+        // line(65, 76, 55, 73);
+        // line(57, 25, 84, 55);
+        // line(84, 55, 84, 58);
+        // line(84, 58, 82, 58);
+        // line(82, 58, 66, 48);
+        // line(66, 48, 57, 48);
+        // line(42, 25, 16, 55);
+        // line(16, 55, 16, 58);
+        // line(16, 58, 18, 58);
+        // line(18, 58, 34, 48);
+        // line(34, 48, 42, 48);
     }
 
     // function that's gonna get called in mouseClicked

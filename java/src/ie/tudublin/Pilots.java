@@ -1,6 +1,7 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Pilots 
 {
@@ -12,9 +13,10 @@ public class Pilots
     private String dob;
     private String placeOfBirth;
     private String rank;
+    private PImage pilotIcon;
 
 
-    public Pilots (String pilotName, String gender, String dob, String placeOfBirth, String rank)
+    public Pilots (String pilotName, String gender, String dob, String placeOfBirth, String rank, PImage pilotIcon)
     {
         // pilot selection & info
         this.pilotName = pilotName;
@@ -22,6 +24,7 @@ public class Pilots
         this.dob = dob;
         this.placeOfBirth = placeOfBirth;
         this.rank = rank;
+        this.pilotIcon = pilotIcon;
     }
 
     /**
@@ -92,6 +95,34 @@ public class Pilots
      */
     public void setRank(String rank) {
         this.rank = rank;
+    }
+
+    /**
+     * @return the placeOfBirth
+     */
+    public String getPlaceOfBirth() {
+        return placeOfBirth;
+    }
+
+    /**
+     * @param placeOfBirth the placeOfBirth to set
+     */
+    public void setPlaceOfBirth(String placeOfBirth) {
+        this.placeOfBirth = placeOfBirth;
+    }
+
+    /**
+     * @return the pilotIcon
+     */
+    public PImage getPilotIcon() {
+        return pilotIcon;
+    }
+
+    /**
+     * @param pilotIcon the pilotIcon to set
+     */
+    public void setPilotIcon(PImage pilotIcon) {
+        this.pilotIcon = pilotIcon;
     }
 
 }    
