@@ -24,6 +24,7 @@ public class UI extends PApplet
     Plane plane1;
 
     BasicButton generateButton;
+    BasicButton clearButton;
 
     // images
     PImage map;
@@ -117,11 +118,11 @@ public class UI extends PApplet
         airportImg5 = loadImage(mainPath + "\\images\\airportImg5.png");
         airportImg6 = loadImage(mainPath + "\\images\\airportImg6.png");
 
-        // loads in airplane images
-        airplaneImg1 = loadImage(mainPath + "\\images\\airlane1.jpg");
-        airplaneImg2 = loadImage(mainPath + "\\images\\airplane2.jpg");
-        airplaneImg3 = loadImage(mainPath + "\\images\\airplane3.jpg");
-        airplaneImg4 = loadImage(mainPath + "\\images\\airplane4.jpg");
+        // // loads in airplane images
+        // airplaneImg1 = loadImage(mainPath + "\\images\\airlane1.jpg");
+        // airplaneImg2 = loadImage(mainPath + "\\images\\airplane2.jpg");
+        // airplaneImg3 = loadImage(mainPath + "\\images\\airplane3.jpg");
+        // airplaneImg4 = loadImage(mainPath + "\\images\\airplane4.jpg");
 
         // loads in pilot images
         pilotImg1 = loadImage(mainPath + "\\images\\pilot1.jpg");
@@ -138,10 +139,10 @@ public class UI extends PApplet
 
 
         // airplanes
-        airplane1 = new Airplanes("KIA728", "50", "30t", "28", "medium", "1998", "18/20", airplaneImg1);
-        airplane2 = new Airplanes("MIB318", "130", "50t", "61", "low", "1989", "12/20", airplaneImg2);
-        airplane3 = new Airplanes("BDE178", "250", "70t", "15", "high", "2007", "16/20", airplaneImg3);
-        airplane4 = new Airplanes("JET042", "25", "10t", "5", "medium", "2012", "10/20", airplaneImg4);
+        airplane1 = new Airplanes("KIA728", "50", "30t", "28", "medium", "1998", "18/20");
+        airplane2 = new Airplanes("MIB318", "130", "50t", "61", "low", "1989", "12/20");
+        airplane3 = new Airplanes("BDE178", "250", "70t", "15", "high", "2007", "16/20");
+        airplane4 = new Airplanes("JET042", "25", "10t", "5", "medium", "2012", "10/20");
         airplaneList.add(airplane1);
         airplaneList.add(airplane2);
         airplaneList.add(airplane3);
@@ -180,6 +181,7 @@ public class UI extends PApplet
 
         // action buttons
         generateButton = new BasicButton(this, 0, 0, 150, 50, "GENERATE");
+        clearButton = new BasicButton(this, 0, 80, 150, 50, "CLEAR");
 
         plane1 = new Plane(this, width / 2, height * .75f, 50);
         radar = new Radar(this, 500, 500, 810, 60);
@@ -247,6 +249,7 @@ public class UI extends PApplet
 
             if (selectedAirplane != null && selectedPilot != null){
                 generateButton.render();
+                clearButton.render();
 
             }
         }
@@ -314,9 +317,16 @@ public class UI extends PApplet
             }
         }
 
+        // calls the function that generates the airplane once the button is clicked
         if(mouseX > 0 && mouseX < (0 + 150) && mouseY > 0 && mouseY < (0 + 50)){
             generateAirplane();
         }
+
+        // clears the screen
+        if(mouseX > 0 && mouseX < (0 + 150) && mouseY > 80 && mouseY < (80 + 50)){
+            selectedAirport = null;
+        }
+
             //set selectedAirplane = null && selectedPilot = null;
         //}
 

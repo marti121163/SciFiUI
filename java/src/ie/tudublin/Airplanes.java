@@ -20,11 +20,11 @@ public class Airplanes
     private String safetyLevel;
     private String manufactureYear;
     private String airplaneSpeed;
-    private PImage airplaneIcon;
+    //private PImage airplaneIcon;
 
 
     public Airplanes(String model, String capacity, String weight, 
-    String noOfPrvFlights, String safetyLevel, String manufactureYear, String airplaneSpeed, PImage airplaneIcon) 
+    String noOfPrvFlights, String safetyLevel, String manufactureYear, String airplaneSpeed) 
     {
         // airplane selection & info
         this.model = model;
@@ -34,7 +34,7 @@ public class Airplanes
         this.safetyLevel = safetyLevel;
         this.manufactureYear = manufactureYear;
         this.airplaneSpeed = airplaneSpeed;
-        this.airplaneIcon = airplaneIcon;
+        //this.airplaneIcon = airplaneIcon;
 
     }
 
@@ -238,18 +238,18 @@ public class Airplanes
         this.name = name;
     }
 
-    /**
-     * @return the airplaneIcon
-     */
-    public PImage getAirplaneIcon() {
-        return airplaneIcon;
-    }
+    // /**
+    //  * @return the airplaneIcon
+    //  */
+    // public PImage getAirplaneIcon() {
+    //     return airplaneIcon;
+    // }
 
-    /**
-     * @param airplaneIcon the airplaneIcon to set
-     */
-    public void setAirplaneIcon(PImage airplaneIcon) {
-        this.airplaneIcon = airplaneIcon;
-    }
+    // /**
+    //  * @param airplaneIcon the airplaneIcon to set
+    //  */
+    // public void setAirplaneIcon(PImage airplaneIcon) {
+    //     this.airplaneIcon = airplaneIcon;
+    // }
 
 }    

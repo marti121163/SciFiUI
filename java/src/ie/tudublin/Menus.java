@@ -86,7 +86,7 @@ public class Menus
         ui.text(airplane.getSafetyLevel(), 1000, 890);
         ui.text(airplane.getManufactureYear(), 1000, 920);
         ui.text(airplane.getAirplaneSpeed(), 1000, 950);
-        ui.image(airplane.getAirplaneIcon(), 1100, 800);
+        //ui.image(airplane.getAirplaneIcon(), 1100, 800);
     }
 
     // menu that allows you to choose the pilot
