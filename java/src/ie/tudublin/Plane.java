@@ -27,8 +27,8 @@ public class Plane
         ui.ellipse(x, y, diameter, diameter);
         // Static field
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-        ui.text("Plane", x, y);
 
+       
         
 
     }

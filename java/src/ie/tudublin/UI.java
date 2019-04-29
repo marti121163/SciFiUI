@@ -155,7 +155,7 @@ public class UI extends PApplet
         pilotList.add(pilot2);
 
     
-
+        // for loop for airplane buttons
         int airplaneButtonGap = 170;
         int startingAirplaneButtonX = 625;
         int airplaneButtonY = 1010;
@@ -168,6 +168,7 @@ public class UI extends PApplet
         }
 
 
+        // for loop for pilot buttons
         int pilotButtonGap = 160;
         int startingPilotButtonX = 1480;
         int pilotButtonY = 1010;
@@ -203,18 +204,17 @@ public class UI extends PApplet
 
             menuBox.airportInfo(selectedAirport);
 
-            //airplane selection buttons
+            //rendering airplane selection buttons
             for (int i = 0; i < airplaneButtons.size(); i++) {
                 AirplaneButton button = airplaneButtons.get(i);
                 button.render();
             }
 
-             //pilot selection buttons
+             //rendering pilot selection buttons
              for (int i = 0; i < pilotButtons.size(); i++) {
                 PilotButton button = pilotButtons.get(i);
                 button.render();
             }
-
 
             // Checks if airplane button is hovered over then display info about it
             // else if its not hovered over and an airplane button has been clicked then 
@@ -247,12 +247,12 @@ public class UI extends PApplet
             }
 
 
+            // if both a pilot and a airplane are selected a "generate" and "clear" buttons will show up
             if (selectedAirplane != null && selectedPilot != null){
                 generateButton.render();
                 clearButton.render();
-
             }
-        }
+        }   
     }
 
 
@@ -350,7 +350,7 @@ public class UI extends PApplet
         // place above the right airport
 
         //plane1.update();
-        plane1.draw();
+        plane1.render();
         
     }
 
