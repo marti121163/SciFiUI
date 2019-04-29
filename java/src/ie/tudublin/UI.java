@@ -139,7 +139,7 @@ public class UI extends PApplet
 
 
         // airplanes
-        airplane1 = new Airplanes("KIA728", "50", "30t", "28", "medium", "1998", "18/20");
+        airplane1 = new Airplanes(this, "KIA728", "50", "30t", "28", "medium", "1998", "18/20",  10, 35, airport1);
         airplane2 = new Airplanes("MIB318", "130", "50t", "61", "low", "1989", "12/20");
         airplane3 = new Airplanes("BDE178", "250", "70t", "15", "high", "2007", "16/20");
         airplane4 = new Airplanes("JET042", "25", "10t", "5", "medium", "2012", "10/20");
