@@ -13,6 +13,8 @@ public class UI extends PApplet
     Airplanes selectedAirplane;
     Pilots selectedPilot;
 
+    Airplanes clickedAirplane;
+
     // buttons
     Button buttonAirplane1;
     Button buttonAirplane2;
@@ -21,7 +23,6 @@ public class UI extends PApplet
 
     Button buttonPilot1;
     Button buttonPilot2;
-    Plane plane1;
 
     BasicButton generateButton;
     BasicButton clearButton;
@@ -76,6 +77,7 @@ public class UI extends PApplet
 
     private ArrayList<PilotButton> pilotButtons = new ArrayList<PilotButton>();
     private ArrayList<Pilots> pilotList = new ArrayList<Pilots>();
+    private ArrayList<Airplanes> readyAirplanes = new ArrayList<Airplanes>();
 
     public void keyPressed()
     {
@@ -139,10 +141,10 @@ public class UI extends PApplet
 
 
         // airplanes
-        airplane1 = new Airplanes(this, "KIA728", "50", "30t", "28", "medium", "1998", "18/20",  10, 35, airport1);
-        airplane2 = new Airplanes("MIB318", "130", "50t", "61", "low", "1989", "12/20");
-        airplane3 = new Airplanes("BDE178", "250", "70t", "15", "high", "2007", "16/20");
-        airplane4 = new Airplanes("JET042", "25", "10t", "5", "medium", "2012", "10/20");
+        airplane1 = new Airplanes(this, "KIA728", "50", "30t", "28", "medium", "1998", 20);
+        airplane2 = new Airplanes(this, "MIB318", "130", "50t", "61", "low", "1989", 20);
+        airplane3 = new Airplanes(this, "BDE178", "250", "70t", "15", "high", "2007", 20);
+        airplane4 = new Airplanes(this, "JET042", "25", "10t", "5", "medium", "2012", 20);
         airplaneList.add(airplane1);
         airplaneList.add(airplane2);
         airplaneList.add(airplane3);
@@ -187,14 +189,12 @@ public class UI extends PApplet
         //plane1 = new Plane(this, width / 2, height * .75f);
         radar = new Radar(this, 500, 500, 810, 60);
 
-        plane1 = new Plane(this, 10, 35, airport1);
-
     }
 
     public void renderMenu() {
-        //menuBox.render();
+        // menuBox.render();
         // renders outline
-        if (selectedAirport != null) {
+        if (selectedAirport != null && clickedAirplane == null) {
             menuBox.render();
 
             radar.update();
@@ -212,8 +212,8 @@ public class UI extends PApplet
                 button.render();
             }
 
-             //rendering pilot selection buttons
-             for (int i = 0; i < pilotButtons.size(); i++) {
+            //rendering pilot selection buttons
+            for (int i = 0; i < pilotButtons.size(); i++) {
                 PilotButton button = pilotButtons.get(i);
                 button.render();
             }
@@ -254,7 +254,20 @@ public class UI extends PApplet
                 generateButton.render();
                 clearButton.render();
             }
-        }   
+        } else if (clickedAirplane != null){
+            menuBox.render();
+            menuBox.airplaneSettings();
+            fill(200, 0, 0);
+            textAlign(CENTER);
+            text("Please Click on the Destination Airport", 1000, 200);
+        }
+    }
+
+    public void renderAirplanes() {
+        for (int i = 0; i < readyAirplanes.size(); i++) {
+            Airplanes airplane = readyAirplanes.get(i);
+            airplane.draw();
+        }
     }
 
 
@@ -280,16 +293,16 @@ public class UI extends PApplet
         airport6.render();
 
         renderMenu();
+        renderAirplanes();
         
-        if (plane1 != null) {
-            plane1.draw();
-        }
+        // if (plane1 != null) {
+        //     plane1.draw();
+        // }
     }
 
     // fuction for displaying a menu for each airport, 30 is height and 145 is the width
     // i tried not hard coding it and it messed everything up so i decided to leave it this way
     public void mouseClicked() {
-        System.out.println("start");
         if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
             selectedAirport = airport1;
         } else if (mouseX > 495 && mouseX < (495 + 145) && mouseY > 75 && mouseY < (75 + 30)) {
@@ -324,12 +337,30 @@ public class UI extends PApplet
 
         // calls the function that generates the airplane once the button is clicked
         if(mouseX > 0 && mouseX < (0 + 150) && mouseY > 0 && mouseY < (0 + 50)){
-            generateAirplane();
+            // generateAirplane();
+            selectedAirplane.setVariables(selectedAirport, 10, 35);
+            readyAirplanes.add(selectedAirplane);
         }
 
         // clears the screen
         if(mouseX > 0 && mouseX < (0 + 150) && mouseY > 80 && mouseY < (80 + 50)){
             selectedAirport = null;
+        }
+
+        boolean ifClickedAirplane = false; 
+        for (int i = 0; i < readyAirplanes.size(); i++) {
+            Airplanes airplane = readyAirplanes.get(i);
+            int length = (int)airplane.getLength();
+
+            if (overRect((int)airplane.getX() - length/2, (int)airplane.getY() - length/2, length, length)) {
+                System.out.println("Clicked Airplane");
+                clickedAirplane = airplane;
+                ifClickedAirplane = true;
+            }
+        }
+
+        if (ifClickedAirplane == false) {
+            clickedAirplane = null;
         }
 
             //set selectedAirplane = null && selectedPilot = null;
@@ -350,14 +381,10 @@ public class UI extends PApplet
         }
     }
 
-    public void generateAirplane(){
-        // draw the airplane
-        // place above the right airport
-
-        //plane1.update();
-        //plane1 = new Plane(this, 10, 35, selectedAirport);
-    }
-
+    // public void generateAirplane(){
+    //     selectedAirplane.setStartingAirport(selectedAirport);
+    // }
+// 
     // function that's gonna get called in mouseClicked
     // pull airplane info from selectedAirplane
     // call settings menu

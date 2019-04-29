@@ -10,10 +10,10 @@ public class Airplanes
     private float y;
     private float width;
     private float length;
-    private String name; 
+    private String name;
     private Airports startingAirport;
     private Airports destinationAirport;
-    private int speed;
+
 
     // airplane details
     private String model;
@@ -22,13 +22,12 @@ public class Airplanes
     private String noOfPrvFlights;
     private String safetyLevel;
     private String manufactureYear;
-    private String airplaneSpeed;
+    private int airplaneSpeed;
     //private PImage airplaneIcon;
 
 
     public Airplanes(UI ui, String model, String capacity, String weight, 
-    String noOfPrvFlights, String safetyLevel, String manufactureYear, String airplaneSpeed,
-    int width, int length, Airports startingAirport) 
+    String noOfPrvFlights, String safetyLevel, String manufactureYear, int airplaneSpeed) 
     {
         // airplane selection & info
         this.model = model;
@@ -41,33 +40,36 @@ public class Airplanes
         //this.airplaneIcon = airplaneIcon;
 
         this.ui = ui;
-        this.x = startingAirport.getX() + startingAirport.getWidth() / 2;
-        this.y = startingAirport.getY() - startingAirport.getHeight();
-        this.width = width;
-        this.length = length;
-        this.startingAirport = startingAirport;
-
     }
 
     public void render() {
-        int height = 30;
-        //ui.noFill();
-        ui.fill(255, 255, 255);
-        ui.stroke(0);
-        ui.rect(x, y, width, height);
-        ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-        ui.fill(0);
-        ui.textSize(15);
-        ui.text(name, x + width * 0.5f, y + height * 0.5f);
 
-        if (ui.overRect((int)x, (int)y, (int)width, (int)height)) {
-            ui.fill(230);
-            ui.rect(x, y, width, height);
-            ui.fill(0);
-            ui.text(name, x + width * 0.5f, y + height * 0.5f);
-        }
+
+        //int height = 30;
+        //ui.noFill();
+        // ui.fill(255, 255, 255);
+        // ui.stroke(0);
+        // ui.rect(x, y, width, height);
+        // ui.textAlign(PApplet.CENTER, PApplet.CENTER);
+        // ui.fill(0);
+        // ui.textSize(15);
+        // ui.text(name, x + width * 0.5f, y + height * 0.5f);
+
+        // if (ui.overRect((int)x, (int)y, (int)width, (int)height)) {
+        //     ui.fill(230);
+        //     ui.rect(x, y, width, height);
+        //     ui.fill(0);
+        //     ui.text(name, x + width * 0.5f, y + height * 0.5f);
+        // }
     }
 
+    public void setVariables(Airports startingAirport, int width, int height) {
+        this.startingAirport = startingAirport;
+        this.x = startingAirport.getX() + startingAirport.getWidth() / 2;
+        this.y = startingAirport.getY() - startingAirport.getHeight();
+        this.width = width;
+        this.length = 35;
+    }
     
     public void draw() {
         ui.stroke(255);
@@ -201,17 +203,9 @@ public class Airplanes
     /**
      * @return the airplaneSpeed
      */
-    public String getAirplaneSpeed() {
+    public int getAirplaneSpeed() {
         return airplaneSpeed;
     }
-
-    /**
-     * @param airplaneSpeed the airplaneSpeed to set
-     */
-    public void setAirplaneSpeed(String airplaneSpeed) {
-        this.airplaneSpeed = airplaneSpeed;
-    }
-
 
     /**
      * @return the ui
@@ -225,6 +219,55 @@ public class Airplanes
      */
     public void setUi(UI ui) {
         this.ui = ui;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the startingAirport
+     */
+    public Airports getStartingAirport() {
+        return startingAirport;
+    }
+
+    /**
+     * @param startingAirport the startingAirport to set
+     */
+    public void setStartingAirport(Airports startingAirport) {
+        this.startingAirport = startingAirport;
+    }
+
+    /**
+     * @return the destinationAirport
+     */
+    public Airports getDestinationAirport() {
+        return destinationAirport;
+    }
+
+    /**
+     * @param destinationAirport the destinationAirport to set
+     */
+    public void setDestinationAirport(Airports destinationAirport) {
+        this.destinationAirport = destinationAirport;
+    }
+
+    /**
+     * @param airplaneSpeed the airplaneSpeed to set
+     */
+    public void setAirplaneSpeed(int airplaneSpeed) {
+        this.airplaneSpeed = airplaneSpeed;
     }
 
     /**
@@ -269,19 +312,18 @@ public class Airplanes
         this.width = width;
     }
 
-
     /**
-     * @return the name
+     * @return the length
      */
-    public String getName() {
-        return name;
+    public float getLength() {
+        return length;
     }
 
     /**
-     * @param name the name to set
+     * @param length the length to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setLength(float length) {
+        this.length = length;
     }
 
     // /**

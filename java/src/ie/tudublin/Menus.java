@@ -2,6 +2,8 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 public class Menus
 {
     UI ui;
@@ -118,7 +120,7 @@ public class Menus
 
     // menu for controlling the airplane
     public void airplaneSettings(){
-
+        //System.out.println("hihi");
     }
 
     // menu that displays the information about the previouly chosen pilot
