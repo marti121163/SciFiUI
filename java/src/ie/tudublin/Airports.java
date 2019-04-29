@@ -51,6 +51,9 @@ public class Airports
         ui.fill(0);
         ui.textSize(15);
         ui.text(name, x + width * 0.5f, y + height * 0.5f);
+        ui.stroke(0);
+        ui.fill(255);
+        ui.ellipse(x + width/2, y + height*(float)1.5, height/2, height/2);
 
         if (ui.overRect((int)x, (int)y, (int)width, (int)height)) {
             ui.fill(230);

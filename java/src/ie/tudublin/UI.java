@@ -72,11 +72,14 @@ public class UI extends PApplet
 
     boolean[] keys = new boolean[1024];
 
+    private ArrayList<Airports> airportList = new ArrayList<Airports>();
+
     private ArrayList<AirplaneButton> airplaneButtons = new ArrayList<AirplaneButton>();
     private ArrayList<Airplanes> airplaneList = new ArrayList<Airplanes>();
 
     private ArrayList<PilotButton> pilotButtons = new ArrayList<PilotButton>();
     private ArrayList<Pilots> pilotList = new ArrayList<Pilots>();
+
     private ArrayList<Airplanes> readyAirplanes = new ArrayList<Airplanes>();
 
     public void keyPressed()
@@ -138,6 +141,12 @@ public class UI extends PApplet
         airport4 = new Airports(this, 1350, 550, width, height, "Wakanda Airport", "Wakanda", "Brie Larson", "165,800", "1986", "Something Fancy 4", airportImg4);
         airport5 = new Airports(this, 1670, 140, width, height, "Tansia Airport", "Val Verde", "Wanda Maximoff", "7,000", "2006", "Something Fancy 5", airportImg5);
         airport6 = new Airports(this, 1600, 285, width, height, "Panau Airport", "Panau", "Mina Myoui", "116,000", "1916", "Something Fancy 6", airportImg6);
+        airportList.add(airport1);
+        airportList.add(airport2);
+        airportList.add(airport3);
+        airportList.add(airport4);
+        airportList.add(airport5);
+        airportList.add(airport6);
 
 
         // airplanes
@@ -270,7 +279,8 @@ public class UI extends PApplet
         }
     }
 
-
+    public float timeDelta;
+    private float last;
     public void draw()
     {
         background(0);
@@ -303,18 +313,30 @@ public class UI extends PApplet
     // fuction for displaying a menu for each airport, 30 is height and 145 is the width
     // i tried not hard coding it and it messed everything up so i decided to leave it this way
     public void mouseClicked() {
-        if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
-            selectedAirport = airport1;
-        } else if (mouseX > 495 && mouseX < (495 + 145) && mouseY > 75 && mouseY < (75 + 30)) {
-            selectedAirport = airport2;
-        } else if (mouseX > 600 && mouseX < (600 + 145) && mouseY > 290 && mouseY < (290 + 30)) {
-            selectedAirport = airport3;
-        } else if (mouseX > 1350 && mouseX < (1350 + 145) && mouseY > 550 && mouseY < (550 + 30)) {
-            selectedAirport = airport4;
-        } else if (mouseX > 1670 && mouseX < (1670 + 145) && mouseY > 140 && mouseY < (140 + 30)) {
-            selectedAirport = airport5;
-        } else if (mouseX > 1600 && mouseX < (1600 + 145) && mouseY > 285 && mouseY < (285 + 30)) {
-            selectedAirport = airport6;
+        // if (mouseX > 430 && mouseX < (430 + 145) && mouseY > 500 && mouseY < (500 + 30)) {
+        //     selectedAirport = airport1;
+        // } else if (mouseX > 495 && mouseX < (495 + 145) && mouseY > 75 && mouseY < (75 + 30)) {
+        //     selectedAirport = airport2;
+        // } else if (mouseX > 600 && mouseX < (600 + 145) && mouseY > 290 && mouseY < (290 + 30)) {
+        //     selectedAirport = airport3;
+        // } else if (mouseX > 1350 && mouseX < (1350 + 145) && mouseY > 550 && mouseY < (550 + 30)) {
+        //     selectedAirport = airport4;
+        // } else if (mouseX > 1670 && mouseX < (1670 + 145) && mouseY > 140 && mouseY < (140 + 30)) {
+        //     selectedAirport = airport5;
+        // } else if (mouseX > 1600 && mouseX < (1600 + 145) && mouseY > 285 && mouseY < (285 + 30)) {
+        //     selectedAirport = airport6;
+        // }
+
+        for(int i = 0; i < airportList.size(); i++){
+            Airports airport = airportList.get(i);
+            if (overRect((int)airport.getX(), (int)airport.getY(), (int) airport.getWidth(), (int) airport.getHeight())) {
+                if (clickedAirplane == null) {
+                    selectedAirport = airport;
+                } else {
+                    clickedAirplane.setDestinationAirport(airport);
+                }
+                break;
+            }
         }
 
         // funtion for when you click on an airplane you select it

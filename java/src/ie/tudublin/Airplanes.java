@@ -66,7 +66,7 @@ public class Airplanes
     public void setVariables(Airports startingAirport, int width, int height) {
         this.startingAirport = startingAirport;
         this.x = startingAirport.getX() + startingAirport.getWidth() / 2;
-        this.y = startingAirport.getY() - startingAirport.getHeight();
+        this.y = startingAirport.getY() + startingAirport.getHeight() * (float)1.5;
         this.width = width;
         this.length = 35;
     }
@@ -113,6 +113,13 @@ public class Airplanes
 
         ui.quad(x, backPointY, x, backPointY - width/2, x + length/3, backPointY, x + length/3, backPointY + width/2);
         ui.quad(x, backPointY, x, backPointY - width/2, x - length/3, backPointY, x - length/3, backPointY + width/2);
+
+
+        // draw line between source and destination
+        ui.stroke(255, 0, 0);
+        if (destinationAirport != null) {
+            ui.line(startingAirport.getX() + startingAirport.getWidth() / 2, startingAirport.getY() + startingAirport.getHeight() * (float)1.5, destinationAirport.getX() + destinationAirport.getWidth() / 2, destinationAirport.getY() + destinationAirport.getHeight() * (float)1.5);
+        }
 	}
 
 
