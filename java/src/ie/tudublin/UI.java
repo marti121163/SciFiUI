@@ -184,8 +184,10 @@ public class UI extends PApplet
         generateButton = new BasicButton(this, 0, 0, 150, 50, "GENERATE");
         clearButton = new BasicButton(this, 0, 80, 150, 50, "CLEAR");
 
-        plane1 = new Plane(this, width / 2, height * .75f, 50);
+        //plane1 = new Plane(this, width / 2, height * .75f);
         radar = new Radar(this, 500, 500, 810, 60);
+
+        plane1 = new Plane(this, 10, 35, airport1);
 
     }
 
@@ -279,6 +281,9 @@ public class UI extends PApplet
 
         renderMenu();
         
+        if (plane1 != null) {
+            plane1.draw();
+        }
     }
 
     // fuction for displaying a menu for each airport, 30 is height and 145 is the width
@@ -350,8 +355,7 @@ public class UI extends PApplet
         // place above the right airport
 
         //plane1.update();
-        plane1.render();
-        
+        //plane1 = new Plane(this, 10, 35, selectedAirport);
     }
 
     // function that's gonna get called in mouseClicked
