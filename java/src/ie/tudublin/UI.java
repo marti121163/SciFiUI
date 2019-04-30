@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
 // import sun.java2d.pipe.ValidatePipe;
+import processing.core.PVector;
 
 public class UI extends PApplet
 {
@@ -261,6 +262,18 @@ public class UI extends PApplet
         }
     }
 
+    private PVector messagePos = new PVector(-300,20);
+    public void movingMessage() {
+
+        fill(255);
+        textAlign(LEFT);
+        if (messagePos.x > 1916) {
+            messagePos.x = -300;
+        }
+        messagePos.x = (messagePos.x + 5);
+        text("FLIGHT TRACKER SIMULATOR", messagePos.x, messagePos.y);
+    }
+
     // public float timeDelta;
     // private float last;
     public void draw()
@@ -274,7 +287,7 @@ public class UI extends PApplet
         rect(735, 5, 475, 38);
         fill(27, 20, 119);
         textSize(30);
-        text("FLIGHT TRACKER SIMULATOR", 975, 20);
+        movingMessage();
 
         // airports
         airport1.render();

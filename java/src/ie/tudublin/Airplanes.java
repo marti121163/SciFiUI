@@ -99,7 +99,7 @@ public class Airplanes
         ui.fill(80);
 
         ui.pushMatrix();
-        //System.out.println("Inside");
+        // this is needed because otherwise the airplane will get drawn at 0, 0 where the rotation is done
         ui.translate(pos.x, pos.y);
         ui.rotate(rotation);
 
