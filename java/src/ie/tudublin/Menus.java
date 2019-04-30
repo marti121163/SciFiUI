@@ -13,8 +13,6 @@ public class Menus
     private float height;
     private float smallBoxSize;
     private float bigBoxSize;
-    
-    
 
     public Menus(UI ui, float x, float y, float width, float height, float smallBoxSize, float bigBoxSize)
     {
@@ -128,6 +126,7 @@ public class Menus
 
     }
 
+    // display airplane info when you hover over the button
     public boolean airplaneHover(int mouseX, int mouseY, AirplaneButton airplaneButton){
         if (ui.overRect((int) airplaneButton.getX(), (int) airplaneButton.getY(), (int) airplaneButton.getWidth(), (int) airplaneButton.getHeight())) {
             airplaneSelection(airplaneButton.getAirplane());
@@ -136,6 +135,7 @@ public class Menus
         return false;
     }
 
+    // display pilot info when you hover over the button
     public boolean pilotHover(int mouseX, int mouseY, PilotButton pilotButton){
         if (ui.overRect((int) pilotButton.getX(), (int) pilotButton.getY(), (int) pilotButton.getWidth(), (int) pilotButton.getHeight())) {
             pilotSelection(pilotButton.getPilot());

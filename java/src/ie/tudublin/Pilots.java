@@ -5,8 +5,6 @@ import processing.core.PImage;
 
 public class Pilots 
 {
-
-
     // pilot details
     private String pilotName;
     private String gender;

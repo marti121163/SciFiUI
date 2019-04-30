@@ -44,23 +44,6 @@ public class Airplanes
 
     public void render() {
 
-
-        //int height = 30;
-        //ui.noFill();
-        // ui.fill(255, 255, 255);
-        // ui.stroke(0);
-        // ui.rect(x, y, width, height);
-        // ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-        // ui.fill(0);
-        // ui.textSize(15);
-        // ui.text(name, x + width * 0.5f, y + height * 0.5f);
-
-        // if (ui.overRect((int)x, (int)y, (int)width, (int)height)) {
-        //     ui.fill(230);
-        //     ui.rect(x, y, width, height);
-        //     ui.fill(0);
-        //     ui.text(name, x + width * 0.5f, y + height * 0.5f);
-        // }
     }
 
     public void setVariables(Airports startingAirport, int width, int height) {
@@ -73,47 +56,28 @@ public class Airplanes
     
     public void draw() {
         ui.stroke(255);
-        //ui.noFill();
         ui.fill(80);
+
         // body and tip
         ui.rect(x - width/2, y - length/2, width, length);
         ui.triangle(x - width/2, y - length/2, x, y - length/2 - width, x + width/2, y - length/2);
-        // ui.line(x - width/2, y - length/2, x, y - length/2 - width);
-        // ui.line(x + width/2, y - length/2, x, y - length/2 - width);
 
         //wings
         float leftWingX = x - length;
         float WingY = y + length/2;
         float rightWingX = x + length;
-        
         ui.triangle(x - width/2, y - length/4, leftWingX, WingY, leftWingX + (length/3)*2, WingY - length/4);
         ui.triangle(x + width/2, y - length/4, rightWingX, WingY, rightWingX - (length/3)*2, WingY - length/4);
         ui.triangle(x - width/2, y - length/4, leftWingX + (length/3)*2, WingY - length/4, x - width/2, WingY - length/4);
         ui.triangle(x + width/2, y - length/4, rightWingX - (length/3)*2, WingY - length/4, x + width/2, WingY - length/4);
 
-        // ui.line(x - width/2, y - length/4, leftWingX, WingY);
-        // ui.line(x + width/2, y - length/4, rightWingX, WingY);
-        // ui.line(leftWingX, WingY, leftWingX + (length/3)*2, WingY - length/4);
-        // ui.line(rightWingX, WingY, rightWingX - (length/3)*2, WingY - length/4);
-        // ui.line(leftWingX + (length/3)*2, WingY - length/4, x - width/2, WingY - length/4);
-        // ui.line(rightWingX - (length/3)*2, WingY - length/4, x + width/2, WingY - length/4);
-
         // back
         ui.triangle(x - width/2, y + length/2, x, y + length/2 + width, x + width/2, y + length/2);
-        // ui.line(x - width/2, y + length/2, x, y + length/2 + width);
-        // ui.line(x + width/2, y + length/2, x, y + length/2 + width);
 
         // back wings
         float backPointY = y + length/2 + width;
-        // ui.line(x, backPointY, x + length/3, backPointY + width/2);
-        // ui.line(x, backPointY - width/2, x + length/3, backPointY);
-
-        // ui.line(x, backPointY, x - length/3, backPointY + width/2);
-        // ui.line(x, backPointY - width/2, x - length/3, backPointY);
-
         ui.quad(x, backPointY, x, backPointY - width/2, x + length/3, backPointY, x + length/3, backPointY + width/2);
         ui.quad(x, backPointY, x, backPointY - width/2, x - length/3, backPointY, x - length/3, backPointY + width/2);
-
 
         // draw line between source and destination
         ui.stroke(255, 0, 0);
@@ -121,7 +85,6 @@ public class Airplanes
             ui.line(startingAirport.getX() + startingAirport.getWidth() / 2, startingAirport.getY() + startingAirport.getHeight() * (float)1.5, destinationAirport.getX() + destinationAirport.getWidth() / 2, destinationAirport.getY() + destinationAirport.getHeight() * (float)1.5);
         }
 	}
-
 
     /**
      * @return the model
@@ -332,19 +295,4 @@ public class Airplanes
     public void setLength(float length) {
         this.length = length;
     }
-
-    // /**
-    //  * @return the airplaneIcon
-    //  */
-    // public PImage getAirplaneIcon() {
-    //     return airplaneIcon;
-    // }
-
-    // /**
-    //  * @param airplaneIcon the airplaneIcon to set
-    //  */
-    // public void setAirplaneIcon(PImage airplaneIcon) {
-    //     this.airplaneIcon = airplaneIcon;
-    // }
-
 }    
