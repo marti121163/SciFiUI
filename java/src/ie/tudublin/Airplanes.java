@@ -1,18 +1,20 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
-import processing.core.PImage;
+import processing.core.PVector;
+// import processing.core.PApplet;
+// import processing.core.PImage;
 
 public class Airplanes 
 {
     UI ui;
-    private float x;
-    private float y;
+    private PVector pos;
     private float width;
     private float length;
     private String name;
     private Airports startingAirport;
     private Airports destinationAirport;
+    private float rotation;
 
 
     // airplane details
@@ -48,20 +50,48 @@ public class Airplanes
 
     public void setVariables(Airports startingAirport, int width, int height) {
         this.startingAirport = startingAirport;
-        this.x = startingAirport.getX() + startingAirport.getWidth() / 2;
-        this.y = startingAirport.getY() + startingAirport.getHeight() * (float)1.5;
+        float x = startingAirport.getX() + startingAirport.getWidth() / 2;
+        float y = startingAirport.getY() + startingAirport.getHeight() * (float)1.5;
+        pos = new PVector(x, y);
         this.width = width;
         this.length = 35;
     }
+
+    public void update()
+    {
+        int x = (int)(destinationAirport.getX() + destinationAirport.getWidth() / 2);
+        int y = (int)(destinationAirport.getY() + destinationAirport.getHeight() * (float)1.5);
+        PVector dest = new PVector(x, y);
+        //PVector dest = new PVector(500, 0);
+        PVector toNext = PVector.sub(dest, pos);
+        float dist = toNext.mag();
+        toNext.normalize();
+        pos.add(toNext);
+        rotation = (float) Math.atan2(toNext.y, toNext.x) + PApplet.HALF_PI;
+        // if (dist < 1)
+        // {
+        //     current = (current + 1) % waypoints.size();
+        // }
+    }
     
     public void draw() {
+        if (destinationAirport != null) {
+            update();
+        }
+
+        float x = pos.x;
+        float y = pos.y;
+        
         ui.stroke(255);
         ui.fill(80);
+
+        // ui.pushMatrix();
+        // ui.translate(x, y);
+        //ui.rotate(rotation);
 
         // body and tip
         ui.rect(x - width/2, y - length/2, width, length);
         ui.triangle(x - width/2, y - length/2, x, y - length/2 - width, x + width/2, y - length/2);
-
         //wings
         float leftWingX = x - length;
         float WingY = y + length/2;
@@ -70,14 +100,14 @@ public class Airplanes
         ui.triangle(x + width/2, y - length/4, rightWingX, WingY, rightWingX - (length/3)*2, WingY - length/4);
         ui.triangle(x - width/2, y - length/4, leftWingX + (length/3)*2, WingY - length/4, x - width/2, WingY - length/4);
         ui.triangle(x + width/2, y - length/4, rightWingX - (length/3)*2, WingY - length/4, x + width/2, WingY - length/4);
-
         // back
         ui.triangle(x - width/2, y + length/2, x, y + length/2 + width, x + width/2, y + length/2);
-
         // back wings
         float backPointY = y + length/2 + width;
         ui.quad(x, backPointY, x, backPointY - width/2, x + length/3, backPointY, x + length/3, backPointY + width/2);
         ui.quad(x, backPointY, x, backPointY - width/2, x - length/3, backPointY, x - length/3, backPointY + width/2);
+        
+        //ui.popMatrix();
 
         // draw line between source and destination
         ui.stroke(255, 0, 0);
@@ -240,33 +270,6 @@ public class Airplanes
         this.airplaneSpeed = airplaneSpeed;
     }
 
-    /**
-     * @return the x
-     */
-    public float getX() {
-        return x;
-    }
-
-    /**
-     * @param x the x to set
-     */
-    public void setX(float x) {
-        this.x = x;
-    }
-
-    /**
-     * @return the y
-     */
-    public float getY() {
-        return y;
-    }
-
-    /**
-     * @param y the y to set
-     */
-    public void setY(float y) {
-        this.y = y;
-    }
 
     /**
      * @return the width
@@ -294,5 +297,33 @@ public class Airplanes
      */
     public void setLength(float length) {
         this.length = length;
+    }
+
+    /**
+     * @return the pos
+     */
+    public PVector getPos() {
+        return pos;
+    }
+
+    /**
+     * @param pos the pos to set
+     */
+    public void setPos(PVector pos) {
+        this.pos = pos;
+    }
+
+    /**
+     * @return the rotation
+     */
+    public float getRotation() {
+        return rotation;
+    }
+
+    /**
+     * @param rotation the rotation to set
+     */
+    public void setRotation(float rotation) {
+        this.rotation = rotation;
     }
 }    

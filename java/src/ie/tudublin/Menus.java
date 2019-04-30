@@ -1,8 +1,8 @@
 package ie.tudublin;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
+// import com.sun.org.apache.xpath.internal.SourceTree;
 
 public class Menus
 {
@@ -112,18 +112,55 @@ public class Menus
     // 3 menus linked to the airplane
 
     // menu that will display information about the airplane you generated
-    public void airplaneInfo() {
+    public void airplaneInfo(Airports airport) {
+        // headings
+        ui.text("AIRPLANE INFO", 280, 705);
+
+        // ui.text("Name: ", 80, 925);
+        // ui.text("Location: ", 96, 950);
+        // ui.text("CEO: ", 71, 975);
+        // ui.text("Yearly Passengers: ", 154, 1000);
+        // ui.text("Year Built: ", 103, 1025);
+        // ui.text("Features: ", 97, 1050);
+
+        // ui.text(airport.getName(), 400, 925);
+        // ui.text(airport.getLocation(), 400, 950);
+        // ui.text(airport.getCeo(), 400, 975);
+        // ui.text(airport.getYearlyPassengers(), 400, 1000);
+        // ui.text(airport.getYearBuilt(), 400, 1025);
+        // ui.text(airport.getFeatures(), 400, 1050);
+        // ui.image(airport.getAirportIcon(), 40, 745);
 
     }
 
     // menu for controlling the airplane
     public void airplaneSettings(){
         //System.out.println("hihi");
+
+        ui.text("AIRPLANE SETTINGS", 960, 705);
+
     }
 
     // menu that displays the information about the previouly chosen pilot
-    public void pilotInfo(){
+    public void pilotInfo(Pilots pilot){
 
+        ui.text("PILOT INFO", 1645, 705);
+
+        ui.stroke(0);
+        ui.textSize(25);
+
+        ui.text("Name : ", 1498, 780);
+        ui.text("Gender: ", 1498, 890);
+        ui.text("DOB: ", 1481, 920);
+        ui.text("Place of birth: ", 1535, 950);
+        ui.text("Rank: ", 1485, 980);
+
+        ui.text(pilot.getPilotName(), 1660, 780);
+        ui.text(pilot.getGender(), 1750, 890);
+        ui.text(pilot.getDob(), 1750, 920);
+        ui.text(pilot.getPlaceofBirth(), 1745, 950);
+        ui.text(pilot.getRank(), 1750, 980);
+        ui.image(pilot.getPilotIcon(), 1780, 745);
     }
 
     // display airplane info when you hover over the button

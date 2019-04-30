@@ -5,7 +5,7 @@ import java.util.ArrayList;
 //import javafx.scene.control.Menu;
 import processing.core.PApplet;
 import processing.core.PImage;
-import sun.java2d.pipe.ValidatePipe;
+// import sun.java2d.pipe.ValidatePipe;
 
 public class UI extends PApplet
 {
@@ -162,6 +162,13 @@ public class UI extends PApplet
         pilotList.add(pilot1);
         pilotList.add(pilot2);
 
+        // action buttons
+        generateButton = new BasicButton(this, 760, 600, 150, 50, "GENERATE");
+        clearButton = new BasicButton(this, 960, 600, 150, 50, "CLEAR");
+
+        //plane1 = new Plane(this, width / 2, height * .75f);
+        radar = new Radar(this, 500, 500, 810, 60);
+
     
         // for loop for airplane buttons
         int airplaneButtonGap = 170;
@@ -187,13 +194,6 @@ public class UI extends PApplet
             PilotButton pilotButton = new PilotButton(this, startingPilotButtonX + i * pilotButtonGap, pilotButtonY, pilotButtonW, pilotButtonH, pilotName, pilotList.get(i));
             pilotButtons.add(pilotButton);
         }
-
-        // action buttons
-        generateButton = new BasicButton(this, 0, 0, 150, 50, "GENERATE");
-        clearButton = new BasicButton(this, 0, 80, 150, 50, "CLEAR");
-
-        //plane1 = new Plane(this, width / 2, height * .75f);
-        radar = new Radar(this, 500, 500, 810, 60);
 
     }
 
@@ -259,17 +259,19 @@ public class UI extends PApplet
 
             // if both a pilot and a airplane are selected a "generate" and "clear" buttons will show up
             if (selectedAirplane != null && selectedPilot != null){
+                fill(255, 0, 0);
                 generateButton.render();
                 clearButton.render();
             } 
         } else if (clickedAirplane != null){
             menuBox.render();
             menuBox.airplaneSettings();
+            menuBox.pilotInfo(selectedPilot);
             fill(255);
             noStroke();
-            rect(705, 188, 585, 32);
             fill(200, 0, 0);
-            text("Please Click on the Destination Airport", 1000, 200);
+            text("Please Click on the Destination Airport", 950, 800);
+
         }
     }
 
@@ -347,14 +349,16 @@ public class UI extends PApplet
         }
 
         // calls the function that generates the airplane once the "generate" button is clicked
-        if(mouseX > 0 && mouseX < (0 + 150) && mouseY > 0 && mouseY < (0 + 50)){
+        if(mouseX > 760 && mouseX < (760 + 150) && mouseY > 600 && mouseY < (600 + 50)){
             // generateAirplane();
             selectedAirplane.setVariables(selectedAirport, 10, 35);
             readyAirplanes.add(selectedAirplane);
+            selectedAirport = null;
+            System.out.println("generated!");
         }
 
         // clears the screen
-        if(mouseX > 0 && mouseX < (0 + 150) && mouseY > 80 && mouseY < (80 + 50)){
+        if(mouseX > 960 && mouseX < (960 + 150) && mouseY > 600 && mouseY < (600 + 50)){
             selectedAirport = null;
         }
 
@@ -364,7 +368,7 @@ public class UI extends PApplet
             Airplanes airplane = readyAirplanes.get(i);
             int length = (int)airplane.getLength();
 
-            if (overRect((int)airplane.getX() - length/2, (int)airplane.getY() - length/2, length, length)) {
+            if (overRect((int)airplane.getPos().x - length/2, (int)airplane.getPos().y - length/2, length, length)) {
                 System.out.println("Clicked Airplane");
                 clickedAirplane = airplane;
                 ifClickedAirplane = true;
