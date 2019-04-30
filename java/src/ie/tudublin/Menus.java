@@ -142,8 +142,8 @@ public class Menus
     }
 
     // menu that displays the information about the previouly chosen pilot
-    public void pilotInfo(Pilots pilot){
-
+    public void pilotInfo(Airplanes airplane){
+        Pilots pilot = airplane.getPilot();
         ui.text("PILOT INFO", 1645, 705);
 
         ui.stroke(0);

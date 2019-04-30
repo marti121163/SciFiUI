@@ -77,28 +77,8 @@ public class UI extends PApplet
     private ArrayList<PilotButton> pilotButtons = new ArrayList<PilotButton>();
     private ArrayList<Pilots> pilotList = new ArrayList<Pilots>();
 
-    //boolean[] keys = new boolean[1024];
-
-
-    // public void keyPressed()
-    // {
-    //     keys[keyCode] = true;
-    // }
-    
-    // public void keyReleased()
-    // {
-    //     keys[keyCode] = false;
-    // }
-
-    // public boolean checkKey(int c)
-    // {
-    //     return keys[c] || keys [Character.toUpperCase(c)];
-    // }
-    
-
     public void settings()
     {
-
         fullScreen(); 
     }
 
@@ -129,7 +109,6 @@ public class UI extends PApplet
         // loads in pilot images
         pilotImg1 = loadImage(mainPath + "\\images\\pilot1.jpg");
         pilotImg2 = loadImage(mainPath + "\\images\\pilot2.jpg");
-
     
         // airport buttons setup + adding them to the array
         airport1 = new Airports(this, 430, 500, width, height, "Val Verde Airport", "Val Verde", "Austin Roberts", "25,000", "1986", "Something Fancy", airportImg1);
@@ -199,7 +178,6 @@ public class UI extends PApplet
 
     // this renders the menu that takes up lower part of the screen
     public void renderMenu() {
-
         if (selectedAirport != null && clickedAirplane == null) {
             // renders outline
             menuBox.render();
@@ -266,7 +244,7 @@ public class UI extends PApplet
         } else if (clickedAirplane != null){
             menuBox.render();
             menuBox.airplaneSettings();
-            menuBox.pilotInfo(selectedPilot);
+            menuBox.pilotInfo(clickedAirplane);
             fill(255);
             noStroke();
             fill(200, 0, 0);
@@ -306,12 +284,10 @@ public class UI extends PApplet
         airport5.render();
         airport6.render();
 
+        // renders the menu once an an airport or an airplane is clicked
         renderMenu();
+        // renders the airplanes that are currently in flight
         renderAirplanes();
-        
-        // if (plane1 != null) {
-        //     plane1.draw();
-        // }
     }
 
     // fuction for displaying a menu for each airport
@@ -353,7 +329,7 @@ public class UI extends PApplet
         // calls the function that generates the airplane once the "generate" button is clicked
         if(mouseX > 760 && mouseX < (760 + 150) && mouseY > 600 && mouseY < (600 + 50)){
             // generateAirplane();
-            selectedAirplane.setVariables(selectedAirport, 10, 35);
+            selectedAirplane.setVariables(selectedAirport, 10, 35, selectedPilot);
             readyAirplanes.add(selectedAirplane);
             selectedAirport = null;
             System.out.println("generated!");

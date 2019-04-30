@@ -14,6 +14,7 @@ public class Airplanes
     private String name;
     private Airports startingAirport;
     private Airports destinationAirport;
+    private Pilots pilot;
     private float rotation;
 
 
@@ -48,13 +49,16 @@ public class Airplanes
 
     }
 
-    public void setVariables(Airports startingAirport, int width, int height) {
+    // this sets the starting airport coordinates so the plane knows where to fly from
+    // this method is called once you generate an airplane
+    public void setVariables(Airports startingAirport, int width, int height, Pilots pilot) {
         this.startingAirport = startingAirport;
         float x = startingAirport.getX() + startingAirport.getWidth() / 2;
         float y = startingAirport.getY() + startingAirport.getHeight() * (float)1.5;
         pos = new PVector(x, y);
         this.width = width;
         this.length = 35;
+        this.pilot = pilot;
     }
 
     public void update()
@@ -62,12 +66,13 @@ public class Airplanes
         int x = (int)(destinationAirport.getX() + destinationAirport.getWidth() / 2);
         int y = (int)(destinationAirport.getY() + destinationAirport.getHeight() * (float)1.5);
         PVector dest = new PVector(x, y);
-        PVector toNext = PVector.sub(dest, pos);
-        float dist = toNext.mag();
-        toNext.normalize();
-        pos.add(toNext);
-        rotation = (float) Math.atan2(toNext.y, toNext.x) + PApplet.HALF_PI;
+        PVector nextPoint = PVector.sub(dest, pos);
+        float dist = nextPoint.mag();
+        nextPoint.normalize(); // gets a single unit so, moving the plane one unit in a certain direction is possible
+        pos.add(nextPoint);
+        rotation = (float) Math.atan2(nextPoint.y, nextPoint.x) + PApplet.HALF_PI;
 
+        // gets rid of the airplane once it has reached its destination
         if (dist < 1)
         {
             System.out.println(name + "reached destinated");
@@ -328,5 +333,19 @@ public class Airplanes
      */
     public void setRotation(float rotation) {
         this.rotation = rotation;
+    }
+
+    /**
+     * @return the pilot
+     */
+    public Pilots getPilot() {
+        return pilot;
+    }
+
+    /**
+     * @param pilot the pilot to set
+     */
+    public void setPilot(Pilots pilot) {
+        this.pilot = pilot;
     }
 }    
