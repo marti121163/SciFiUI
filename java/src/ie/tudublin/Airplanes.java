@@ -62,32 +62,41 @@ public class Airplanes
         int x = (int)(destinationAirport.getX() + destinationAirport.getWidth() / 2);
         int y = (int)(destinationAirport.getY() + destinationAirport.getHeight() * (float)1.5);
         PVector dest = new PVector(x, y);
-        //PVector dest = new PVector(500, 0);
         PVector toNext = PVector.sub(dest, pos);
         float dist = toNext.mag();
         toNext.normalize();
         pos.add(toNext);
         rotation = (float) Math.atan2(toNext.y, toNext.x) + PApplet.HALF_PI;
-        // if (dist < 1)
-        // {
-        //     current = (current + 1) % waypoints.size();
-        // }
+
+        if (dist < 1)
+        {
+            System.out.println(name + "reached destinated");
+            ui.removePlane(this);
+            destinationAirport = null;
+        }
     }
     
     public void draw() {
+        // draw line between source and destination
+        ui.stroke(255, 0, 0);
+        if (destinationAirport != null) {
+            ui.line(startingAirport.getX() + startingAirport.getWidth() / 2, startingAirport.getY() + startingAirport.getHeight() * (float)1.5, destinationAirport.getX() + destinationAirport.getWidth() / 2, destinationAirport.getY() + destinationAirport.getHeight() * (float)1.5);
+        }
+
         if (destinationAirport != null) {
             update();
         }
 
-        float x = pos.x;
-        float y = pos.y;
+        float x = 0;
+        float y = 0;
         
         ui.stroke(255);
         ui.fill(80);
 
-        // ui.pushMatrix();
-        // ui.translate(x, y);
-        //ui.rotate(rotation);
+        ui.pushMatrix();
+        //System.out.println("Inside");
+        ui.translate(pos.x, pos.y);
+        ui.rotate(rotation);
 
         // body and tip
         ui.rect(x - width/2, y - length/2, width, length);
@@ -107,13 +116,7 @@ public class Airplanes
         ui.quad(x, backPointY, x, backPointY - width/2, x + length/3, backPointY, x + length/3, backPointY + width/2);
         ui.quad(x, backPointY, x, backPointY - width/2, x - length/3, backPointY, x - length/3, backPointY + width/2);
         
-        //ui.popMatrix();
-
-        // draw line between source and destination
-        ui.stroke(255, 0, 0);
-        if (destinationAirport != null) {
-            ui.line(startingAirport.getX() + startingAirport.getWidth() / 2, startingAirport.getY() + startingAirport.getHeight() * (float)1.5, destinationAirport.getX() + destinationAirport.getWidth() / 2, destinationAirport.getY() + destinationAirport.getHeight() * (float)1.5);
-        }
+        ui.popMatrix();
 	}
 
     /**

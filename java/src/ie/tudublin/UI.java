@@ -316,6 +316,7 @@ public class UI extends PApplet
 
     // fuction for displaying a menu for each airport
     public void mouseClicked() {
+        boolean reselectClickedAirplane = false;
 
         // function for when you click on an airplane you select it and it gets displayed
         for(int i = 0; i < airportList.size(); i++){
@@ -325,6 +326,7 @@ public class UI extends PApplet
                     selectedAirport = airport;
                 } else {
                     clickedAirplane.setDestinationAirport(airport);
+                    reselectClickedAirplane = true;
                 }
                 break;
             }
@@ -369,18 +371,26 @@ public class UI extends PApplet
             int length = (int)airplane.getLength();
 
             if (overRect((int)airplane.getPos().x - length/2, (int)airplane.getPos().y - length/2, length, length)) {
-                System.out.println("Clicked Airplane");
                 clickedAirplane = airplane;
                 ifClickedAirplane = true;
             }
         }
 
         // if an airplane hasnt been clicked than its false
-        if (ifClickedAirplane == false) {
+        if (ifClickedAirplane == false && reselectClickedAirplane == false) {
             clickedAirplane = null;
         }
 
     } // mouseClicked end
+    
+    // deletes the airplane after it has reached its destination and also removes it from the Array
+    public void removePlane(Airplanes airplane) {
+        readyAirplanes.remove(airplane);
+
+        if (clickedAirplane == airplane) {
+            clickedAirplane = null;
+        }
+    }
 
     // function for changing the colour of the airport box when you hover onto it
     boolean overRect(int x, int y, int width, int height)  {
