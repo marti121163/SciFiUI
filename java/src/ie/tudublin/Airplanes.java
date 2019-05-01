@@ -79,17 +79,7 @@ public class Airplanes
             destinationAirport = null;
         }
 
-        if (ui.selectedColour == 1){
-            ui.fill(255, 0, 0);
-        } else if (ui.selectedColour == 2){
-            ui.fill(0, 0, 255);
-        } else if (ui.selectedColour == 3){
-            ui.fill(0, 255, 0);
-        } else if (ui.selectedColour == 4){
-            ui.fill(255);
-        } else {
-            ui.fill(80);
-        }
+        
     }
     
     public void draw() {
@@ -105,13 +95,23 @@ public class Airplanes
 
         float x = 0;
         float y = 0;
-        
-
-
+    
         ui.stroke(255);
-        //ui.fill(80);
 
         ui.pushMatrix();
+
+        // lets you change the colour of all currently generated planes
+        if (ui.selectedColour == 1){
+            ui.fill(255, 0, 0);
+        } else if (ui.selectedColour == 2){
+            ui.fill(0, 0, 255);
+        } else if (ui.selectedColour == 3){
+            ui.fill(0, 255, 0);
+        } else if (ui.selectedColour == 4){
+            ui.fill(80);
+        } else {
+            ui.fill(80);
+        }
         // this is needed because otherwise the airplane will get drawn at 0, 0 where the rotation is done
         ui.translate(pos.x, pos.y);
         ui.rotate(rotation);

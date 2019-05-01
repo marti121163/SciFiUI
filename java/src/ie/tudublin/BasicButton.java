@@ -7,10 +7,9 @@ public class BasicButton extends Button
 
     private String colour;
 
-    public BasicButton(UI ui, float x, float y, float width, float height, String text, String colour)
+    public BasicButton(UI ui, float x, float y, float width, float height, String text)
     {
         super(ui, x, y, width, height, text);
-        this.colour = colour;
     }
 
     public void render()
@@ -108,19 +107,6 @@ public class BasicButton extends Button
         this.text = text;
     }
 
-    /**
-     * @return the colour
-     */
-    public String getColour() {
-        return colour;
-    }
-
-    /**
-     * @param colour the colour to set
-     */
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
 
 
 }
