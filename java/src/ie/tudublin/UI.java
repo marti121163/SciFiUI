@@ -138,8 +138,8 @@ public class UI extends PApplet
         airplaneList.add(airplane4);
 
         // pilot buttons setup + adding them to the array
-        pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "reseach ranks", pilotImg1);
-        pilot2 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, NY, USA", "reseach ranks", pilotImg2);
+        pilot1 = new Pilots("Carol Danvers", "Female", "12-06-1975", "Boston, MA, USA", "Captain", pilotImg1);
+        pilot2 = new Pilots("Steve Rogers", "Male", "13-03-1958", "Brooklyn, NY, USA", "Captain", pilotImg2);
         pilotList.add(pilot1);
         pilotList.add(pilot2);
 

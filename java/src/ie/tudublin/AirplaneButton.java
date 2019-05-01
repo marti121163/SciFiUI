@@ -2,7 +2,6 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
-// abstract class that extends Button class
 public class AirplaneButton extends Button
 {
     private Airplanes airplane;
