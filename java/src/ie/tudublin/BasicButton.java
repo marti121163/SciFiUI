@@ -12,8 +12,10 @@ public class BasicButton extends Button
 
     public void render()
     {
+        // ui.fill(255);
         ui.noFill();
         ui.stroke(255);
+        //ui.noStroke();
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text(text, x + width * 0.5f, y + height * 0.5f);
@@ -102,4 +104,6 @@ public class BasicButton extends Button
     public void setText(String text) {
         this.text = text;
     }
+
+
 }

@@ -16,6 +16,7 @@ public class UI extends PApplet
     Airplanes selectedAirplane;
     Pilots selectedPilot;
     Airplanes clickedAirplane;
+    BasicButton selectedColour;
 
     // buttons
     Button buttonAirplane1;
@@ -26,6 +27,10 @@ public class UI extends PApplet
     Button buttonPilot2;
     BasicButton generateButton;
     BasicButton clearButton;
+    BasicButton greenAirplane;
+    BasicButton redAirplane;
+    BasicButton blueAirplane;
+    BasicButton whiteAirplane;
 
     // images
     PImage map;
@@ -74,6 +79,7 @@ public class UI extends PApplet
     private ArrayList<AirplaneButton> airplaneButtons = new ArrayList<AirplaneButton>();
     private ArrayList<Airplanes> airplaneList = new ArrayList<Airplanes>();
     private ArrayList<Airplanes> readyAirplanes = new ArrayList<Airplanes>();
+    private ArrayList<BasicButton> airplaneColourButtons = new ArrayList<BasicButton>();
 
     private ArrayList<PilotButton> pilotButtons = new ArrayList<PilotButton>();
     private ArrayList<Pilots> pilotList = new ArrayList<Pilots>();
@@ -162,7 +168,6 @@ public class UI extends PApplet
             airplaneButtons.add(airplaneButton);
         }
 
-
         // for loop for pilot buttons
         int pilotButtonGap = 160;
         int startingPilotButtonX = 1480;
@@ -174,6 +179,19 @@ public class UI extends PApplet
             PilotButton pilotButton = new PilotButton(this, startingPilotButtonX + i * pilotButtonGap, pilotButtonY, pilotButtonW, pilotButtonH, pilotName, pilotList.get(i));
             pilotButtons.add(pilotButton);
         }
+        
+        int colourY = 950;
+        int colourX = 655;
+        int colourButtonGap = 150;
+        redAirplane = new BasicButton(this, colourX, colourY, airplaneButtonW, airplaneButtonH, "Red");
+        blueAirplane = new BasicButton(this, colourX + colourButtonGap, colourY, airplaneButtonW, airplaneButtonH, "Blue");
+        greenAirplane = new BasicButton(this, colourX + colourButtonGap*2, colourY, airplaneButtonW, airplaneButtonH, "Green");
+        whiteAirplane = new BasicButton(this, colourX + colourButtonGap*3, colourY, airplaneButtonW, airplaneButtonH, "White");
+        airplaneColourButtons.add(redAirplane);
+        airplaneColourButtons.add(blueAirplane);
+        airplaneColourButtons.add(greenAirplane);
+        airplaneColourButtons.add(whiteAirplane);
+
 
     }
 
@@ -205,6 +223,7 @@ public class UI extends PApplet
                 PilotButton button = pilotButtons.get(i);
                 button.render();
             }
+
 
             // Checks if airplane button is hovered over then display info about it
             // else if its not hovered over and an airplane button has been clicked then 
@@ -251,6 +270,22 @@ public class UI extends PApplet
             fill(200, 0, 0);
             text("Please Click on the Destination Airport", 950, 800);
 
+            //buttons for changing colour of the airplane
+            fill(255, 0, 0);
+            redAirplane.render();
+            fill(0, 255, 0);
+            blueAirplane.render();
+            fill(0, 0, 255);
+            greenAirplane.render();
+            fill(255);
+            whiteAirplane.render();
+
+            // //rendering airplane colour selection buttons
+            // for (int i = 0; i < airplaneColourButtons.size(); i++) {
+            //     BasicButton button = airplaneColourButtons.get(i);
+            //     button.render();
+            // }
+
         }
     }
 
@@ -262,15 +297,16 @@ public class UI extends PApplet
         }
     }
 
-    private PVector messagePos = new PVector(-300,20);
+    // this is for the message that spans at the top
+    private PVector messagePos = new PVector(-500,20);
     public void movingMessage() {
 
         fill(255);
-        textAlign(LEFT);
+        //textAlign(LEFT);
         if (messagePos.x > 1916) {
-            messagePos.x = -300;
+            messagePos.x = -500;
         }
-        messagePos.x = (messagePos.x + 5);
+        messagePos.x = (messagePos.x + 4);
         text("FLIGHT TRACKER SIMULATOR", messagePos.x, messagePos.y);
     }
 
@@ -282,11 +318,8 @@ public class UI extends PApplet
 
         image(map, 0, 0);
 
-        stroke(0);
-        fill(102, 204, 204);
-        rect(735, 5, 475, 38);
-        fill(27, 20, 119);
         textSize(30);
+        //renders the moving messages displayed on top of the screen
         movingMessage();
 
         // airports
@@ -339,13 +372,22 @@ public class UI extends PApplet
             }
         }
 
+         // funtion for changing colours of the airplane
+         for(int i = 0; i < airplaneColourButtons.size(); i++){
+            BasicButton airplaneColour = airplaneColourButtons.get(i);
+            if (overRect((int) airplaneColour.getX() * (i + 1), (int) airplaneColour.getY(), (int) airplaneColour.getWidth(), (int) airplaneColour.getHeight())) {
+                System.out.println("hi hi");
+                
+                break;
+            }
+        }
+
         // calls the function that generates the airplane once the "generate" button is clicked
         if(mouseX > 760 && mouseX < (760 + 150) && mouseY > 600 && mouseY < (600 + 50)){
             // generateAirplane();
             selectedAirplane.setVariables(selectedAirport, 10, 35, selectedPilot);
             readyAirplanes.add(selectedAirplane);
             selectedAirport = null;
-            System.out.println("generated!");
         }
 
         // clears the screen
@@ -389,9 +431,5 @@ public class UI extends PApplet
           return false;
         }
     }
-
-    // public void generateAirplane(){
-    //     selectedAirplane.setStartingAirport(selectedAirport);
-    // }
 }
 

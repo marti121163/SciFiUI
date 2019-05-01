@@ -16,7 +16,7 @@ public class Airplanes
     private Airports destinationAirport;
     private Pilots pilot;
     private float rotation;
-
+    private String airplaneColour;
 
     // airplane details
     private String model;
@@ -95,8 +95,15 @@ public class Airplanes
         float x = 0;
         float y = 0;
         
+        // if (ui.airplaneColor == blue){
+        //     ui.fill(0, 255, 0);
+        // } else {
+        //     ui.fill(80);
+        // }
+
+
         ui.stroke(255);
-        ui.fill(80);
+        //ui.fill(80);
 
         ui.pushMatrix();
         // this is needed because otherwise the airplane will get drawn at 0, 0 where the rotation is done
