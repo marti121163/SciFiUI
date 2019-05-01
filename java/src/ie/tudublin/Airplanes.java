@@ -75,13 +75,18 @@ public class Airplanes
         // gets rid of the airplane once it has reached its destination
         if (dist < 1)
         {
-            System.out.println(name + "reached destinated");
             ui.removePlane(this);
             destinationAirport = null;
         }
 
         if (ui.selectedColour == 1){
+            ui.fill(255, 0, 0);
+        } else if (ui.selectedColour == 2){
             ui.fill(0, 0, 255);
+        } else if (ui.selectedColour == 3){
+            ui.fill(0, 255, 0);
+        } else if (ui.selectedColour == 4){
+            ui.fill(255);
         } else {
             ui.fill(80);
         }

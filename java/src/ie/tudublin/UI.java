@@ -273,19 +273,12 @@ public class UI extends PApplet
             //buttons for changing colour of the airplane
             fill(255, 0, 0);
             redAirplane.render();
-            fill(0, 255, 0);
-            blueAirplane.render();
             fill(0, 0, 255);
+            blueAirplane.render();
+            fill(0, 255, 0);
             greenAirplane.render();
             fill(255);
             whiteAirplane.render();
-
-            // //rendering airplane colour selection buttons
-            // for (int i = 0; i < airplaneColourButtons.size(); i++) {
-            //     BasicButton button = airplaneColourButtons.get(i);
-            //     button.render();
-            // }
-
         }
     }
 
@@ -310,8 +303,6 @@ public class UI extends PApplet
         text("FLIGHT TRACKER SIMULATOR", messagePos.x, messagePos.y);
     }
 
-    // public float timeDelta;
-    // private float last;
     public void draw()
     {
         background(0);
@@ -371,33 +362,21 @@ public class UI extends PApplet
                 break;
             }
         }
-
-        //  // funtion for changing colours of the airplane
-        //  for(int i = 0; i < airplaneColourButtons.size(); i++){
-        //     BasicButton airplaneColour = airplaneColourButtons.get(i);
-        //     if (overRect((int) airplaneColour.getX() * (i + 1), (int) airplaneColour.getY(), (int) airplaneColour.getWidth(), (int) airplaneColour.getHeight())) {
-        //         System.out.println("hi hi");
-        //         selectedColour = ;
-        //         // break;
-        //         System.out.println(i);
-        //     }
-        // }
-
-        int colourY = 950;
         int colourX = 655;
+        int colourY = 950;
         int colourButtonGap = 150;
-        if(mouseX > 950  && colourX < (colourX + 150) && mouseY > colourY && mouseY < (colourY + 50)){
+        if(mouseX > colourX  && mouseX < (colourX + 150) && mouseY > colourY && mouseY < (colourY + 50)){
             selectedColour = 1;
-            System.out.println(1);
-        } else if (mouseX > colourX + colourButtonGap && mouseX < (colourX + colourButtonGap + 150) && mouseY > colourY && mouseY < (colourY + 50)){
+            System.out.println("1");
+        } else if (mouseX > (colourX + colourButtonGap) && mouseX < ((colourX + colourButtonGap) + 150) && mouseY > colourY && mouseY < (colourY + 50)){
             selectedColour = 2;
-            System.out.println(2);
-        } else if (mouseX > colourX + colourButtonGap*2 && mouseX < (colourX + colourButtonGap*2 + 150) && mouseY > colourY & mouseY < (colourY + 50)){
+            System.out.println("2");
+        } else if (mouseX > (colourX + colourButtonGap*2) && mouseX < ((colourX + colourButtonGap*2) + 150) && mouseY > colourY & mouseY < (colourY + 50)){
             selectedColour = 3;
-            System.out.println(3);
-        } else if (mouseX > colourX + colourButtonGap*3 && mouseX < (colourX + colourButtonGap*3 + 150) && mouseY > colourY && mouseY < (colourY + 50)){
+            System.out.println("3");
+        } else if (mouseX > (colourX + colourButtonGap*3) && mouseX < ((colourX + colourButtonGap*3) + 150) && mouseY > colourY && mouseY < (colourY + 50)){
             selectedColour = 4;
-            System.out.println(4);
+            System.out.println("4");
         }
 
         // calls the function that generates the airplane once the "generate" button is clicked
