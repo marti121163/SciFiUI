@@ -2,9 +2,9 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
+// abstract class extending button
 public class PilotButton extends Button
 {
-    
     private Pilots pilot;
 
     public PilotButton(UI ui, float x, float y, float width, float height, String text, Pilots pilot)
@@ -13,6 +13,7 @@ public class PilotButton extends Button
         this.pilot = pilot;
     }
 
+    // render pilot button
     public void render()
     {
         ui.noFill();

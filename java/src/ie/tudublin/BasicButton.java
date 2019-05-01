@@ -2,22 +2,20 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
+// abstract class that extends from Button
 public class BasicButton extends Button
 {
-
-    private String colour;
 
     public BasicButton(UI ui, float x, float y, float width, float height, String text)
     {
         super(ui, x, y, width, height, text);
     }
 
+    // render basic buttons
     public void render()
     {
-        // ui.fill(255);
         ui.noFill();
         ui.stroke(255);
-        //ui.noStroke();
         ui.rect(x, y, width, height);
         ui.textAlign(PApplet.CENTER, PApplet.CENTER);
         ui.text(text, x + width * 0.5f, y + height * 0.5f);

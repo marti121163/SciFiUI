@@ -1,9 +1,5 @@
 package ie.tudublin;
 
-// import java.util.ArrayList;
-
-// import com.sun.org.apache.xpath.internal.SourceTree;
-
 public class Menus
 {
     UI ui;
@@ -25,6 +21,7 @@ public class Menus
         this.bigBoxSize = bigBoxSize;
     }
 
+    // render menus
     public void render()
     {
         ui.noFill();
@@ -48,6 +45,7 @@ public class Menus
 
     // menu that shows information about the airport that was clicked
     public void airportInfo(Airports airport) {
+        ui.text("AIRPORT INFO", 280, 705);
         ui.stroke(0);
         ui.textSize(25);
 
@@ -113,13 +111,11 @@ public class Menus
 
     // menu that will display information about the airplane you generated
     public void airplaneInfo(Airplanes airplane) {
-        // headings
-        ui.text("AIRPLANE INFO", 280, 705);
         Airplanes thisAirplane = airplane;
-
-
+        ui.text("AIRPLANE INFO", 280, 705);
         ui.stroke(0);
         ui.textSize(25);
+        
         ui.text("Model: ", 82, 875);
         ui.text("Capacity: ", 95, 905);
         ui.text("Weight: ", 86, 935);
@@ -128,31 +124,26 @@ public class Menus
         ui.text("Manufacture Year: ", 149, 1025);
         ui.text("Airplane Speed: ", 133, 1055);
 
-        ui.text(airplane.getModel(), 450, 875);
-        ui.text(airplane.getCapacity(), 450, 905);
-        ui.text(airplane.getWeight(), 450, 935);
-        ui.text(airplane.getNoOfPrvFlights(), 450, 965);
-        ui.text(airplane.getSafetyLevel(), 450, 995);
-        ui.text(airplane.getManufactureYear(), 450, 1025);
-        ui.text(airplane.getAirplaneSpeed(), 450, 1055);
-        ui.image(airplane.getAirplaneIcon(), 180, 745);
+        ui.text(thisAirplane.getModel(), 450, 875);
+        ui.text(thisAirplane.getCapacity(), 450, 905);
+        ui.text(thisAirplane.getWeight(), 450, 935);
+        ui.text(thisAirplane.getNoOfPrvFlights(), 450, 965);
+        ui.text(thisAirplane.getSafetyLevel(), 450, 995);
+        ui.text(thisAirplane.getManufactureYear(), 450, 1025);
+        ui.text(thisAirplane.getAirplaneSpeed(), 450, 1055);
+        ui.image(thisAirplane.getAirplaneIcon(), 180, 745);
 
     }
 
     // menu for controlling the airplane
     public void airplaneSettings(){
-        //System.out.println("hihi");
-
         ui.text("AIRPLANE SETTINGS", 960, 705);
-
         ui.fill(255);
         ui.noStroke();
         ui.fill(255, 0, 0);
         ui.text("Please Click on the Destination Airport", 950, 800);
-        //ui.line(950, 600, 1000, 800);
         ui.fill(255);
         ui.text("Colour of all airplanes: ", 965, 900);
-
     }
 
     // menu that displays the information about the previouly chosen pilot

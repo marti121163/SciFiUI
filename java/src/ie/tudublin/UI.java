@@ -1,17 +1,15 @@
 package ie.tudublin;
 
 import java.util.ArrayList;
-
-//import javafx.scene.control.Menu;
 import processing.core.PApplet;
 import processing.core.PImage;
-// import sun.java2d.pipe.ValidatePipe;
 import processing.core.PVector;
 
 public class UI extends PApplet
 {
     // VARIABLES
 
+    // for once something is selected
     Airports selectedAirport;
     Airplanes selectedAirplane;
     Pilots selectedPilot;
@@ -75,11 +73,9 @@ public class UI extends PApplet
 
     // Arrays
     private ArrayList<Airports> airportList = new ArrayList<Airports>();
-
     private ArrayList<AirplaneButton> airplaneButtons = new ArrayList<AirplaneButton>();
     private ArrayList<Airplanes> airplaneList = new ArrayList<Airplanes>();
     private ArrayList<Airplanes> readyAirplanes = new ArrayList<Airplanes>();
-
     private ArrayList<PilotButton> pilotButtons = new ArrayList<PilotButton>();
     private ArrayList<Pilots> pilotList = new ArrayList<Pilots>();
 
@@ -151,10 +147,8 @@ public class UI extends PApplet
         generateButton = new BasicButton(this, 760, 600, 150, 50, "GENERATE");
         clearButton = new BasicButton(this, 960, 600, 150, 50, "CLEAR");
 
-        //plane1 = new Plane(this, width / 2, height * .75f);
         radar = new Radar(this, 500, 500, 810, 60);
 
-    
         // for loop for airplane buttons
         int airplaneButtonGap = 170;
         int startingAirplaneButtonX = 625;
@@ -179,6 +173,7 @@ public class UI extends PApplet
             pilotButtons.add(pilotButton);
         }
         
+        // setting up buttons for changing colours
         int colourY = 950;
         int colourX = 655;
         int colourButtonGap = 150;
@@ -191,7 +186,12 @@ public class UI extends PApplet
 
     // this renders the menu that takes up lower part of the screen
     public void renderMenu() {
-        if (selectedAirport != null && clickedAirplane == null) {
+
+        if (selectedAirport == null && clickedAirplane == null && selectedPilot == null) {
+            textSize(50);
+            text("WELCOME!", 955, 780);
+            text("CLICK ON AN AIRPORT TO BEGIN", 970, 930);
+        } else if (selectedAirport != null && clickedAirplane == null) {
             // renders outline
             menuBox.render();
 
@@ -199,7 +199,7 @@ public class UI extends PApplet
             radar.render();
 
             // headings
-            text("AIRPORT INFO", 280, 705);
+            // airport info heading is in menus
             text("AIRPLANE SELECTION", 960, 705);
             text("PILOT SELECTION", 1645, 705);
 

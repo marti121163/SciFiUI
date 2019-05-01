@@ -1,7 +1,5 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
-
 public abstract class Button
 {
     UI ui;
@@ -20,7 +18,6 @@ public abstract class Button
         this.height = height;
         this.text = text;
     }
-
 
     /**
      * @return the ui

@@ -44,11 +44,12 @@ public class Airplanes
         this.ui = ui;
     }
 
+    // render airplanes
     public void render() {
 
     }
 
-    // this sets the starting airport coordinates so the plane knows where to fly from
+    // this sets the starting airport coordinates so the plane knows where to fly from,
     // this method is called once you generate an airplane
     public void setVariables(Airports startingAirport, int width, int height, Pilots pilot) {
         this.startingAirport = startingAirport;
@@ -67,8 +68,10 @@ public class Airplanes
         PVector dest = new PVector(x, y);
         PVector nextPoint = PVector.sub(dest, pos);
         float dist = nextPoint.mag();
-        nextPoint.normalize(); // gets a single unit so, moving the plane one unit in a certain direction is possible
+        // gets a single unit so, moving the plane one unit in a certain direction is possible
+        nextPoint.normalize();
         pos.add(nextPoint);
+        // this rotates it
         rotation = (float) Math.atan2(nextPoint.y, nextPoint.x) + PApplet.HALF_PI;
 
         // gets rid of the airplane once it has reached its destination
@@ -81,9 +84,12 @@ public class Airplanes
         
     }
     
+    // this draws the airplane
     public void draw() {
-        // draw line between source and destination
+
+        // draw line between source and destination airports
         ui.stroke(255, 0, 0);
+
         if (destinationAirport != null) {
             ui.line(startingAirport.getX() + startingAirport.getWidth() / 2, startingAirport.getY() + startingAirport.getHeight() * (float)1.5, destinationAirport.getX() + destinationAirport.getWidth() / 2, destinationAirport.getY() + destinationAirport.getHeight() * (float)1.5);
         }
@@ -101,23 +107,31 @@ public class Airplanes
 
         // lets you change the colour of all currently generated planes
         if (ui.selectedColour == 1){
+            //red
             ui.fill(255, 0, 0);
         } else if (ui.selectedColour == 2){
+            //blue
             ui.fill(0, 0, 255);
         } else if (ui.selectedColour == 3){
+            //green
             ui.fill(0, 255, 0);
         } else if (ui.selectedColour == 4){
+            //black
             ui.fill(80);
         } else {
+            //this makes is so that the very first generated airplane will be black, after that you get to change it
             ui.fill(80);
         }
         // this is needed because otherwise the airplane will get drawn at 0, 0 where the rotation is done
         ui.translate(pos.x, pos.y);
         ui.rotate(rotation);
 
+        // DRAWING THE AIRPLANE
+
         // body and tip
         ui.rect(x - width/2, y - length/2, width, length);
         ui.triangle(x - width/2, y - length/2, x, y - length/2 - width, x + width/2, y - length/2);
+
         //wings
         float leftWingX = x - length;
         float WingY = y + length/2;
@@ -126,8 +140,10 @@ public class Airplanes
         ui.triangle(x + width/2, y - length/4, rightWingX, WingY, rightWingX - (length/3)*2, WingY - length/4);
         ui.triangle(x - width/2, y - length/4, leftWingX + (length/3)*2, WingY - length/4, x - width/2, WingY - length/4);
         ui.triangle(x + width/2, y - length/4, rightWingX - (length/3)*2, WingY - length/4, x + width/2, WingY - length/4);
+        
         // back
         ui.triangle(x - width/2, y + length/2, x, y + length/2 + width, x + width/2, y + length/2);
+        
         // back wings
         float backPointY = y + length/2 + width;
         ui.quad(x, backPointY, x, backPointY - width/2, x + length/3, backPointY, x + length/3, backPointY + width/2);

@@ -37,13 +37,11 @@ public class Airports
         this.yearBuilt = yearBuilt;
         this.features = features;
         this.airportIcon = airportIcon;
-
     }
 
-
+    // render airports
     public void render()
     {
-        //ui.noFill();
         ui.fill(255, 255, 255);
         ui.stroke(0);
         ui.rect(x, y, width, height);

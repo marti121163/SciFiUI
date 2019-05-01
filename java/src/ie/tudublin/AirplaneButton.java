@@ -2,6 +2,7 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 
+// abstract class that extends Button class
 public class AirplaneButton extends Button
 {
     private Airplanes airplane;
@@ -12,6 +13,7 @@ public class AirplaneButton extends Button
         this.airplane = airplane;
     }
 
+    // render buttons
     public void render()
     {
         ui.noFill();
