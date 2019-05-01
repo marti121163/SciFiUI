@@ -212,7 +212,7 @@ public class UI extends PApplet
                 button.render();
             }
 
-            //rendering pilot selection buttons
+            //rendering pilot selection buttons 
             for (int i = 0; i < pilotButtons.size(); i++) {
                 PilotButton button = pilotButtons.get(i);
                 button.render();
