@@ -16,7 +16,7 @@ public class UI extends PApplet
     Airplanes selectedAirplane;
     Pilots selectedPilot;
     Airplanes clickedAirplane;
-    BasicButton selectedColour;
+    int selectedColour;
 
     // buttons
     Button buttonAirplane1;
@@ -149,8 +149,8 @@ public class UI extends PApplet
         pilotList.add(pilot2);
 
         // action buttons
-        generateButton = new BasicButton(this, 760, 600, 150, 50, "GENERATE");
-        clearButton = new BasicButton(this, 960, 600, 150, 50, "CLEAR");
+        generateButton = new BasicButton(this, 760, 600, 150, 50, "GENERATE", null);
+        clearButton = new BasicButton(this, 960, 600, 150, 50, "CLEAR", null);
 
         //plane1 = new Plane(this, width / 2, height * .75f);
         radar = new Radar(this, 500, 500, 810, 60);
@@ -183,10 +183,10 @@ public class UI extends PApplet
         int colourY = 950;
         int colourX = 655;
         int colourButtonGap = 150;
-        redAirplane = new BasicButton(this, colourX, colourY, airplaneButtonW, airplaneButtonH, "Red");
-        blueAirplane = new BasicButton(this, colourX + colourButtonGap, colourY, airplaneButtonW, airplaneButtonH, "Blue");
-        greenAirplane = new BasicButton(this, colourX + colourButtonGap*2, colourY, airplaneButtonW, airplaneButtonH, "Green");
-        whiteAirplane = new BasicButton(this, colourX + colourButtonGap*3, colourY, airplaneButtonW, airplaneButtonH, "White");
+        redAirplane = new BasicButton(this, colourX, colourY, airplaneButtonW, airplaneButtonH, "Red", "redColour");
+        blueAirplane = new BasicButton(this, colourX + colourButtonGap, colourY, airplaneButtonW, airplaneButtonH, "Blue", "blueColour");
+        greenAirplane = new BasicButton(this, colourX + colourButtonGap*2, colourY, airplaneButtonW, airplaneButtonH, "Green", "GreenColour");
+        whiteAirplane = new BasicButton(this, colourX + colourButtonGap*3, colourY, airplaneButtonW, airplaneButtonH, "White", "whiteColour");
         airplaneColourButtons.add(redAirplane);
         airplaneColourButtons.add(blueAirplane);
         airplaneColourButtons.add(greenAirplane);
@@ -372,14 +372,32 @@ public class UI extends PApplet
             }
         }
 
-         // funtion for changing colours of the airplane
-         for(int i = 0; i < airplaneColourButtons.size(); i++){
-            BasicButton airplaneColour = airplaneColourButtons.get(i);
-            if (overRect((int) airplaneColour.getX() * (i + 1), (int) airplaneColour.getY(), (int) airplaneColour.getWidth(), (int) airplaneColour.getHeight())) {
-                System.out.println("hi hi");
-                
-                break;
-            }
+        //  // funtion for changing colours of the airplane
+        //  for(int i = 0; i < airplaneColourButtons.size(); i++){
+        //     BasicButton airplaneColour = airplaneColourButtons.get(i);
+        //     if (overRect((int) airplaneColour.getX() * (i + 1), (int) airplaneColour.getY(), (int) airplaneColour.getWidth(), (int) airplaneColour.getHeight())) {
+        //         System.out.println("hi hi");
+        //         selectedColour = ;
+        //         // break;
+        //         System.out.println(i);
+        //     }
+        // }
+
+        int colourY = 950;
+        int colourX = 655;
+        int colourButtonGap = 150;
+        if(mouseX > 950  && colourX < (colourX + 150) && mouseY > colourY && mouseY < (colourY + 50)){
+            selectedColour = 1;
+            System.out.println(1);
+        } else if (mouseX > colourX + colourButtonGap && mouseX < (colourX + colourButtonGap + 150) && mouseY > colourY && mouseY < (colourY + 50)){
+            selectedColour = 2;
+            System.out.println(2);
+        } else if (mouseX > colourX + colourButtonGap*2 && mouseX < (colourX + colourButtonGap*2 + 150) && mouseY > colourY & mouseY < (colourY + 50)){
+            selectedColour = 3;
+            System.out.println(3);
+        } else if (mouseX > colourX + colourButtonGap*3 && mouseX < (colourX + colourButtonGap*3 + 150) && mouseY > colourY && mouseY < (colourY + 50)){
+            selectedColour = 4;
+            System.out.println(4);
         }
 
         // calls the function that generates the airplane once the "generate" button is clicked

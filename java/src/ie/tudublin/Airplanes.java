@@ -79,6 +79,12 @@ public class Airplanes
             ui.removePlane(this);
             destinationAirport = null;
         }
+
+        if (ui.selectedColour == 1){
+            ui.fill(0, 0, 255);
+        } else {
+            ui.fill(80);
+        }
     }
     
     public void draw() {
@@ -95,11 +101,6 @@ public class Airplanes
         float x = 0;
         float y = 0;
         
-        // if (ui.airplaneColor == blue){
-        //     ui.fill(0, 255, 0);
-        // } else {
-        //     ui.fill(80);
-        // }
 
 
         ui.stroke(255);

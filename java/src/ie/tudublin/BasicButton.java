@@ -5,9 +5,12 @@ import processing.core.PApplet;
 public class BasicButton extends Button
 {
 
-    public BasicButton(UI ui, float x, float y, float width, float height, String text)
+    private String colour;
+
+    public BasicButton(UI ui, float x, float y, float width, float height, String text, String colour)
     {
         super(ui, x, y, width, height, text);
+        this.colour = colour;
     }
 
     public void render()
@@ -103,6 +106,20 @@ public class BasicButton extends Button
      */
     public void setText(String text) {
         this.text = text;
+    }
+
+    /**
+     * @return the colour
+     */
+    public String getColour() {
+        return colour;
+    }
+
+    /**
+     * @param colour the colour to set
+     */
+    public void setColour(String colour) {
+        this.colour = colour;
     }
 
 
