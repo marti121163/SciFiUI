@@ -86,7 +86,7 @@ public class Menus
         ui.text(airplane.getSafetyLevel(), 1000, 890);
         ui.text(airplane.getManufactureYear(), 1000, 920);
         ui.text(airplane.getAirplaneSpeed(), 1000, 950);
-        //ui.image(airplane.getAirplaneIcon(), 1100, 800);
+        ui.image(airplane.getAirplaneIcon(), 1100, 800);
     }
 
     // menu that allows you to choose the pilot
@@ -120,22 +120,22 @@ public class Menus
 
         ui.stroke(0);
         ui.textSize(25);
-        ui.text("Model: ", 80, 925);
-        ui.text("Capacity: ", 96, 950);
-        ui.text("Weight: ", 71, 975);
-        ui.text("No. of Previous Flights: ", 154, 1000);
-        ui.text("Safety Level: ", 103, 1025);
-        ui.text("Manufacture Year: ", 97, 1050);
-        ui.text("Airplane Speed: ", 100, 1075);
+        ui.text("Model: ", 82, 875);
+        ui.text("Capacity: ", 95, 905);
+        ui.text("Weight: ", 86, 935);
+        ui.text("No. of Previous Flights: ", 181, 965);
+        ui.text("Safety Level: ", 116, 995);
+        ui.text("Manufacture Year: ", 149, 1025);
+        ui.text("Airplane Speed: ", 133, 1055);
 
-        ui.text(thisAirplane.getModel(), 400, 925);
-        ui.text(airplane.getCapacity(), 400, 950);
-        ui.text(airplane.getWeight(), 400, 975);
-        ui.text(airplane.getNoOfPrvFlights(), 400, 1000);
-        ui.text(airplane.getSafetyLevel(), 400, 1025);
-        ui.text(airplane.getManufactureYear(), 400, 1050);
-        ui.text(airplane.getAirplaneSpeed(), 400, 1075);
-        //ui.image(airplane.getAirplaneIcon(), 1100, 800);
+        ui.text(airplane.getModel(), 450, 875);
+        ui.text(airplane.getCapacity(), 450, 905);
+        ui.text(airplane.getWeight(), 450, 935);
+        ui.text(airplane.getNoOfPrvFlights(), 450, 965);
+        ui.text(airplane.getSafetyLevel(), 450, 995);
+        ui.text(airplane.getManufactureYear(), 450, 1025);
+        ui.text(airplane.getAirplaneSpeed(), 450, 1055);
+        ui.image(airplane.getAirplaneIcon(), 180, 745);
 
     }
 
@@ -149,8 +149,9 @@ public class Menus
         ui.noStroke();
         ui.fill(255, 0, 0);
         ui.text("Please Click on the Destination Airport", 950, 800);
+        //ui.line(950, 600, 1000, 800);
         ui.fill(255);
-        ui.text("Colour of all airplanes: ", 850, 1000);
+        ui.text("Colour of all airplanes: ", 965, 900);
 
     }
 
@@ -162,18 +163,18 @@ public class Menus
         ui.stroke(255);
         ui.textSize(25);
 
-        ui.text("Name : ", 1498, 780);
-        ui.text("Gender: ", 1498, 890);
-        ui.text("DOB: ", 1481, 920);
-        ui.text("Place of birth: ", 1535, 950);
-        ui.text("Rank: ", 1485, 980);
+        ui.text("Name : ", 1478, 800);
+        ui.text("Gender: ", 1478, 910);
+        ui.text("DOB: ", 1461, 940);
+        ui.text("Place of birth: ", 1515, 970);
+        ui.text("Rank: ", 1465, 1000);
 
-        ui.text(pilot.getPilotName(), 1660, 780);
-        ui.text(pilot.getGender(), 1750, 890);
-        ui.text(pilot.getDob(), 1750, 920);
-        ui.text(pilot.getPlaceofBirth(), 1745, 950);
-        ui.text(pilot.getRank(), 1750, 980);
-        ui.image(pilot.getPilotIcon(), 1780, 745);
+        ui.text(pilot.getPilotName(), 1640, 800);
+        ui.text(pilot.getGender(), 1730, 910);
+        ui.text(pilot.getDob(), 1730, 940);
+        ui.text(pilot.getPlaceofBirth(), 1725, 970);
+        ui.text(pilot.getRank(), 1730, 1000);
+        ui.image(pilot.getPilotIcon(), 1760, 745);
     }
 
     // display airplane info when you hover over the button

@@ -1,9 +1,8 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 import processing.core.PVector;
-// import processing.core.PApplet;
-// import processing.core.PImage;
 
 public class Airplanes 
 {
@@ -14,7 +13,6 @@ public class Airplanes
     private String name;
     private Airports startingAirport;
     private Airports destinationAirport;
-    //private Airports airport = 
     private Pilots pilot;
     private float rotation;
     private String airplaneColour;
@@ -27,11 +25,11 @@ public class Airplanes
     private String safetyLevel;
     private String manufactureYear;
     private int airplaneSpeed;
-    //private PImage airplaneIcon;
+    private PImage airplaneIcon;
 
 
     public Airplanes(UI ui, String model, String capacity, String weight, 
-    String noOfPrvFlights, String safetyLevel, String manufactureYear, int airplaneSpeed) 
+    String noOfPrvFlights, String safetyLevel, String manufactureYear, int airplaneSpeed, PImage airplaneIcon) 
     {
         // airplane selection & info
         this.model = model;
@@ -41,7 +39,7 @@ public class Airplanes
         this.safetyLevel = safetyLevel;
         this.manufactureYear = manufactureYear;
         this.airplaneSpeed = airplaneSpeed;
-        //this.airplaneIcon = airplaneIcon;
+        this.airplaneIcon = airplaneIcon;
 
         this.ui = ui;
     }
@@ -363,19 +361,6 @@ public class Airplanes
         this.pilot = pilot;
     }
 
-    // /**
-    //  * @return the airplane
-    //  */
-    // public Airplanes getAirplane() {
-    //     return airplane;
-    // }
-
-    // /**
-    //  * @param airplane the airplane to set
-    //  */
-    // public void setAirplane(Airplanes airplane) {
-    //     this.airplane = airplane;
-    // }
 
     /**
      * @return the airplaneColour
@@ -389,5 +374,19 @@ public class Airplanes
      */
     public void setAirplaneColour(String airplaneColour) {
         this.airplaneColour = airplaneColour;
+    }
+
+    /**
+     * @return the airplaneIcon
+     */
+    public PImage getAirplaneIcon() {
+        return airplaneIcon;
+    }
+
+    /**
+     * @param airplaneIcon the airplaneIcon to set
+     */
+    public void setAirplaneIcon(PImage airplaneIcon) {
+        this.airplaneIcon = airplaneIcon;
     }
 }    

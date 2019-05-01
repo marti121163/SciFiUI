@@ -40,10 +40,10 @@ public class UI extends PApplet
     PImage airportImg4;
     PImage airportImg5;
     PImage airportImg6;
-    // PImage airplaneImg1;
-    // PImage airplaneImg2;
-    // PImage airplaneImg3;
-    // PImage airplaneImg4;
+    PImage airplaneImg1;
+    PImage airplaneImg2;
+    PImage airplaneImg3;
+    PImage airplaneImg4;
     PImage pilotImg1;
     PImage pilotImg2;
 
@@ -106,11 +106,11 @@ public class UI extends PApplet
         airportImg5 = loadImage(mainPath + "\\images\\airportImg5.png");
         airportImg6 = loadImage(mainPath + "\\images\\airportImg6.png");
 
-        // // loads in airplane images
-        // airplaneImg1 = loadImage(mainPath + "\\images\\airlane1.jpg");
-        // airplaneImg2 = loadImage(mainPath + "\\images\\airplane2.jpg");
-        // airplaneImg3 = loadImage(mainPath + "\\images\\airplane3.jpg");
-        // airplaneImg4 = loadImage(mainPath + "\\images\\airplane4.jpg");
+        // loads in airplane images
+        airplaneImg1 = loadImage(mainPath + "\\images\\airplaneImg1.jpg");
+        airplaneImg2 = loadImage(mainPath + "\\images\\airplaneImg2.jpg");
+        airplaneImg3 = loadImage(mainPath + "\\images\\airplaneImg3.jpg");
+        airplaneImg4 = loadImage(mainPath + "\\images\\airplaneImg4.jpg");
 
         // loads in pilot images
         pilotImg1 = loadImage(mainPath + "\\images\\pilot1.jpg");
@@ -132,10 +132,10 @@ public class UI extends PApplet
 
 
         // airplane buttons setup + adding them to the array
-        airplane1 = new Airplanes(this, "KIA728", "50", "30t", "28", "medium", "1998", 20);
-        airplane2 = new Airplanes(this, "MIB318", "130", "50t", "61", "low", "1989", 20);
-        airplane3 = new Airplanes(this, "BDE178", "250", "70t", "15", "high", "2007", 20);
-        airplane4 = new Airplanes(this, "JET042", "25", "10t", "5", "medium", "2012", 20);
+        airplane1 = new Airplanes(this, "KIA728", "50", "30t", "28", "medium", "1998", 20, airplaneImg1);
+        airplane2 = new Airplanes(this, "MIB318", "130", "50t", "61", "low", "1989", 20, airplaneImg2);
+        airplane3 = new Airplanes(this, "BDE178", "250", "70t", "15", "high", "2007", 20, airplaneImg3);
+        airplane4 = new Airplanes(this, "JET042", "25", "10t", "5", "medium", "2012", 20, airplaneImg4);
         airplaneList.add(airplane1);
         airplaneList.add(airplane2);
         airplaneList.add(airplane3);
