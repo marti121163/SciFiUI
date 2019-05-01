@@ -151,4 +151,8 @@ for(int i = 0; i < airportList.size(); i++){
             }
         }
 ```
-This is a [link to my YouTube video](https://youtu.be/XJv3F989_mY)
+
+This is a youtube video:
+
+[![YouTube](https://i.ytimg.com/vi/XJv3F989_mY/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDbPX2LPiL7o6LF3hgeUCRT4RgNag)](https://youtu.be/XJv3F989_mY)
+
