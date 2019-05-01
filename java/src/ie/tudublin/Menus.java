@@ -112,24 +112,30 @@ public class Menus
     // 3 menus linked to the airplane
 
     // menu that will display information about the airplane you generated
-    public void airplaneInfo(Airports airport) {
+    public void airplaneInfo(Airplanes airplane) {
         // headings
         ui.text("AIRPLANE INFO", 280, 705);
+        Airplanes thisAirplane = airplane;
 
-        // ui.text("Name: ", 80, 925);
-        // ui.text("Location: ", 96, 950);
-        // ui.text("CEO: ", 71, 975);
-        // ui.text("Yearly Passengers: ", 154, 1000);
-        // ui.text("Year Built: ", 103, 1025);
-        // ui.text("Features: ", 97, 1050);
 
-        // ui.text(airport.getName(), 400, 925);
-        // ui.text(airport.getLocation(), 400, 950);
-        // ui.text(airport.getCeo(), 400, 975);
-        // ui.text(airport.getYearlyPassengers(), 400, 1000);
-        // ui.text(airport.getYearBuilt(), 400, 1025);
-        // ui.text(airport.getFeatures(), 400, 1050);
-        // ui.image(airport.getAirportIcon(), 40, 745);
+        ui.stroke(0);
+        ui.textSize(25);
+        ui.text("Model: ", 80, 925);
+        ui.text("Capacity: ", 96, 950);
+        ui.text("Weight: ", 71, 975);
+        ui.text("No. of Previous Flights: ", 154, 1000);
+        ui.text("Safety Level: ", 103, 1025);
+        ui.text("Manufacture Year: ", 97, 1050);
+        ui.text("Airplane Speed: ", 100, 1075);
+
+        ui.text(thisAirplane.getModel(), 400, 925);
+        ui.text(airplane.getCapacity(), 400, 950);
+        ui.text(airplane.getWeight(), 400, 975);
+        ui.text(airplane.getNoOfPrvFlights(), 400, 1000);
+        ui.text(airplane.getSafetyLevel(), 400, 1025);
+        ui.text(airplane.getManufactureYear(), 400, 1050);
+        ui.text(airplane.getAirplaneSpeed(), 400, 1075);
+        //ui.image(airplane.getAirplaneIcon(), 1100, 800);
 
     }
 
@@ -139,6 +145,13 @@ public class Menus
 
         ui.text("AIRPLANE SETTINGS", 960, 705);
 
+        ui.fill(255);
+        ui.noStroke();
+        ui.fill(255, 0, 0);
+        ui.text("Please Click on the Destination Airport", 950, 800);
+        ui.fill(255);
+        ui.text("Colour of all airplanes: ", 850, 1000);
+
     }
 
     // menu that displays the information about the previouly chosen pilot
@@ -146,7 +159,7 @@ public class Menus
         Pilots pilot = airplane.getPilot();
         ui.text("PILOT INFO", 1645, 705);
 
-        ui.stroke(0);
+        ui.stroke(255);
         ui.textSize(25);
 
         ui.text("Name : ", 1498, 780);

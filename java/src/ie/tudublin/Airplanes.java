@@ -14,6 +14,7 @@ public class Airplanes
     private String name;
     private Airports startingAirport;
     private Airports destinationAirport;
+    //private Airports airport = 
     private Pilots pilot;
     private float rotation;
     private String airplaneColour;
@@ -360,5 +361,33 @@ public class Airplanes
      */
     public void setPilot(Pilots pilot) {
         this.pilot = pilot;
+    }
+
+    // /**
+    //  * @return the airplane
+    //  */
+    // public Airplanes getAirplane() {
+    //     return airplane;
+    // }
+
+    // /**
+    //  * @param airplane the airplane to set
+    //  */
+    // public void setAirplane(Airplanes airplane) {
+    //     this.airplane = airplane;
+    // }
+
+    /**
+     * @return the airplaneColour
+     */
+    public String getAirplaneColour() {
+        return airplaneColour;
+    }
+
+    /**
+     * @param airplaneColour the airplaneColour to set
+     */
+    public void setAirplaneColour(String airplaneColour) {
+        this.airplaneColour = airplaneColour;
     }
 }    

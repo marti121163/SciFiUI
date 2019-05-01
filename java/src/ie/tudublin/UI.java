@@ -256,15 +256,11 @@ public class UI extends PApplet
             } 
         } else if (clickedAirplane != null){
             menuBox.render();
+            menuBox.airplaneInfo(clickedAirplane);
             menuBox.airplaneSettings();
             menuBox.pilotInfo(clickedAirplane);
-            fill(255);
-            noStroke();
-            fill(200, 0, 0);
-            text("Please Click on the Destination Airport", 950, 800);
-
+        
             //buttons for changing colour of the airplane
-            text("Colour of all airplanes: ", 950, 1000);
             fill(255, 0, 0);
             redAirplane.render();
             fill(0, 0, 255);
