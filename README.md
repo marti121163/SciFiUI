@@ -80,12 +80,6 @@ This is for the radar
 
 ### Main
 
-```Java
-ui.text("Rank: ", 1465, 1000);
-
-ui.text(pilot.getPilotName(), 1640, 800);
-```
-
 # What I am most proud of in the assignment
 
 Previous to doing this assignment I feel like I didn't have enough practise making interactive programms, so by doing this assignment I really got to practise and really improve at logical thinking. I used to have a bad habit of hard coding a lot of things, not I learned how to avoid that by using loops and other useful things. What I'm the most proud of is the fact that I actually managed to make the planes be sent from one location to another, it seemed quite difficult to do at the start but I'm happy I managed to get it done.
